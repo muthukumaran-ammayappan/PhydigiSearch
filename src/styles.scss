@@ -1,0 +1,91 @@
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+$desktop: 960px;
+$tablet: 768px;
+$mobile-large: 640px;
+$mobile: 480px;
+$mobile-small: 300px;
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/*mat-slider*/
+.mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label, .mat-accent .mat-slider-track-fill {
+  background-color:   #53BFB4!important;
+}
+
+.mat-accent .mat-slider-thumb-label-text{
+  color: white;
+}
+
+owl-carousel-o{
+  height: 100px!important;
+}
+
+.owl-carousel {
+  width: 100% !important;
+  //margin: 10% auto;
+}
+
+.owl-carousel .owl-nav {
+  overflow: hidden;
+  height: 0;
+}
+
+.owl-carousel .nav-btn {
+  height: 30px;
+  position: absolute;
+  width: 26px;
+  cursor: pointer;
+  top: 30% !important;
+}
+
+.owl-carousel .owl-prev.disabled,
+.owl-carousel .owl-next.disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.owl-carousel .prev-slide {
+  content: url("src/assets/images/chevron-prev.png");
+  left: 0;
+}
+
+.owl-carousel .next-slide {
+  content: url("src/assets/images/chevron-next.png");
+  right: 0;
+}
+
+.owl-theme .owl-dots{
+  z-index: 11!important;
+  top: 85%!important;
+  position: absolute;
+  left: 47%;
+  @media only screen and (max-width: $mobile){
+    left: 40%;
+  }
+}
+.owl-theme .owl-dots:hover{
+  color: white!important;
+}
+
+.owl-theme .owl-nav{
+  margin-top: 0!important;
+}
+
+
+
+//grid
+.mat-grid-tile .mat-figure{
+  justify-content: normal!important;
+  top: 2%!important;
+  left: 2%!important;
+  font-family: Montserrat;
+}
+.details-container{
+  margin-left: 2%!important;
+  color: #186696;
+  text-align: left  ;
+  }

@@ -1,0 +1,43 @@
+<div class="search-bar" align="center">
+  <div class="card-color flexer mat-card col-sm-12 col-md-12 col-lg-12">
+    <div class="col-sm-12 col-md-4 col-lg-4 right-separator input-font">
+      <label class="input-label" for="search">Search your Local Pharmacy & Order Ahead</label>
+      <div class="search">
+      <input type="text" [(ngModel)]="searchValue" (input)="searchTimer($event.target.value)" id="search" class="input-field"
+             placeholder="Search by Pharmacy,city, PIN code or area">
+        <i class="search-icon fa fa-search"></i>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 right-separator card-button">
+      <button class="mat-flat-button btn-primary button-open">Open</button>
+      <button class="mat-flat-button button-delivery"><i class="fa fa-check"></i> Delivery</button>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 slider-top">
+      <img src="/assets/images/Icon%20feather-home.png">
+      <mat-slider [displayWith]="formatLabel" class="slider" thumbLabel min="0" max="7" step="1" value="3"></mat-slider>
+      <img src="/assets/images/pharmacy.png">
+    </div>
+  </div>
+</div>
+
+<div class="lister">
+  <mat-grid-list [cols]="cols" rowHeight="3:1" gutterSize="40px" class="lister">
+    <mat-grid-tile class="grider" *ngFor="let pharmacy of pharmacies">
+      <div class="pharmacy-image-container">
+        <img class="pharmacy-image" src="">
+      </div>
+      <div class="details-container">
+        <h3 class="pharmacy-name">{{pharmacy.registeredPharmacyName}}</h3>
+        <h5 class="pharmacy-address">{{pharmacy.addressLine1}}</h5><br>
+        <h5 class="pharmacy-address">Closes at 10PM</h5>
+        <h6 class="pharmacy-address"><img src="assets/images/greentick.png" height="10px" width="15px"> Delivery Available</h6>
+        <h5 class="pharmacy-address">{{pharmacy.whatsappNumber}}</h5>
+        <button class="mat-button order-button">Order Ahead</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="footer">
+  <app-footer></app-footer>
+</div>

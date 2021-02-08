@@ -1,0 +1,18 @@
+.card-color{
+  background-color: #f3f3f3;
+  color: black;
+}
+.flexer{
+  display: flex;
+  height: 20px;
+  font-size: 10px;
+}
+.footer-link{
+  margin-left: 5px;
+  color: black;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+.row-flexer{
+  flex-direction: row-reverse;
+}

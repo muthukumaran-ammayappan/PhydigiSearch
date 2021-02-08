@@ -1,0 +1,171 @@
+$desktop: 960px;
+$tablet: 768px;
+$mobile-large: 640px;
+$mobile: 480px;
+$mobile-small: 300px;
+
+//@media only screen and (max-width :  $desktop/$tablet/$mobile-large/$mobile/$mobile-small)
+
+.card-color {
+  background-color: rgb(248, 248, 248);
+  border-radius: 0;
+  color: black;
+  height: 50%;
+  @media only screen and (max-width: $mobile) {
+    height: auto;
+  }
+}
+
+.search-bar {
+  height: 25%;
+}
+
+.flexer {
+  display: flex;
+  @media only screen and (max-width: $mobile) {
+    display: block;
+  }
+
+}
+
+.shadow {
+  box-shadow: 0 0 6px 0 rgb(0, 0, 0) !important;
+}
+
+.right-separator {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  @media only screen and (max-width: $mobile) {
+    border-right: 1px solid rgba(0, 0, 0, 0.0);
+  }
+}
+
+.mat-card {
+  padding: 2px !important;
+}
+
+// input
+
+.input-font {
+  font-family: Montserrat;
+  font-size: 13px;
+}
+.search{
+  border:1px solid rgba(0,0,0,0.2);
+  border-radius: 2px;
+  width: 80%;
+}
+.input-field {
+  width: 70%;
+  height: 35%;
+  vertical-align: middle;
+  //border: 1.5px solid rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 2px;
+  font-size: 10px;
+  background-color: rgb(248, 248, 248);
+}
+.input-label {
+  margin-top: 3%;
+}
+.search-icon{
+  float: right;
+  margin-right: 2%;
+  margin-top: 1%;
+  color: grey;
+  z-index: 999;
+}
+input:focus {
+  outline: none !important;
+}
+
+
+//buttons
+
+.card-button {
+  font-family: Montserrat !important;
+  text-align: center;
+}
+.button-open {
+  font-family: Montserrat !important;
+  border-radius: 20px;
+  border: 1.5px solid #D1D1D1;
+  margin-top: 7%;
+  width: 100px;
+  background-color: white;
+  color: black;
+}
+.button-open:focus, .button-delivery:focus{
+  outline: none;
+}
+.button-open:hover, .button-delivery:hover{
+
+}
+.button-delivery {
+  font-family: Montserrat !important;
+  border-radius: 20px;
+  border: 1.3px solid rgb(193, 193, 193);
+  margin-top: 5%;
+  color: white;
+  background-color: grey;
+  width: 100px;
+  margin-left: 10px;
+}
+
+.tick-image {
+  color: grey;
+  height: 20%;
+  width: 20%;
+}
+
+// Slider
+
+.slider-top {
+  margin-top: 1.3%;
+}
+
+.slider {
+  width: 80%;
+}
+
+//footer
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+//grider
+
+.grider {
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1) !important;
+  height: 50px !important;
+}
+.lister{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.pharmacy-image {
+  height: 120px;
+  width: 120px;
+}
+
+.left-align{
+  text-align: left;
+}
+.pharmacy-name{
+  font-size: 17px;
+}
+.pharmacy-address{
+  font-size: 10px;
+  color: black;
+}
+.order-button{
+  border-radius: 20px;
+  background-color: #53BFB4;
+  color: white;
+  border: #53BFB4;
+  float: right;
+}
+

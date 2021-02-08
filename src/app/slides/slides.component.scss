@@ -1,0 +1,24 @@
+.left{
+  left: 0!important;
+  top: 50%;
+}
+.carousel-content{
+  width: 50%;
+  z-index: 11;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-family: Montserrat;
+}
+.carousel-content h3{
+  font-weight: bold;
+}
+.carousel-content h5{
+  color: white;
+  font-size: 15px;
+}
+.carousel-content h6{
+  color: white;
+  font-size: 13px;
+  text-decoration: underline;
+}
