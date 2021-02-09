@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {MatCardModule, MatGridListModule, MatSliderModule} from '@angular/material';
 import {SearchComponent} from './search.component';
 import {FooterModule} from '../footer/footer.module';
 import {SearchService} from '../services/search.service';
 import {FactoryService} from '../services/factory.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 
@@ -21,12 +22,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FooterModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+
 
   ],
   exports: [
     SearchComponent,
   ],
-  providers: [SearchService, FactoryService],
+  providers: [SearchService, FactoryService, DatePipe],
 })
 export class SearchModule {
 }

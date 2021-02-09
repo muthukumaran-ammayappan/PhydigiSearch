@@ -9,7 +9,6 @@ export class FactoryService {
   getHttpHeaders() {
     let headers = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json')
-      .append('ops_user_id', localStorage.getItem('id'));
     return headers;
   }
 
@@ -37,18 +36,5 @@ export class FactoryService {
       headers: this.getFileHttpHeaders()
     };
     return options;
-  }
-
-  getUserRoles(): string {
-    const roles = localStorage.getItem('roles');
-    return roles;
-  }
-
-  isUserAdmin(): boolean {
-    const roles = this.getUserRoles();
-    if (roles != null && roles.indexOf('ADMIN', 0) > -1) {
-      return true;
-    }
-    return false;
   }
 }

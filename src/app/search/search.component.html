@@ -14,24 +14,27 @@
     </div>
     <div class="col-sm-12 col-md-4 col-lg-4 slider-top">
       <img src="/assets/images/Icon%20feather-home.png">
-      <mat-slider [displayWith]="formatLabel" class="slider" thumbLabel min="0" max="7" step="1" value="3"></mat-slider>
+      <mat-slider [(ngModel)]="km" [displayWith]="formatLabel" class="slider" thumbLabel min="0" max="7" step="1" value="3"></mat-slider>
       <img src="/assets/images/pharmacy.png">
     </div>
   </div>
 </div>
 
 <div class="lister">
-  <mat-grid-list [cols]="cols" rowHeight="3:1" gutterSize="40px" class="lister">
-    <mat-grid-tile class="grider" *ngFor="let pharmacy of pharmacies">
+  <div align="center"><mat-progress-spinner *ngIf="loader"></mat-progress-spinner></div>
+  <p class="result-counter" *ngIf="pharmacies != null">About {{pharmacies.length}} results (Near {{km}}km)</p>
+  <mat-grid-list [cols]="cols" rowHeight="3:1" class="lister">
+    <mat-grid-tile class="grider" *ngFor="let pharmacy of pharmacies; let i = index">
       <div class="pharmacy-image-container">
-        <img class="pharmacy-image" src="">
+        <img class="pharmacy-image" src="/assets/images/vacc.jpg">
       </div>
       <div class="details-container">
         <h3 class="pharmacy-name">{{pharmacy.registeredPharmacyName}}</h3>
         <h5 class="pharmacy-address">{{pharmacy.addressLine1}}</h5><br>
-        <h5 class="pharmacy-address">Closes at 10PM</h5>
-        <h6 class="pharmacy-address"><img src="assets/images/greentick.png" height="10px" width="15px"> Delivery Available</h6>
-        <h5 class="pharmacy-address">{{pharmacy.whatsappNumber}}</h5>
+        <h5 class="pharmacy-address"  >Opens at {{pharmacy.monStartHour}}</h5>
+        <h6 class="delivery-available"><img src="assets/images/greentick.png" height="10px" width="15px"> {{deliveryStatus}}
+          &nbsp;&nbsp;|&nbsp;&nbsp;<img src="{{openStatus.url}}" height="10px" width="15px"> {{openStatus.status}}</h6>
+        <h5 class="pharmacy-address"></h5>
         <button class="mat-button order-button">Order Ahead</button>
       </div>
     </mat-grid-tile>

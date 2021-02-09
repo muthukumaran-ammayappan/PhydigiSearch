@@ -17,7 +17,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-accent .mat-slider-thumb-label-text{
-  color: white;
+  color: #333333;
+  font-family: Montserrat;
+}
+
+.mat-accent .mat-slider-thumb:hover, .mat-slider-thumb:focus{
+  visibility: visible;
+}
+
+.mat-accent .mat-slider-thumb-label{
+  background-color: rgba(0,0,0,0)!important;
+}
+
+.mat-slider:not(.mat-slider-diabled).cdk-focused.mat-slider-thumb-label-showing .mat-slider-thumb{
+  transform: scale(0.5)!important;
 }
 
 owl-carousel-o{
@@ -87,5 +100,6 @@ owl-carousel-o{
 .details-container{
   margin-left: 2%!important;
   color: #186696;
-  text-align: left  ;
+  text-align: left ;
+  width: 60%;
   }

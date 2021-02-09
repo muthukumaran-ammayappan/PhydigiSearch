@@ -5,6 +5,7 @@ import {environment} from '../../environments/environment';
 import {FactoryService} from './factory.service';
 import {Search} from '../model/search.model';
 
+
 @Injectable()
 export class SearchService {
 
@@ -12,7 +13,8 @@ export class SearchService {
   }
 
   fetchAllCustomer(postData: string) {
-    return this.httpClient.get<any>(`${this.getAccesspoint()}ops/store/pharmacySearch?pharmacy=` + postData, this.fs.getHttpOptions());
+    console.log (postData);
+    return this.httpClient.get<any>(`${this.getAccesspoint()}ops/store/pharmacySearch?pharmacy=` + postData);
   }
 
   getAccesspoint() {

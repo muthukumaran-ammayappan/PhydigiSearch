@@ -39,6 +39,7 @@ export class SlidesComponent implements OnInit {
     },
     nav: true,
     autoHeight: true,
+    autoplay: true,
   };
 
   ngOnInit() {

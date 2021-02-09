@@ -52,20 +52,23 @@ $mobile-small: 300px;
 .search{
   border:1px solid rgba(0,0,0,0.2);
   border-radius: 2px;
-  width: 80%;
+  width: 70%;
+  height: 40%;
 }
 .input-field {
   width: 70%;
-  height: 35%;
+  margin-left: 2%;
+  height: 100%;
   vertical-align: middle;
   //border: 1.5px solid rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 2px;
   font-size: 10px;
-  background-color: rgb(248, 248, 248);
+  background-color: rgba(0,0,0,0);
 }
 .input-label {
   margin-top: 3%;
+  font-size: 10px;
 }
 .search-icon{
   float: right;
@@ -73,6 +76,7 @@ $mobile-small: 300px;
   margin-top: 1%;
   color: grey;
   z-index: 999;
+  height: 80%;
 }
 input:focus {
   outline: none !important;
@@ -129,7 +133,7 @@ input:focus {
 
 //footer
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
@@ -139,7 +143,10 @@ input:focus {
 
 .grider {
   border-bottom: 3px solid rgba(0, 0, 0, 0.1) !important;
-  height: 50px !important;
+  height: 55px !important;
+  @media only screen and (max-width : $mobile-large){
+    margin-bottom: 5%;
+  }
 }
 .lister{
   padding-left: 50px;
@@ -149,6 +156,10 @@ input:focus {
 .pharmacy-image {
   height: 120px;
   width: 120px;
+  @media only screen and (max-width : $mobile-large){
+    height: 60px;
+    width: 60px;
+  }
 }
 
 .left-align{
@@ -162,10 +173,28 @@ input:focus {
   color: black;
 }
 .order-button{
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: #53BFB4;
   color: white;
   border: #53BFB4;
   float: right;
+  font-family: Montserrat;
+  font-size: 12px!important;
+  height: 35px;
+  width: 35%;
+}
+.open-now{
+  font-size: 10px;
+  color: black;
+  position: relative;
+}
+.delivery-available{
+  font-size: 10px;
+  color: black;
+}
+.result-counter{
+  font-family: Montserrat;
+  font-size: 10px;
+  color:#777777;
 }
 
