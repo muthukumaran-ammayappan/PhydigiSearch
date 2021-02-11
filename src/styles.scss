@@ -39,6 +39,7 @@ owl-carousel-o{
 
 .owl-carousel {
   width: 100% !important;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
   //margin: 10% auto;
 }
 
@@ -101,5 +102,52 @@ owl-carousel-o{
   margin-left: 2%!important;
   color: #186696;
   text-align: left ;
-  width: 60%;
+  width: 50%;
+  @media only screen and (max-width: $mobile){
+    margin-top: 15%;
+    width: 70%;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
+}
+
+.pharmacy-mobile-call {
+  font-size: 12px;
+}
+.pharmacy-mobile{
+  font-size: 10px;
+}
+.pharmacy-image-container{
+  top: 0;
+  @media only screen and (max-width: $mobile) {
+    height: 30px;
+    top: 0;
+    margin-top: 15%;
+    position: absolute;
+  }
+}
+.order-button-container{
+  position: absolute;
+  width: 80%;
+  bottom: 0;
+  margin-bottom: 3%;
+  right: 0;
+  margin-right: 3%;
+  @media only screen and (max-width: $mobile) {
+    width: 100%;
+    position: relative;
+    margin-top: 55%;
+  }
+}
+.slide-mobile{
+  @media only screen and (max-width: $mobile) {
+    height: 120px;
+    width: 150%;
+  }
+}
+.display-txt{
+  @media only screen and (max-width: $mobile) {
+    display: none;
+  }
+}

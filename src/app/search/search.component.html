@@ -19,28 +19,32 @@
     </div>
   </div>
 </div>
-
+<mat-progress-spinner></mat-progress-spinner>
 <div class="lister">
-  <div align="center"><mat-progress-spinner *ngIf="loader"></mat-progress-spinner></div>
+<!--  <div align="center"><mat-progress-spinner *ngIf="loader"></mat-progress-spinner></div>-->
   <p class="result-counter" *ngIf="pharmacies != null">About {{pharmacies.length}} results (Near {{km}}km)</p>
-  <mat-grid-list [cols]="cols" rowHeight="3:1" class="lister">
-    <mat-grid-tile class="grider" *ngFor="let pharmacy of pharmacies; let i = index">
-      <div class="pharmacy-image-container">
-        <img class="pharmacy-image" src="/assets/images/vacc.jpg">
+  <mat-grid-list [cols]="cols" [rowHeight]="rows" class="lister">
+    <mat-grid-tile class="grider" *ngFor="let pharmacy of pharmacies;let i = index">
+      <div class="pharmacy-image-container" *ngFor="let pharmacyLogo of pharmacy.slice(2)">
+        {{getImageFromService(pharmacyLogo)}}
+        <img class="pharmacy-image" [src]="img">
       </div>
-      <div class="details-container">
-        <h3 class="pharmacy-name">{{pharmacy.registeredPharmacyName}}</h3>
-        <h5 class="pharmacy-address">{{pharmacy.addressLine1}}</h5><br>
-        <h5 class="pharmacy-address"  >Opens at {{pharmacy.monStartHour}}</h5>
-        <h6 class="delivery-available"><img src="assets/images/greentick.png" height="10px" width="15px"> {{deliveryStatus}}
-          &nbsp;&nbsp;|&nbsp;&nbsp;<img src="{{openStatus.url}}" height="10px" width="15px"> {{openStatus.status}}</h6>
-        <h5 class="pharmacy-address"></h5>
+      <div class="pharmacy-mobile" *ngFor="let pharmacyMobile of pharmacy.slice(1,2)">{{mob(pharmacyMobile)}}</div>
+      <div class="details-container" *ngFor="let pharmacyDetails of pharmacy.slice(0,1)">
+        <div>{{dayStatus(pharmacyDetails)}} {{delivery(pharmacyDetails)}}</div>
+        <h3 class="pharmacy-name">{{pharmacyDetails.registeredPharmacyName}}</h3>
+        <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5><br>
+        <h5 class="pharmacy-address">{{at}}{{latestTime12}}</h5>
+        <h6 class="delivery-available"><img src="{{deliveryStatusImg}}" height="10px" width="13px">{{deliveryStatus}}
+          &nbsp;&nbsp;|&nbsp;&nbsp;<img src={{openStatusImg}} height="10px" width="13px"> {{openStatus}}</h6>
+        <h5 class="pharmacy-mobile-call"><b>Call: </b>{{mobile}}</h5>
+      </div>
+      <div class="order-button-container">
         <button class="mat-button order-button">Order Ahead</button>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-
 <div class="footer">
   <app-footer></app-footer>
 </div>
