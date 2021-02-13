@@ -2,8 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {SearchService} from '../services/search.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {DatePipe} from "@angular/common";
+import {DatePipe} from '@angular/common';
 import {DomSanitizer} from '@angular/platform-browser';
+import {environment} from '../../environments/environment';
+import {StoreTiming} from '../model/search.model';
 
 @Component({
   selector: 'app-search',
@@ -11,40 +13,6 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  constructor(private sanitizer: DomSanitizer,
-              public datepipe: DatePipe,
-              private fb: FormBuilder,
-              private searchService: SearchService,
-              private breakpointObserver: BreakpointObserver,
-  ) {
-    this.breakpointObserver.observe([
-      Breakpoints.XSmall,
-      Breakpoints.Small,
-      Breakpoints.Medium,
-      Breakpoints.Large,
-      Breakpoints.XLarge,
-    ]).subscribe(result => {
-      if (result.matches) {
-        if (result.breakpoints[Breakpoints.XSmall]) {
-          this.cols = this.gridByBreakpoint.xs;
-        }
-        if (result.breakpoints[Breakpoints.Small]) {
-          this.cols = this.gridByBreakpoint.sm;
-          this.rows = '2:1';
-        }
-        if (result.breakpoints[Breakpoints.Medium]) {
-          this.cols = this.gridByBreakpoint.md;
-          this.rows = '3:1';
-        }
-        if (result.breakpoints[Breakpoints.Large]) {
-          this.cols = this.gridByBreakpoint.lg;
-        }
-        if (result.breakpoints[Breakpoints.XLarge]) {
-          this.cols = this.gridByBreakpoint.xl;
-        }
-      }
-    });
-  }
 
   gridByBreakpoint = {
     xl: 2,
@@ -53,6 +21,7 @@ export class SearchComponent implements OnInit {
     sm: 1,
     xs: 1,
   };
+
   rows: any;
   timer: any;
   cols: number;
@@ -84,27 +53,65 @@ export class SearchComponent implements OnInit {
   at: string;
   latestTime12: string;
   hour: string;
-  public bengalurlat = '13.066412600498435';
-  public bengalurlng = '77.60393005906081';
+  public bengalurLat = '13.066412600498435';
+  public bengalurLng = '77.60393005906081';
   public lat = null;
   public lng = null;
 
-  //image converter
+  constructor(private sanitizer: DomSanitizer,
+              public datepipe: DatePipe,
+              private fb: FormBuilder,
+              private searchService: SearchService,
+              private breakpointObserver: BreakpointObserver) {
+    this.breakPointObserver();
+  }
 
+  ngOnInit() {
+    this.getLocation();
+  }
+
+  breakPointObserver() {
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large,
+      Breakpoints.XLarge,
+    ]).subscribe(result => {
+      if (result.matches) {
+        if (result.breakpoints[Breakpoints.XSmall]) {
+          this.cols = this.gridByBreakpoint.xs;
+        }
+        if (result.breakpoints[Breakpoints.Small]) {
+          this.cols = this.gridByBreakpoint.sm;
+          this.rows = '2:1';
+        }
+        if (result.breakpoints[Breakpoints.Medium]) {
+          this.cols = this.gridByBreakpoint.md;
+          this.rows = '3:1';
+        }
+        if (result.breakpoints[Breakpoints.Large]) {
+          this.cols = this.gridByBreakpoint.lg;
+        }
+        if (result.breakpoints[Breakpoints.XLarge]) {
+          this.cols = this.gridByBreakpoint.xl;
+        }
+      }
+    });
+  }
+
+  // image converter
   getImageFromService(data) {
-    // const API_HOST = 'https://dev.phydigi.com:9002';
-    const API_HOST = 'http://localhost:9002/api/image?id=';
-    console.log(API_HOST + data)
+    const API_HOST = environment.serviceURL + 'image?id=';
     this.img = API_HOST + data;
   }
 
   // delivery status
-
   delivery(data) {
     if (data.deliveryAvailable == 'Y') {
       this.deliveryStatusImg = '/assets/images/greentick.png';
       this.deliveryStatus = 'Delivery Available';
-    } else if (data.deliveryAvailable == 'N' && data.pickupAvialable == "Y") {
+    } else if (data.deliveryAvailable == 'N' && data.pickupAvialable == 'Y') {
       this.deliveryStatusImg = '/assets/images/greentick.png';
       this.deliveryStatus = 'Pick-up Only';
     } else {
@@ -113,156 +120,60 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  //day selecter
-
-  dayFunctuin() {
-    let date = new Date();
-    this.latestTime = this.datepipe.transform(date, 'hh:mm');
-    switch (new Date().getDay()) {
-      case 0:
-        this.day = "Sunday";
-        break;
-      case 1:
-        this.day = "Monday";
-        break;
-      case 2:
-        this.day = "Tuesday";
-        break;
-      case 3:
-        this.day = "Wednesday";
-        break;
-      case 4:
-        this.day = "Thursday";
-        break;
-      case 5:
-        this.day = "Friday";
-        break;
-      case 6:
-        this.day = "Saturday";
-    }
-  }
-
   dayStatus(data) {
-    if (this.day == "Sunday") {
-      this.sunStartHour = data.sunStartHour;
-      this.sunEndHour = data.sunEndHour;
-      if (this.sunStartHour >= this.latestTime) {
-        this.at = "Opens At ";
-        this.hour = data.sunStartHour;
-        this.timeConvert(this.hour);
-      } else if (this.sunStartHour <= this.latestTime) {
-        this.at = "Closes At ";
-        this.hour = data.sunEndHour;
-        this.timeConvert(this.hour);
-      }
-      if (this.sunStartHour > this.latestTime || this.sunEndHour < this.latestTime) {
-        return false;
-      } else {
-        return true;
-      }
-    } else if (this.day == "Monday") {
-      this.monStartHour = data.monStartHour;
-      this.monEndHour = data.monEndHour;
-      if (this.monStartHour >= this.latestTime) {
-        this.at = "Opens At ";
-        this.hour = data.monStartHour;
-        this.timeConvert(this.hour);
-      } else if (this.monStartHour <= this.latestTime) {
-        this.at = "Closes At ";
-        this.hour = data.monEndHour;
-        this.timeConvert(this.hour);
-      }
-      if (this.monStartHour > this.latestTime || this.monEndHour < this.latestTime) {
-        return false;
-      } else {
-        return true;
-      }
-    } else if (this.day == "Tuesday") {
-      this.tueStartHour = data.tueStartHour;
-      this.tueEndHour = data.tueEndHour;
-      if (this.tueStartHour >= this.latestTime) {
-        this.at = "Opens At ";
-        this.hour = data.tueStartHour;
-        this.timeConvert(this.hour);
+    const currentTime = this.datepipe.transform(new Date(), 'hh:mm');
+    const currentDay = new Date().getDay();
 
-      } else if (this.tueStartHour <= this.latestTime) {
-        this.at = "Closes At ";
-        this.hour = data.tueEndHour;
-        this.timeConvert(this.hour);
-      }
-      if (this.tueStartHour > this.latestTime || this.tueEndHour < this.latestTime) {
-        return false;
-      } else {
-        return true;
-      }
-    } else if (this.day == "Wednesday") {
-      this.wedStartHour = data.wedStartHour;
-      this.wedEndHour = data.wedEndHour;
-      if (this.wedStartHour >= this.latestTime) {
-        this.at = "Opens At ";
-        this.hour = data.wedStartHour;
-        this.timeConvert(this.hour);
-      } else if (this.wedStartHour <= this.latestTime) {
-        this.at = "Closes At ";
-        this.hour = data.wedEndHour;
-        this.timeConvert(this.hour);
-      }
-      if (this.wedStartHour > this.latestTime || this.wedEndHour < this.latestTime) {
-        return false;
-      } else {
-        return true;
-      }
-    } else if (this.day == "Thursday") {
-      this.thuStartHour = data.thuStartHour;
-      this.thuEndHour = data.thuEndHour;
-      if (this.thuStartHour >= this.latestTime) {
-        this.at = "Opens At ";
-        this.hour = data.thuStartHour;
-        this.timeConvert(this.hour);
-      } else if (this.thuStartHour <= this.latestTime) {
-        this.at = "Closes At ";
-        this.hour = data.thuEndHour;
-        this.timeConvert(this.hour);
-      }
-      if (this.thuStartHour > this.latestTime || this.thuEndHour < this.latestTime) {
-        return false;
-      } else {
-        return true;
-      }
-    } else if (this.day == "Friday") {
-      this.friStartHour = data.friStartHour;
-      this.friEndHour = data.friEndHour;
-      if (this.friStartHour >= this.latestTime) {
-        this.at = "Opens At ";
-        this.hour = data.friStartHour;
-        this.timeConvert(this.hour);
-      } else if (this.friStartHour <= this.latestTime) {
-        this.at = "Closes At ";
-        this.hour = data.friEndHour;
-        this.timeConvert(this.hour);
-      }
-      if (this.friStartHour > this.latestTime || this.friEndHour < this.latestTime) {
-        return false;
-      } else {
-        return true;
-      }
-    } else if (this.day == "Saturday") {
-      this.satStartHour = data.satStartHour;
-      this.satEndHour = data.satEndHour;
-      if (this.satStartHour >= this.latestTime) {
-        this.at = "Opens At ";
-        this.hour = data.satStartHour;
-        this.timeConvert(this.hour);
-      } else if (this.satStartHour <= this.latestTime) {
-        this.at = "Closes At ";
-        this.hour = data.satEndHour;
-        this.timeConvert(this.hour);
-      }
-      if (this.satStartHour > this.latestTime || this.satEndHour < this.latestTime) {
-        return false;
-      } else {
-        return true;
-      }
+    const returnData = new StoreTiming();
+
+    if (currentDay === 0) {
+      returnData.isOpen = !(data.sunStartHour > currentTime || data.sunEndHour < currentTime);
+      returnData.startHour = data.sunStartHour;
+      returnData.closeHour = data.sunEndHour;
+
+      return returnData;
+    } else if (currentDay === 1) {
+
+      returnData.isOpen = !(data.monStartHour > currentTime || data.monEndHour < currentTime);
+      returnData.startHour = data.monStartHour;
+      returnData.closeHour = data.monEndHour;
+
+      return returnData;
+    } else if (currentDay === 2) {
+
+      returnData.isOpen = !(data.tueStartHour > currentTime || data.tueEndHour < currentTime);
+      returnData.startHour = data.tueStartHour;
+      returnData.closeHour = data.tueEndHour;
+
+      return returnData;
+    } else if (currentDay === 3) {
+
+      returnData.isOpen = !(data.wedStartHour > currentTime || data.wedEndHour < currentTime);
+      returnData.startHour = data.wedStartHour;
+      returnData.closeHour = data.wedEndHour;
+
+      return returnData;
+    } else if (currentDay === 4) {
+
+      returnData.isOpen = !(data.thuStartHour > currentTime || data.thuEndHour < currentTime);
+      returnData.startHour = data.thuStartHour;
+      returnData.closeHour = data.thuEndHour;
+
+      return returnData;
+    } else if (currentDay === 5) {
+
+      returnData.isOpen = !(data.friStartHour > currentTime || data.friEndHour < currentTime);
+      returnData.startHour = data.friStartHour;
+      returnData.closeHour = data.friEndHour;
+
+      return returnData;
+    } else if (currentDay === 6) {
+
+      returnData.isOpen = !(data.satStartHour > currentTime || data.satEndHour < currentTime);
+      returnData.startHour = data.satStartHour;
+      returnData.closeHour = data.satEndHour;
+
+      return returnData;
     }
   }
 
@@ -271,14 +182,11 @@ export class SearchComponent implements OnInit {
   }
 
   timeConvert(data) {
-    let time = parseFloat(data);
+    const time = parseFloat(data);
     this.latestTime12 = this.datepipe.transform(time, 'hh:mm a');
   }
 
-  ngOnInit() {
-    this.dayFunctuin();
-    this.getLocation();
-  }
+
 
   getLocation() {
     if (navigator.geolocation) {
@@ -292,7 +200,7 @@ export class SearchComponent implements OnInit {
         },
         (error: PositionError) => console.log(error));
     } else {
-      alert("Geolocation is not supported by this browser.");
+      alert('Geolocation is not supported by this browser.');
     }
   }
 
@@ -319,12 +227,12 @@ export class SearchComponent implements OnInit {
     if (this.lat !== null && this.lat !== '') {
       param += 'lat=' + this.lat + '&';
     } else {
-      param += 'lat=' + this.bengalurlat + '&';
+      param += 'lat=' + this.bengalurLat + '&';
     }
     if (this.lng !== null && this.lng !== '') {
       param += 'lng=' + this.lng + '&';
     } else {
-      param += 'lng=' + this.bengalurlng + '&';
+      param += 'lng=' + this.bengalurLng + '&';
     }
     if (this.km) {
       param += 'km=' + this.km;
@@ -333,14 +241,19 @@ export class SearchComponent implements OnInit {
       .subscribe(res => {
         console.log('result', res.data);
         res.data.forEach(resp => {
-          resp[0]["isOpen"] = this.dayStatus(resp[0]);
+
+          const returnData = this.dayStatus(resp[0]);
+
+          resp[0].isOpen = returnData.isOpen;
+          resp[0].startHour = returnData.startHour ? returnData.startHour : '10:00';
+          resp[0].closeHour = returnData.closeHour ? returnData.closeHour : '20:00';
         });
         this.pharmacies = res.data;
       });
     this.loader = false;
   }
 
-  //slider label
+  // slider label
 
   formatLabel(value: number) {
     if (value >= 1) {
@@ -350,7 +263,7 @@ export class SearchComponent implements OnInit {
   }
 
   isOpened() {
-    this.isOpen != this.isOpen;
+    this.isOpen !== this.isOpen;
 
     // this.pharmacies =  this.pharmacies.filter(pharmacy => pharmacy.isOpen === true)
   }

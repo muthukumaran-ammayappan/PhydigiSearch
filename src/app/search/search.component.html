@@ -33,7 +33,7 @@
         <div>{{delivery(pharmacyDetails)}}{{getImageFromService(pharmacyDetails.imageLogoId)}}</div>
         <h3 class="pharmacy-name">{{pharmacyDetails.registeredPharmacyName}}</h3>
         <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5><br>
-        <h5 class="pharmacy-address">{{at}}{{latestTime12}}</h5>
+        <h5 class="pharmacy-address">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? pharmacyDetails.closeHour : pharmacyDetails.startHour}}</h5>
         <h6 class="delivery-available"><img src="{{deliveryStatusImg}}" height="10px" width="13px">{{deliveryStatus}}
          &nbsp;&nbsp;|&nbsp;&nbsp;
           <img src="{{pharmacyDetails.isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}" height="10px" width="13px">

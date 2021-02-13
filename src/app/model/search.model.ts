@@ -35,3 +35,10 @@ export class Search {
     ) {
     }
 }
+
+export class StoreTiming {
+  isOpen: boolean;
+  startHour: string;
+  closeHour: string;
+
+}
