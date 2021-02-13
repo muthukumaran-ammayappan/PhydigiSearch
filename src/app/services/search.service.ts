@@ -13,7 +13,6 @@ export class SearchService {
   }
 
   fetchAllCustomer(postData) {
-    console.log (postData);
     return this.httpClient.get<any>(`${this.getAccesspoint()}ops/store/pharmacySearch?` + postData);
   }
 

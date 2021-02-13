@@ -1,12 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-// import {MatCarousel, MatCarouselComponent} from '@ngmodule/material-carousel';
 import {FormBuilder} from '@angular/forms';
 import {SearchService} from '../services/search.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {DatePipe} from "@angular/common";
-import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search',
@@ -14,9 +11,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  private imageToShow: any;
-
-  constructor(private sanitizer: DomSanitizer, public datepipe: DatePipe, private fb: FormBuilder, private sService: SearchService, private breakpointObserver: BreakpointObserver,
+  constructor(private sanitizer: DomSanitizer,
+              public datepipe: DatePipe,
+              private fb: FormBuilder,
+              private searchService: SearchService,
+              private breakpointObserver: BreakpointObserver,
   ) {
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -54,17 +53,14 @@ export class SearchComponent implements OnInit {
     sm: 1,
     xs: 1,
   };
-
-  colRow: boolean;
   rows: any;
   timer: any;
   cols: number;
   pharmacies: [null];
   searchValue: string;
   loader: boolean;
-  km = 3;
+  km = 7;
   deliveryStatus: any;
-  openStatus: any;
   monStartHour: '';
   tueStartHour: '';
   wedStartHour: '';
@@ -81,40 +77,25 @@ export class SearchComponent implements OnInit {
   sunEndHour: '';
   day: any;
   latestTime: string;
-  openStatusImg: any;
   deliveryStatusImg: any;
-  unsafeImageUrl: any;
   mobile: string;
-  base64Data;
-  public img;
+  isOpen = false;
+  img;
   at: string;
   latestTime12: string;
   hour: string;
-  public lat;
-  public lng;
+  public bengalurlat = '13.066412600498435';
+  public bengalurlng = '77.60393005906081';
+  public lat = null;
+  public lng = null;
 
   //image converter
 
   getImageFromService(data) {
-    // this.base64Data = 'data:image/png;base64,' + data;
-    // this.img = this.sanitizer.bypassSecurityTrustResourceUrl(this.base64Data);
-
-
-    // var binaryData = [];
-    // binaryData.push(data);
-    // this.img = window.URL.createObjectURL(new Blob(binaryData))
-    // this.unsafeImageUrl = URL.createObjectURL(new Blob(binaryData));
-    // this.img = this.sanitizer.bypassSecurityTrustUrl(this.unsafeImageUrl);
-
-    // let imageBase64String= btoa(data);
-    // this.img = 'data:image/jpeg;base64,' + imageBase64String;
-    console.log('img',this.img);
-  }
-
-  //avoid double loop
-
-  mob(data) {
-    this.mobile = data;
+    // const API_HOST = 'https://dev.phydigi.com:9002';
+    const API_HOST = 'http://localhost:9002/api/image?id=';
+    console.log(API_HOST + data)
+    this.img = API_HOST + data;
   }
 
   // delivery status
@@ -127,8 +108,8 @@ export class SearchComponent implements OnInit {
       this.deliveryStatusImg = '/assets/images/greentick.png';
       this.deliveryStatus = 'Pick-up Only';
     } else {
-      this.deliveryStatusImg = '/assets/images/wrong.png';
-      this.deliveryStatus = 'Unavilable';
+      this.deliveryStatusImg = '/assets/images/greentick.png';
+      this.deliveryStatus = 'Pick-up Only';
     }
   }
 
@@ -169,19 +150,15 @@ export class SearchComponent implements OnInit {
         this.at = "Opens At ";
         this.hour = data.sunStartHour;
         this.timeConvert(this.hour);
-
       } else if (this.sunStartHour <= this.latestTime) {
         this.at = "Closes At ";
         this.hour = data.sunEndHour;
         this.timeConvert(this.hour);
-
       }
       if (this.sunStartHour > this.latestTime || this.sunEndHour < this.latestTime) {
-        this.openStatusImg = '/assets/images/wrong.png';
-        this.openStatus = 'Closed';
+        return false;
       } else {
-        this.openStatusImg = '/assets/images/greentick.png';
-        this.openStatus = 'Opened';
+        return true;
       }
     } else if (this.day == "Monday") {
       this.monStartHour = data.monStartHour;
@@ -190,19 +167,15 @@ export class SearchComponent implements OnInit {
         this.at = "Opens At ";
         this.hour = data.monStartHour;
         this.timeConvert(this.hour);
-
       } else if (this.monStartHour <= this.latestTime) {
         this.at = "Closes At ";
         this.hour = data.monEndHour;
         this.timeConvert(this.hour);
-
       }
       if (this.monStartHour > this.latestTime || this.monEndHour < this.latestTime) {
-        this.openStatusImg = '/assets/images/wrong.png';
-        this.openStatus = 'Closed';
+        return false;
       } else {
-        this.openStatusImg = '/assets/images/greentick.png';
-        this.openStatus = 'Opened';
+        return true;
       }
     } else if (this.day == "Tuesday") {
       this.tueStartHour = data.tueStartHour;
@@ -216,14 +189,11 @@ export class SearchComponent implements OnInit {
         this.at = "Closes At ";
         this.hour = data.tueEndHour;
         this.timeConvert(this.hour);
-
       }
       if (this.tueStartHour > this.latestTime || this.tueEndHour < this.latestTime) {
-        this.openStatusImg = '/assets/images/wrong.png';
-        this.openStatus = 'Closed';
+        return false;
       } else {
-        this.openStatusImg = '/assets/images/greentick.png';
-        this.openStatus = 'Opened';
+        return true;
       }
     } else if (this.day == "Wednesday") {
       this.wedStartHour = data.wedStartHour;
@@ -232,22 +202,15 @@ export class SearchComponent implements OnInit {
         this.at = "Opens At ";
         this.hour = data.wedStartHour;
         this.timeConvert(this.hour);
-
-
-
       } else if (this.wedStartHour <= this.latestTime) {
         this.at = "Closes At ";
         this.hour = data.wedEndHour;
         this.timeConvert(this.hour);
-
-
       }
       if (this.wedStartHour > this.latestTime || this.wedEndHour < this.latestTime) {
-        this.openStatusImg = '/assets/images/wrong.png';
-        this.openStatus = 'Closed';
+        return false;
       } else {
-        this.openStatusImg = '/assets/images/greentick.png';
-        this.openStatus = 'Opened';
+        return true;
       }
     } else if (this.day == "Thursday") {
       this.thuStartHour = data.thuStartHour;
@@ -256,21 +219,15 @@ export class SearchComponent implements OnInit {
         this.at = "Opens At ";
         this.hour = data.thuStartHour;
         this.timeConvert(this.hour);
-
-
       } else if (this.thuStartHour <= this.latestTime) {
         this.at = "Closes At ";
         this.hour = data.thuEndHour;
         this.timeConvert(this.hour);
-
-
       }
       if (this.thuStartHour > this.latestTime || this.thuEndHour < this.latestTime) {
-        this.openStatusImg = '/assets/images/wrong.png';
-        this.openStatus = 'Closed';
+        return false;
       } else {
-        this.openStatusImg = '/assets/images/greentick.png';
-        this.openStatus = 'Opened';
+        return true;
       }
     } else if (this.day == "Friday") {
       this.friStartHour = data.friStartHour;
@@ -279,21 +236,15 @@ export class SearchComponent implements OnInit {
         this.at = "Opens At ";
         this.hour = data.friStartHour;
         this.timeConvert(this.hour);
-
-
       } else if (this.friStartHour <= this.latestTime) {
         this.at = "Closes At ";
         this.hour = data.friEndHour;
         this.timeConvert(this.hour);
-
-
       }
       if (this.friStartHour > this.latestTime || this.friEndHour < this.latestTime) {
-        this.openStatusImg = '/assets/images/wrong.png';
-        this.openStatus = 'Closed';
+        return false;
       } else {
-        this.openStatusImg = '/assets/images/greentick.png';
-        this.openStatus = 'Opened';
+        return true;
       }
     } else if (this.day == "Saturday") {
       this.satStartHour = data.satStartHour;
@@ -302,26 +253,26 @@ export class SearchComponent implements OnInit {
         this.at = "Opens At ";
         this.hour = data.satStartHour;
         this.timeConvert(this.hour);
-
       } else if (this.satStartHour <= this.latestTime) {
         this.at = "Closes At ";
         this.hour = data.satEndHour;
         this.timeConvert(this.hour);
-
       }
       if (this.satStartHour > this.latestTime || this.satEndHour < this.latestTime) {
-        this.openStatusImg = '/assets/images/wrong.png';
-        this.openStatus = 'Closed';
+        return false;
       } else {
-        this.openStatusImg = '/assets/images/greentick.png';
-        this.openStatus = 'Opened';
+        return true;
       }
     }
   }
 
+  imgLogoId(img) {
+    this.img = img;
+  }
+
   timeConvert(data) {
     let time = parseFloat(data);
-      this.latestTime12 = this.datepipe.transform(time, 'hh:mm a');
+    this.latestTime12 = this.datepipe.transform(time, 'hh:mm a');
   }
 
   ngOnInit() {
@@ -333,54 +284,57 @@ export class SearchComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
           if (position) {
-            console.log("Latitude: " + position.coords.latitude +
-              "Longitude: " + position.coords.longitude);
+
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
-            console.log(this.lat);
-            console.log(this.lat);
+
           }
         },
         (error: PositionError) => console.log(error));
     } else {
       alert("Geolocation is not supported by this browser.");
-      this.lat = 12.969825234472314;
-      this.lng  = 77.57694045851389;
     }
   }
 
-  searchTimer(searchStr: string): void {
-    clearTimeout(this.timer);
+  searchTimer(searchStr
+                :
+                string
+  ):
+    void {
+    clearTimeout(this.timer
+    )
+    ;
     const time = 1000;
     this.timer = setTimeout(() => {
-      console.log(searchStr);
       this.searchPharmacy(searchStr);
     }, time);
   }
 
   searchPharmacy(search) {
     this.loader = true;
-    // let postData = [{search: search},{lat: this.lat},{lng: this.lng}];
-
     let param = '';
     if (search) {
       param = 'search=' + search + '&';
     }
-    if (this.lat) {
+    if (this.lat !== null && this.lat !== '') {
       param += 'lat=' + this.lat + '&';
+    } else {
+      param += 'lat=' + this.bengalurlat + '&';
     }
-    if (this.lng) {
-      param += 'lng=' + this.lng;
+    if (this.lng !== null && this.lng !== '') {
+      param += 'lng=' + this.lng + '&';
+    } else {
+      param += 'lng=' + this.bengalurlng + '&';
     }
     if (this.km) {
       param += 'km=' + this.km;
     }
-
-    console.log(param);
-    this.sService.fetchAllCustomer(param)
+    this.searchService.fetchAllCustomer(param)
       .subscribe(res => {
-        console.log('result', res);
-        // this.search = res.data;
+        console.log('result', res.data);
+        res.data.forEach(resp => {
+          resp[0]["isOpen"] = this.dayStatus(resp[0]);
+        });
         this.pharmacies = res.data;
       });
     this.loader = false;
@@ -392,7 +346,17 @@ export class SearchComponent implements OnInit {
     if (value >= 1) {
       return Math.round(value / 1) + 'km';
     }
-
     return value;
   }
+
+  isOpened() {
+    this.isOpen != this.isOpen;
+
+    // this.pharmacies =  this.pharmacies.filter(pharmacy => pharmacy.isOpen === true)
+  }
+
+  isDelivery() {
+
+  }
+
 }

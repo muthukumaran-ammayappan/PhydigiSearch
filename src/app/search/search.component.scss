@@ -179,7 +179,7 @@ input:focus {
 }
 
 .pharmacy-image {
-  height: 120px;
+  height: 110px;
   width: 120px;
   @media only screen and (max-width : $mobile-large){
     height: 60px;
@@ -227,3 +227,10 @@ input:focus {
   color:#777777;
 }
 
+.no-results{
+  text-align: center;
+  color: #777777;
+  font-size: 20px;
+  font-weight: lighter;
+  font-family: Montserrat;
+}

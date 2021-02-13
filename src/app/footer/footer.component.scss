@@ -4,15 +4,15 @@
 }
 .flexer{
   display: flex;
-  height: 20px;
-  font-size: 10px;
+  flex-direction: row-reverse;
+  height: 30px;
+  font-size: 12px;
+  width: 100%;
 }
 .footer-link{
-  margin-left: 5px;
   color: black;
   text-decoration: underline;
-  margin-bottom: 20px;
 }
-.row-flexer{
-  flex-direction: row-reverse;
+.policy-text{
+  float: right!important;
 }
