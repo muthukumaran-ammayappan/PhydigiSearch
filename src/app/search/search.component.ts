@@ -151,17 +151,17 @@ export class SearchComponent implements OnInit {
   }
 
   getLocation() {
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
-
           if (position) {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
           }
+          this.searchPharmacy();
         },
         (error: PositionError) => console.log(error));
     } else {
+      this.searchPharmacy();
       alert('Geolocation is not supported by this browser.');
     }
   }
@@ -180,13 +180,13 @@ export class SearchComponent implements OnInit {
     }, time);
   }
 
-  searchPharmacy(search) {
+  searchPharmacy(search = '') {
     this.loader = true;
 
     let param = '';
-    if (search) {
-      param = 'search=' + search + '&';
-    }
+    // if (search) {
+    param = 'search=' + search + '&';
+    // }
     if (this.lat !== null && this.lat !== '') {
       param += 'lat=' + this.lat + '&';
     } else {
