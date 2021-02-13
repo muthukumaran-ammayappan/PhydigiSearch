@@ -20,10 +20,10 @@
   </div>
 </div>
 
-<div class="lister" *ngIf="searchValue != null">
-  <p class="result-counter" *ngIf="pharmacies != null">About {{pharmacies.length}} results (Near {{km}}km)</p>
+<div class="lister" *ngIf="filteredPharmacies.length > 0">
+  <p class="result-counter" *ngIf="filteredPharmacies != null">About {{filteredPharmacies.length}} results (Near {{km}}km)</p>
   <mat-grid-list [cols]="cols" [rowHeight]="rows" class="lister">
-    <mat-grid-tile class="grider" *ngFor="let pharmacy of pharmacies;let i = index">
+    <mat-grid-tile class="grider" *ngFor="let pharmacy of filteredPharmacies;let i = index">
 
       <div class="pharmacy-image-container">
         <img class="pharmacy-image" [src]="img">
@@ -48,7 +48,7 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-<div *ngIf="searchValue == null">
+<div *ngIf="filteredPharmacies.length == 0">
     <h1 class="no-results">No Results !</h1>
 </div>
 <div class="footer">

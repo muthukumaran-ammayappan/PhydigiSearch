@@ -25,34 +25,19 @@ export class SearchComponent implements OnInit {
   rows: any;
   timer: any;
   cols: number;
-  pharmacies: [null];
+  pharmacies = [];
+  filteredPharmacies = [];
   searchValue: string;
   loader: boolean;
   km = 7;
   deliveryStatus: any;
-  monStartHour: '';
-  tueStartHour: '';
-  wedStartHour: '';
-  thuStartHour: '';
-  friStartHour: '';
-  satStartHour: '';
-  sunStartHour: '';
-  monEndHour: '';
-  tueEndHour: '';
-  wedEndHour: '';
-  thuEndHour: '';
-  friEndHour: '';
-  satEndHour: '';
-  sunEndHour: '';
-  day: any;
-  latestTime: string;
+
   deliveryStatusImg: any;
-  mobile: string;
   isOpen = false;
+  isDeliveryEnable = false;
   img;
-  at: string;
-  latestTime12: string;
-  hour: string;
+
+
   public bengalurLat = '13.066412600498435';
   public bengalurLng = '77.60393005906081';
   public lat = null;
@@ -172,20 +157,18 @@ export class SearchComponent implements OnInit {
       returnData.isOpen = !(data.satStartHour > currentTime || data.satEndHour < currentTime);
       returnData.startHour = data.satStartHour;
       returnData.closeHour = data.satEndHour;
-
+      // console.log(this.timeConvert(data.satStartHour));
+      // console.log(this.timeConvert(data.satEndHour));
+      // console.log(data.satEndHour);
       return returnData;
     }
   }
 
-  imgLogoId(img) {
-    this.img = img;
-  }
-
   timeConvert(data) {
     const time = parseFloat(data);
-    this.latestTime12 = this.datepipe.transform(time, 'hh:mm a');
+    console.log('time', data);
+    return this.datepipe.transform(new Date(time), 'HH:mm a', 'IST');
   }
-
 
 
   getLocation() {
@@ -220,6 +203,7 @@ export class SearchComponent implements OnInit {
 
   searchPharmacy(search) {
     this.loader = true;
+
     let param = '';
     if (search) {
       param = 'search=' + search + '&';
@@ -237,18 +221,21 @@ export class SearchComponent implements OnInit {
     if (this.km) {
       param += 'km=' + this.km;
     }
-    this.searchService.fetchAllCustomer(param)
-      .subscribe(res => {
-        console.log('result', res.data);
-        res.data.forEach(resp => {
 
-          const returnData = this.dayStatus(resp[0]);
+    this.searchService.fetchAllStores(param)
+      .subscribe(stores => {
+        if (stores.data.length > 0) {
+          stores.data.forEach(store => {
 
-          resp[0].isOpen = returnData.isOpen;
-          resp[0].startHour = returnData.startHour ? returnData.startHour : '10:00';
-          resp[0].closeHour = returnData.closeHour ? returnData.closeHour : '20:00';
-        });
-        this.pharmacies = res.data;
+            const returnData = this.dayStatus(store[0]);
+
+            store[0].isOpen = returnData.isOpen;
+            store[0].startHour = returnData.startHour ? returnData.startHour : '10:00';
+            store[0].closeHour = returnData.closeHour ? returnData.closeHour : '20:00';
+          });
+          this.pharmacies = stores.data;
+          this.filteredPharmacies = stores.data;
+        }
       });
     this.loader = false;
   }
@@ -263,13 +250,28 @@ export class SearchComponent implements OnInit {
   }
 
   isOpened() {
-    this.isOpen !== this.isOpen;
-
-    // this.pharmacies =  this.pharmacies.filter(pharmacy => pharmacy.isOpen === true)
+    this.isOpen = !this.isOpen;
+    this.filterStores();
   }
 
   isDelivery() {
+    this.isDeliveryEnable = !this.isDeliveryEnable;
+    this.filterStores();
+  }
 
+  filterStores() {
+    // this.pharmacies =  this.pharmacies.filter(pharmacy => pharmacy.isOpen === true);
+    let filteredStores = this.pharmacies;
+    if (this.isOpen) {
+      filteredStores = filteredStores.filter(store => store[0].isOpen === true);
+    }
+
+    if (this.isDeliveryEnable) {
+      filteredStores = filteredStores.filter(store => store[0].deliveryAvailable === 'Y');
+    }
+
+    this.filteredPharmacies = filteredStores;
+    console.log('filteredStores', filteredStores);
   }
 
 }
