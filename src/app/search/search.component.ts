@@ -3,7 +3,6 @@ import {FormBuilder} from '@angular/forms';
 import {SearchService} from '../services/search.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {DatePipe} from '@angular/common';
-import {DomSanitizer} from '@angular/platform-browser';
 import {environment} from '../../environments/environment';
 import {StoreTiming} from '../model/search.model';
 
@@ -32,7 +31,6 @@ export class SearchComponent implements OnInit {
   km = 7;
   deliveryStatus: any;
 
-  deliveryStatusImg: any;
   isOpen = false;
   isDeliveryEnable = false;
   img;
@@ -43,8 +41,7 @@ export class SearchComponent implements OnInit {
   public lat = null;
   public lng = null;
 
-  constructor(private sanitizer: DomSanitizer,
-              public datepipe: DatePipe,
+  constructor(public datepipe: DatePipe,
               private fb: FormBuilder,
               private searchService: SearchService,
               private breakpointObserver: BreakpointObserver) {
@@ -85,24 +82,10 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  // image converter
+  // Image converter
   getImageFromService(data) {
     const API_HOST = environment.serviceURL + 'image?id=';
     this.img = API_HOST + data;
-  }
-
-  // delivery status
-  delivery(data) {
-    if (data.deliveryAvailable == 'Y') {
-      this.deliveryStatusImg = '/assets/images/greentick.png';
-      this.deliveryStatus = 'Delivery Available';
-    } else if (data.deliveryAvailable == 'N' && data.pickupAvialable == 'Y') {
-      this.deliveryStatusImg = '/assets/images/greentick.png';
-      this.deliveryStatus = 'Pick-up Only';
-    } else {
-      this.deliveryStatusImg = '/assets/images/greentick.png';
-      this.deliveryStatus = 'Pick-up Only';
-    }
   }
 
   dayStatus(data) {
@@ -157,28 +140,24 @@ export class SearchComponent implements OnInit {
       returnData.isOpen = !(data.satStartHour > currentTime || data.satEndHour < currentTime);
       returnData.startHour = data.satStartHour;
       returnData.closeHour = data.satEndHour;
-      // console.log(this.timeConvert(data.satStartHour));
-      // console.log(this.timeConvert(data.satEndHour));
-      // console.log(data.satEndHour);
+
       return returnData;
     }
   }
 
   timeConvert(data) {
     const time = parseFloat(data);
-    console.log('time', data);
     return this.datepipe.transform(new Date(time), 'HH:mm a', 'IST');
   }
 
-
   getLocation() {
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
-          if (position) {
 
+          if (position) {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
-
           }
         },
         (error: PositionError) => console.log(error));
@@ -241,7 +220,6 @@ export class SearchComponent implements OnInit {
   }
 
   // slider label
-
   formatLabel(value: number) {
     if (value >= 1) {
       return Math.round(value / 1) + 'km';
@@ -249,19 +227,19 @@ export class SearchComponent implements OnInit {
     return value;
   }
 
-  isOpened() {
+  onClickOpen() {
     this.isOpen = !this.isOpen;
     this.filterStores();
   }
 
-  isDelivery() {
+  onClickDelivery() {
     this.isDeliveryEnable = !this.isDeliveryEnable;
     this.filterStores();
   }
 
   filterStores() {
-    // this.pharmacies =  this.pharmacies.filter(pharmacy => pharmacy.isOpen === true);
     let filteredStores = this.pharmacies;
+
     if (this.isOpen) {
       filteredStores = filteredStores.filter(store => store[0].isOpen === true);
     }
@@ -271,7 +249,6 @@ export class SearchComponent implements OnInit {
     }
 
     this.filteredPharmacies = filteredStores;
-    console.log('filteredStores', filteredStores);
   }
 
 }

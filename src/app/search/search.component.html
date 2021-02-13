@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-4 col-lg-4 right-separator card-button">
-      <button class="mat-flat-button btn-primary button-open" (click)="isOpened()" >Open</button>
-      <button class="mat-flat-button button-delivery" (click)="isDelivery()"><i class="fa fa-check"></i> Delivery</button>
+      <button class="mat-flat-button btn-primary button-open" (click)="onClickOpen()" >Open</button>
+      <button class="mat-flat-button button-delivery" (click)="onClickDelivery()"><i class="fa fa-check"></i> Delivery</button>
     </div>
     <div class="col-sm-12 col-md-4 col-lg-4 slider-top">
       <img src="/assets/images/Icon%20feather-home.png">
@@ -30,11 +30,12 @@
       </div>
 
       <div class="details-container" *ngFor="let pharmacyDetails of pharmacy.slice(0,1)">
-        <div>{{delivery(pharmacyDetails)}}{{getImageFromService(pharmacyDetails.imageLogoId)}}</div>
+        <div>{{getImageFromService(pharmacyDetails.imageLogoId)}}</div>
         <h3 class="pharmacy-name">{{pharmacyDetails.registeredPharmacyName}}</h3>
         <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5><br>
         <h5 class="pharmacy-address">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? pharmacyDetails.closeHour : pharmacyDetails.startHour}}</h5>
-        <h6 class="delivery-available"><img src="{{deliveryStatusImg}}" height="10px" width="13px">{{deliveryStatus}}
+        <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="10px" width="13px">
+          {{pharmacyDetails.deliveryAvailable == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
          &nbsp;&nbsp;|&nbsp;&nbsp;
           <img src="{{pharmacyDetails.isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}" height="10px" width="13px">
           {{pharmacyDetails.isOpen ? "Opened" : "Closed"}}</h6>
