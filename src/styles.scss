@@ -99,9 +99,11 @@ owl-carousel-o{
   font-family: Montserrat;
 }
 .details-container{
+  margin-top: 5%;
   margin-left: 2%!important;
   color: #186696;
   text-align: left ;
+  font-weight: revert;
   width: 50%;
   @media only screen and (max-width: $mobile){
     margin-top: 15%;
@@ -114,6 +116,12 @@ owl-carousel-o{
 
 .pharmacy-mobile-call {
   font-size: 12px;
+  color: black;
+}
+.call{
+  font-size: 11px;
+  font-family: Montserrat Regular;
+  color: black;
 }
 .pharmacy-mobile{
   font-size: 10px;

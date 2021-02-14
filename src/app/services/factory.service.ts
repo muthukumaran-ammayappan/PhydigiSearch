@@ -8,7 +8,7 @@ export class FactoryService {
 
   getHttpHeaders() {
     let headers = new HttpHeaders();
-    headers = headers.append('Content-Type', 'application/json')
+    headers = headers.append('Content-Type', 'application/json');
     return headers;
   }
 

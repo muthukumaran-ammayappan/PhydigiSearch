@@ -1,18 +1,47 @@
+$desktop: 960px;
+$tablet: 768px;
+$mobile-large: 640px;
+$mobile: 480px;
+$mobile-small: 300px;
+
 .card-color{
   background-color: #f3f3f3;
   color: black;
 }
 .flexer{
   display: flex;
-  flex-direction: row-reverse;
   height: 30px;
   font-size: 12px;
   width: 100%;
 }
 .footer-link{
+  margin-top: 0.5%;
   color: black;
+  margin-right: 2%;
+  float: right;
   text-decoration: underline;
+  @media only screen and (max-width : $mobile){
+    margin-top: 2%;
+    margin-right: 1%;
+  }
+}
+.footer-link-privacy{
+  margin-top: 0.5%;
+  color: black;
+  margin-left: 80%;
+  float: right;
+  text-decoration: underline;
+  @media only screen and (max-width : $mobile){
+    margin-top: 2%;
+    margin-left: 30%;
+  }
 }
 .policy-text{
-  float: right!important;
+}
+.footer-name{
+  margin-top: 0.5%;
+  margin-left: 2%;
+  @media only screen and (max-width : $mobile){
+    margin-top: 2%
+  }
 }

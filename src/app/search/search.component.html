@@ -29,23 +29,26 @@
         <img class="pharmacy-image" [src]="img">
       </div>
 
+      <div class="map-marker">
+        <p class="map-distance map-marker-logo"><img src="/assets/images/location.png" height="13" width="9c">  {{pharmacy[3] | number : '1.0-2'}}km</p>
+      </div>
+
       <div class="details-container" *ngFor="let pharmacyDetails of pharmacy.slice(0,1)">
         <div>{{getImageFromService(pharmacyDetails.imageLogoId)}}</div>
-        <h3 class="pharmacy-name">{{pharmacyDetails.registeredPharmacyName}}</h3>
-        <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5><br>
-        <h5 class="pharmacy-address">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? pharmacyDetails.closeHour : pharmacyDetails.startHour}}</h5>
-        <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="10px" width="13px">
+        <h3 class="pharmacy-name"><a href='https://dev.phydigi.com/{{pharmacyDetails.storeNumber}}/store'>{{pharmacyDetails.registeredPharmacyName}}</a></h3>
+        <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5>
+        <h5 class="pharmacy-status">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? pharmacyDetails.closeHour : pharmacyDetails.startHour}}</h5>
+        <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
           {{pharmacyDetails.deliveryAvailable == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <img src="{{pharmacyDetails.isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}" height="10px" width="13px">
-          {{pharmacyDetails.isOpen ? "Opened" : "Closed"}}</h6>
-        <h5 class="pharmacy-mobile-call"><b>Call: </b>{{pharmacy[1]}}</h5>
+          <img src="{{pharmacyDetails.isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}" height="8px" width="9px">
+          {{pharmacyDetails.isOpen ? "Opened" : "Closed"}}</h6><br>
+        <h5 class="pharmacy-mobile-call"><b class="call">Call: </b>{{pharmacy[1]}}</h5>
       </div>
 
       <div class="order-button-container">
         <button class="mat-button order-button">Order Ahead</button>
       </div>
-
     </mat-grid-tile>
   </mat-grid-list>
 </div>

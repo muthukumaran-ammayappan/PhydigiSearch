@@ -27,17 +27,17 @@ export class SearchComponent implements OnInit {
   pharmacies = [];
   filteredPharmacies = [];
   searchValue: string;
-  loader: boolean;
   km = 7;
-  deliveryStatus: any;
-
+  public loading = false;
   isOpen = false;
   isDeliveryEnable = false;
   img;
 
 
-  public bengalurLat = '13.066412600498435';
-  public bengalurLng = '77.60393005906081';
+  public bengalurLat = '11.080024389224244';
+  public bengalurLng = '76.9405519018713';
+  // public bengalurLat = '13.066412600498435';
+  // public bengalurLng = '77.60393005906081';
   public lat = null;
   public lng = null;
 
@@ -181,7 +181,7 @@ export class SearchComponent implements OnInit {
   }
 
   searchPharmacy(search = '') {
-    this.loader = true;
+    this.loading = true;
 
     let param = '';
     // if (search) {
@@ -216,7 +216,7 @@ export class SearchComponent implements OnInit {
           this.filteredPharmacies = stores.data;
         }
       });
-    this.loader = false;
+    this.loading = false;
   }
 
   // slider label
