@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-4 col-lg-4 right-separator card-button">
-      <button class="mat-flat-button btn-primary button-open {{color? 'colorGrey' : ''}}" (click)="onClickOpen()" ><i class="fa fa-check"></i>Open</button>
-      <button class="mat-flat-button button-delivery {{deliColor? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><i class="fa fa-check"></i> Delivery</button>
+      <button class="mat-flat-button btn-primary button-open {{color? 'colorGrey' : ''}}" (click)="onClickOpen()" ><i class="{{color? 'fa fa-check' : ''}}"></i>Open</button>
+      <button class="mat-flat-button button-delivery {{deliColor? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><i class="{{deliColor? 'fa fa-check' : ''}}"></i> Delivery</button>
     </div>
     <div class="col-sm-12 col-md-4 col-lg-4 slider-top">
       <img src="/assets/images/Icon%20feather-home.png">
@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-
+<app-loader *ngIf="loading"></app-loader>
 <div class="lister" *ngIf="filteredPharmacies.length > 0">
   <p class="result-counter" *ngIf="filteredPharmacies != null">About {{filteredPharmacies.length}} results (Near {{km}}km)</p>
   <mat-grid-list [cols]="cols" [rowHeight]="rows" class="lister">
@@ -59,7 +59,7 @@
                  (page)="pageEvent = OnPageChange($event)">
   </mat-paginator>
 </div>
-<div *ngIf="filteredPharmacies.length == 0">
+<div *ngIf="filteredPharmacies.length == 0 || !loading">
     <h1 class="no-results">No Results !</h1>
 </div>
 <div class="footer">

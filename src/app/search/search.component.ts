@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
   filteredPharmacies = [];
   searchValue: string;
   km = 7;
-  public loading = false;
+  loading = false;
   isOpen = false;
   isDeliveryEnable = false;
   img;
@@ -227,10 +227,10 @@ export class SearchComponent implements OnInit {
           this.pageIndex = 1;
           this.pageSize = 10;
           this.length = stores.data.length;
+          this.loading = false;
 
         }
       });
-    this.loading = false;
   }
 
   // slider label

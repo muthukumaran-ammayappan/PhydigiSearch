@@ -8,12 +8,14 @@ import {FactoryService} from '../services/factory.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {LoaderComponent} from "../loader/loader.component";
 
 
 
 @NgModule({
   declarations: [
     SearchComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
