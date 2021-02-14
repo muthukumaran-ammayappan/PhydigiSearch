@@ -20,7 +20,7 @@
   </div>
 </div>
 <app-loader *ngIf="loading"></app-loader>
-<div class="lister" *ngIf="filteredPharmacies.length > 0">
+<div class="lister" *ngIf="filteredPharmacies.length > 0 && !loading">
   <p class="result-counter" *ngIf="filteredPharmacies != null">About {{filteredPharmacies.length}} results (Near {{km}}km)</p>
   <mat-grid-list [cols]="cols" [rowHeight]="rows" class="lister">
     <mat-grid-tile class="grider" *ngFor="let pharmacy of filteredPharmacies;let i = index">
@@ -53,13 +53,13 @@
   </mat-grid-list>
   <mat-paginator #paginator
                  [length]="length"
-                 [pageIndex]="pageIndex"
+                 [pageIndex]="pageIndex[1]"
                  [pageSize]="pageSize"
                  [pageSizeOptions]="[5, 10, 25, 100]"
                  (page)="pageEvent = OnPageChange($event)">
   </mat-paginator>
-</div>
-<div *ngIf="filteredPharmacies.length == 0 || !loading">
+</div><br><br>
+<div *ngIf="filteredPharmacies.length == 0 && !loading">
     <h1 class="no-results">No Results !</h1>
 </div>
 <div class="footer">

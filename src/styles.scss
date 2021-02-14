@@ -165,5 +165,21 @@ owl-carousel-o{
   stroke: #53BFB4!important;
 }
 .mat-progress-spinner{
-  position: center!important;
+  //position: center!important;
+}
+.spinner{
+  margin-left: 45%;
+  @media only screen and (max-width: $mobile) {
+    margin-left: 33%;
+  }
+}
+.mat-paginator{
+  background-color: rgba(0,0,0,0)!important;
+  color: black!important;
+}
+.mat-paginator, .mat-paginator-page-size .mat-select-trigge{
+  color: black!important;
+}
+.mat-paginator-page-size-label{
+  display: none!important;
 }
