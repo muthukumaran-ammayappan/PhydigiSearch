@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="col-sm-12 col-md-4 col-lg-4 right-separator card-button">
-      <button class="mat-flat-button btn-primary button-open" (click)="onClickOpen()" >Open</button>
-      <button class="mat-flat-button button-delivery" (click)="onClickDelivery()"><i class="fa fa-check"></i> Delivery</button>
+      <button class="mat-flat-button btn-primary button-open {{color? 'colorGrey' : ''}}" (click)="onClickOpen()" ><i class="fa fa-check"></i>Open</button>
+      <button class="mat-flat-button button-delivery {{deliColor? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><i class="fa fa-check"></i> Delivery</button>
     </div>
     <div class="col-sm-12 col-md-4 col-lg-4 slider-top">
       <img src="/assets/images/Icon%20feather-home.png">

@@ -33,6 +33,8 @@ export class SearchComponent implements OnInit {
   isOpen = false;
   isDeliveryEnable = false;
   img;
+  color = false;
+  deliColor = false;
 
   pageEvent: PageEvent;
   datasource: null;
@@ -40,8 +42,10 @@ export class SearchComponent implements OnInit {
   pageSize: number;
   length: number;
 
-  public bengalurLat = '13.066412600498435';
-  public bengalurLng = '77.60393005906081';
+  public bengalurLat = '11.08002444864667';
+  public bengalurLng = '76.93952190534266';
+  // public bengalurLat = '13.066412600498435';
+  // public bengalurLng = '77.60393005906081';
   public lat = null;
   public lng = null;
 
@@ -240,11 +244,21 @@ export class SearchComponent implements OnInit {
   onClickOpen() {
     this.isOpen = !this.isOpen;
     this.filterStores();
+    if (this.isOpen == true){
+      this.color = true;
+    } else {
+      this.color = false;
+    }
   }
 
   onClickDelivery() {
     this.isDeliveryEnable = !this.isDeliveryEnable;
     this.filterStores();
+    if (this.isDeliveryEnable == true){
+      this.deliColor = true;
+    } else {
+      this.deliColor = false;
+    }
   }
 
   filterStores() {
