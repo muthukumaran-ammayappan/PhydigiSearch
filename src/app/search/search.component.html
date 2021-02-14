@@ -51,6 +51,13 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
+  <mat-paginator #paginator
+                 [length]="length"
+                 [pageIndex]="pageIndex"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 (page)="pageEvent = OnPageChange($event)">
+  </mat-paginator>
 </div>
 <div *ngIf="filteredPharmacies.length == 0">
     <h1 class="no-results">No Results !</h1>
