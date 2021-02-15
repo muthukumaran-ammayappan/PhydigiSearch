@@ -42,10 +42,9 @@ export class SearchComponent implements OnInit {
   pageSize: number;
   length: number;
 
-  public bengalurLat = '11.08002444864667';
-  public bengalurLng = '76.93952190534266';
-  // public bengalurLat = '13.066412600498435';
-  // public bengalurLng = '77.60393005906081';
+
+  public bengalurLat = '13.066412600498435';
+  public bengalurLng = '77.60393005906081';
   public lat = null;
   public lng = null;
 
@@ -153,9 +152,14 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  timeConvert(data) {
-    const time = parseFloat(data);
-    return this.datepipe.transform(new Date(time), 'HH:mm a', 'IST');
+  tConvert (time) {
+    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+    if (time.length > 1) {
+      time = time.slice (1);
+      time[5] = +time[0] < 12 ? 'AM' : 'PM';
+      time[0] = +time[0] % 12 || 12;
+    }
+    return time.join ('');
   }
 
   getLocation() {
@@ -219,6 +223,7 @@ export class SearchComponent implements OnInit {
             store[0].isOpen = returnData.isOpen;
             store[0].startHour = returnData.startHour ? returnData.startHour : '10:00';
             store[0].closeHour = returnData.closeHour ? returnData.closeHour : '20:00';
+            this.loading = false;
           });
           this.pharmacies = stores.data;
           this.filteredPharmacies = stores.data;
@@ -244,21 +249,13 @@ export class SearchComponent implements OnInit {
   onClickOpen() {
     this.isOpen = !this.isOpen;
     this.filterStores();
-    if (this.isOpen == true){
-      this.color = true;
-    } else {
-      this.color = false;
-    }
+    this.color = this.isOpen == true;
   }
 
   onClickDelivery() {
     this.isDeliveryEnable = !this.isDeliveryEnable;
     this.filterStores();
-    if (this.isDeliveryEnable == true){
-      this.deliColor = true;
-    } else {
-      this.deliColor = false;
-    }
+    this.deliColor = this.isDeliveryEnable == true;
   }
 
   filterStores() {
