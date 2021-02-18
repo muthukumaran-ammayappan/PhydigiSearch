@@ -29,7 +29,7 @@
         <img class="pharmacy-image" [src]="img">
       </div>
 
-      <div class="map-marker">
+      <div *ngIf="cols == 2" class="map-marker">
         <p class="map-distance map-marker-logo"><img src="/assets/images/location.png" height="13" width="9c">  {{pharmacy[3] | number : '1.0-2'}}km</p>
       </div>
 
@@ -37,6 +37,7 @@
         <div>{{getImageFromService(pharmacyDetails.imageLogoId)}}</div>
         <h3 class="pharmacy-name"><a href='https://dev.phydigi.com/{{pharmacyDetails.storeNumber}}/store'>{{pharmacyDetails.registeredPharmacyName}}</a></h3>
         <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5>
+        <p *ngIf="cols == 1" class="map-distance map-marker-logo"><img src="/assets/images/location.png" height="13" width="9c">  {{pharmacy[3] | number : '1.0-2'}}km</p>
         <h5 class="pharmacy-status">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? tConvert(pharmacyDetails.closeHour) : tConvert(pharmacyDetails.startHour)}}</h5>
         <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
           {{pharmacyDetails.deliveryAvailable == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
