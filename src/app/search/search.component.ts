@@ -42,8 +42,8 @@ export class SearchComponent implements OnInit {
   length: number;
 
 
-  public bengalurLat = '13.066412600498435';
-  public bengalurLng = '77.60393005906081';
+  public bengalurLat = '12.967343065878191';
+  public bengalurLng = '77.573937871773';
   public lat = null;
   public lng = null;
 
@@ -163,6 +163,7 @@ export class SearchComponent implements OnInit {
   }
 
   getLocation() {
+    this.searchPharmacy();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
           if (position) {

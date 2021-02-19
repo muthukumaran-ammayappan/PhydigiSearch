@@ -150,7 +150,6 @@ export class StylePaginatorDirective {
   private initPageRange(): void {
     this._rangeStart = this._currentPage - this._showTotalPages / 2;
     this._rangeEnd = this._currentPage + this._showTotalPages / 2;
-
     this.buildPageNumbers();
   }
 
