@@ -43,7 +43,7 @@
         <p *ngIf="cols == 1" class="map-distance"><img class="map-marker-logo" src="/assets/images/location.png" height="13" width="9">  {{pharmacy[3] | number : '1.0-2'}}km</p>
         <h5 class="pharmacy-status">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? tConvert(pharmacyDetails.closeHour) : tConvert(pharmacyDetails.startHour)}}</h5>
         <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
-          {{pharmacyDetails.deliveryAvailable == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
+          {{pharmacyDetails.homeDelivery == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
          &nbsp;&nbsp;|&nbsp;&nbsp;
           <img src="{{pharmacyDetails.isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}" height="8px" width="9px">
           {{pharmacyDetails.isOpen ? "Opened" : "Closed"}}</h6>
