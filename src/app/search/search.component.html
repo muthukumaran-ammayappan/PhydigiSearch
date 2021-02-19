@@ -22,9 +22,9 @@
 
 <app-loader *ngIf="loading"></app-loader>
 <div class="lister" *ngIf="filteredPharmacies.length > 0 && !loading"><br>
-  <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 2">About {{filteredPharmacies.length}} results (Near {{km}}km)</span>
+  <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 2">About {{length}} results (Near {{km}}km)</span>
   <mat-grid-list [cols]="cols" rowHeight="{{rows ? '5.6:4.5' : '3:1'}}" class="lister">
-    <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 1">About {{filteredPharmacies.length}} results (Near {{km}}km)</span>
+    <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 1">About {{length}} results (Near {{km}}km)</span>
     <mat-grid-tile class="grider" *ngFor="let pharmacy of filteredPharmacies;let i = index">
 
 
@@ -40,7 +40,7 @@
         <div>{{getImageFromService(pharmacyDetails.imageLogoId)}}</div>
         <h3 class="pharmacy-name"><a class="link-blue" href='https://dev.phydigi.com/{{pharmacyDetails.storeNumber}}/store'>{{pharmacyDetails.registeredPharmacyName}}</a></h3>
         <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5>
-        <p *ngIf="cols == 1" class="map-distance map-marker-logo"><img src="/assets/images/location.png" height="13" width="9c">  {{pharmacy[3] | number : '1.0-2'}}km</p>
+        <p *ngIf="cols == 1" class="map-distance"><img class="map-marker-logo" src="/assets/images/location.png" height="13" width="9c">  {{pharmacy[3] | number : '1.0-2'}}km</p>
         <h5 class="pharmacy-status">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? tConvert(pharmacyDetails.closeHour) : tConvert(pharmacyDetails.startHour)}}</h5>
         <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
           {{pharmacyDetails.deliveryAvailable == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
@@ -55,7 +55,7 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-paginator #paginator
+  <mat-paginator #paginator style-paginator
                  [length]="length"
                  [pageIndex]="pageIndex[1]"
                  [pageSize]="pageSize"

@@ -109,17 +109,18 @@ owl-carousel-o {
 
 .details-container {
   margin-top: 0;
-  margin-left: 2% !important;
   color: #186696;
   text-align: left;
   font-weight: revert;
   width: 50%;
+  margin-left: 2%;
   @media only screen and (max-width: $mobile-large) {
     margin-top: 10%;
     width: 70%;
     position: absolute;
     top: 0!important;
-    right: 0;
+    right: 6%;
+    margin-left: 0;
   }
 }
 
@@ -226,3 +227,32 @@ owl-carousel-o {
   margin-top: 2%;
 }
 
+.mat-fab, .mat-flat-button, .mat-mini-fab, .mat-raised-button{
+  background-color: rgba(0,0,0,0);
+  color: #333333;
+}
+.mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+.mat-fab.mat-accent[disabled], .mat-fab.mat-primary[disabled], .mat-fab.mat-warn[disabled],
+.mat-fab[disabled][disabled], .mat-flat-button.mat-accent[disabled],
+.mat-flat-button.mat-primary[disabled], .mat-flat-button.mat-warn[disabled],
+.mat-flat-button[disabled][disabled], .mat-mini-fab.mat-accent[disabled],
+.mat-mini-fab.mat-primary[disabled], .mat-mini-fab.mat-warn[disabled],
+.mat-mini-fab[disabled][disabled], .mat-raised-button.mat-accent[disabled],
+.mat-raised-button.mat-primary[disabled], .mat-raised-button.mat-warn[disabled],
+.mat-raised-button[disabled][disabled] {
+  background-color: #53BFB4;
+  color: #FFFFFF;
+}
+.mat-paginator-navigation-previous{
+  background-color: rgba(0,0,0,0)!important;
+  color: #333333!important;
+}
+.mat-paginator-navigation-next{
+  background-color: rgba(0,0,0,0)!important;
+  color: #333333!important;
+}
+.mat-paginator, .mat-paginator-page-size .mat-select-trigge {
+  color: rgba(0,0,0,0)!important;
+}

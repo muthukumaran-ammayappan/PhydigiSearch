@@ -163,15 +163,19 @@ export class SearchComponent implements OnInit {
   }
 
   getLocation() {
+    this.searchPharmacy();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
+          this.searchPharmacy();
           if (position) {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
           }
-          this.searchPharmacy();
         },
-        (error: PositionError) => console.log(error));
+        (error: PositionError) => {
+          this.searchPharmacy();
+          console.log(error);
+        });
     } else {
       this.searchPharmacy();
       alert('Geolocation is not supported by this browser.');
@@ -212,12 +216,10 @@ export class SearchComponent implements OnInit {
     if (this.km) {
       param += 'km=' + this.km;
     }
-
-    this.searchService.fetchAllStores(param)
+   this.searchService.fetchAllStores(param)
       .subscribe(stores => {
         if (stores.data && stores.data.length > 0) {
           stores.data.forEach(store => {
-
             const returnData = this.dayStatus(store[0]);
 
             store[0].isOpen = returnData.isOpen;
@@ -226,14 +228,13 @@ export class SearchComponent implements OnInit {
             this.loading = false;
           });
           this.pharmacies = stores.data;
-          this.filteredPharmacies = stores.data;
+          this.filteredPharmacies = this.pharmacies.slice(0, stores.data.length >= 10 ? 10 :  stores.data.length + 1);
 
           this.datasource = stores.data;
           this.pageIndex = 1;
           this.pageSize = 10;
           this.length = stores.data.length;
           this.loading = false;
-
         } else {
           this.loading = false;
         }
@@ -274,15 +275,16 @@ export class SearchComponent implements OnInit {
     this.filteredPharmacies = filteredStores;
   }
 
-
   OnPageChange(event: PageEvent) {
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
+    const startIndex = (event !== null ? event.pageIndex : this.pageIndex) * (event !== null ? event.pageSize : this.pageSize);
+    let endIndex = startIndex + (event !== null ? event.pageSize : this.pageSize);
     if (endIndex > this.length) {
       endIndex = this.length;
     }
     this.filteredPharmacies = this.pharmacies.slice(startIndex, endIndex);
     return event;
   }
+
+
 
 }

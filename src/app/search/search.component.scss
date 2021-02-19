@@ -225,8 +225,8 @@ input:focus {
   padding-left: 50px;
   padding-right: 50px;
   @media only screen and (max-width: $mobile-large) {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 5px;
   }
 }
@@ -236,8 +236,8 @@ input:focus {
   height: 120px;
   width: 120px;
   @media only screen and (max-width : $mobile-large){
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
     top: 0!important;
   }
 }
@@ -288,7 +288,11 @@ input:focus {
     width: 100%;
     margin-top: 15%;
   }
-}
+  @media only screen and (max-width : $mobile) {
+    width: 100%;
+    margin-top: 24%;
+  }
+  }
 .open-now{
   font-size: 10px;
   color: black;
@@ -336,6 +340,12 @@ input:focus {
     font-size: 12px;
   }
 }
+.map-marker-logo{
+  @media only screen and (max-width :$mobile-large) {
+    margin-top: 0;
+    margin-bottom: 1%;
+  }
+  }
 .link-blue{
   color: #186696!important;;
 }
