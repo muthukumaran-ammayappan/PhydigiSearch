@@ -270,7 +270,7 @@ export class SearchComponent implements OnInit {
     }
 
     if (this.isDeliveryEnable) {
-      filteredStores = filteredStores.filter(store => store[0].deliveryAvailable === 'Y');
+      filteredStores = filteredStores.filter(store => store[0].homeDelivery === 'Y');
     }
 
     this.filteredPharmacies = filteredStores;
