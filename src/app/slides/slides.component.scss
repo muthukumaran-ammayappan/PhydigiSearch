@@ -14,7 +14,11 @@ $mobile-small: 300px;
   top: 10%;
   left: 5%;
   font-family: Montserrat;
-}
+  @media only screen and (max-width : $mobile-large) {
+    width: 65%;
+    margin-left: 2%;
+  }
+  }
 .carousel-content h3{
   font-weight: bold;
 }
@@ -30,5 +34,18 @@ $mobile-small: 300px;
 .hide-mobile{
   @media only screen and (max-width : $mobile-large){
     visibility: hidden;
+  }
+}
+
+.font-mobile{
+  @media only screen and (max-width : $mobile-large) {
+    color: black!important;
+  }
+}
+.more-mobile{
+  @media only screen and (max-width : $mobile-large) {
+    z-index: 10;
+    position: absolute;
+    top:38%;
   }
 }

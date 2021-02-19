@@ -3,7 +3,6 @@ import {FormBuilder} from '@angular/forms';
 import {SearchService} from '../services/search.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {DatePipe} from '@angular/common';
-import {environment} from '../../environments/environment';
 import {StoreTiming} from '../model/search.model';
 import {PageEvent} from '@angular/material';
 
@@ -70,14 +69,15 @@ export class SearchComponent implements OnInit {
       if (result.matches) {
         if (result.breakpoints[Breakpoints.XSmall]) {
           this.cols = this.gridByBreakpoint.xs;
+          this.rows = true;
         }
         if (result.breakpoints[Breakpoints.Small]) {
           this.cols = this.gridByBreakpoint.sm;
-          this.rows = '2:1';
+          this.rows = true;
         }
         if (result.breakpoints[Breakpoints.Medium]) {
           this.cols = this.gridByBreakpoint.md;
-          this.rows = '3:1';
+          this.rows = false;
         }
         if (result.breakpoints[Breakpoints.Large]) {
           this.cols = this.gridByBreakpoint.lg;
@@ -91,7 +91,7 @@ export class SearchComponent implements OnInit {
 
   // Image converter
   getImageFromService(data) {
-    const API_HOST = environment.serviceURL + 'image?id=';
+    const API_HOST = 'https://dev.phydigi.com:9002/api/' + 'image?id=';
     this.img = API_HOST + data;
   }
 
@@ -153,13 +153,13 @@ export class SearchComponent implements OnInit {
   }
 
   tConvert(time) {
-    time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+    time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
     if (time.length > 1) {
-      time = time.slice (1);
+      time = time.slice(1);
       time[5] = +time[0] < 12 ? 'AM' : 'PM';
       time[0] = +time[0] % 12 || 12;
     }
-    return time.join ('');
+    return time.join('');
   }
 
   getLocation() {
@@ -234,6 +234,8 @@ export class SearchComponent implements OnInit {
           this.length = stores.data.length;
           this.loading = false;
 
+        } else {
+          this.loading = false;
         }
       });
   }
@@ -249,7 +251,7 @@ export class SearchComponent implements OnInit {
   onClickOpen() {
     this.isOpen = !this.isOpen;
     this.filterStores();
-    this.color = this.isOpen == true;
+    this.color = this.isOpen === true;
   }
 
   onClickDelivery() {

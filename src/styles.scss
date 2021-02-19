@@ -1,5 +1,6 @@
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
 $desktop: 960px;
 $tablet: 768px;
 $mobile-large: 640px;
@@ -7,39 +8,45 @@ $mobile: 480px;
 $mobile-small: 300px;
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 
 /*mat-slider*/
 .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label, .mat-accent .mat-slider-track-fill {
-  background-color:   #53BFB4!important;
+  background-color: #53BFB4 !important;
 }
 
-.mat-accent .mat-slider-thumb-label-text{
+.mat-accent .mat-slider-thumb-label-text {
   color: #333333;
   font-family: Montserrat;
 }
 
-.mat-accent .mat-slider-thumb:hover, .mat-slider-thumb:focus{
+.mat-accent .mat-slider-thumb:hover, .mat-slider-thumb:focus {
   visibility: visible;
 }
 
-.mat-accent .mat-slider-thumb-label{
-  background-color: rgba(0,0,0,0)!important;
+.mat-accent .mat-slider-thumb-label {
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
-.mat-slider:not(.mat-slider-diabled).cdk-focused.mat-slider-thumb-label-showing .mat-slider-thumb{
-  transform: scale(0.5)!important;
+.mat-slider:not(.mat-slider-diabled).cdk-focused.mat-slider-thumb-label-showing .mat-slider-thumb {
+  transform: scale(0.5) !important;
 }
 
-owl-carousel-o{
-  height: 100px!important;
+owl-carousel-o {
+  height: 100px !important;
 }
 
 .owl-carousel {
   width: 100% !important;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
   //margin: 10% auto;
 }
 
@@ -72,72 +79,82 @@ owl-carousel-o{
   right: 0;
 }
 
-.owl-theme .owl-dots{
-  z-index: 11!important;
-  top: 85%!important;
+.owl-theme .owl-dots {
+  z-index: 11 !important;
+  top: 85% !important;
   position: absolute;
   left: 47%;
-  @media only screen and (max-width: $mobile){
+  @media only screen and (max-width: $mobile) {
     left: 40%;
+    top: 80% !important;
   }
 }
-.owl-theme .owl-dots:hover{
-  color: white!important;
+
+.owl-theme .owl-dots:hover {
+  color: white !important;
 }
 
-.owl-theme .owl-nav{
-  margin-top: 0!important;
+.owl-theme .owl-nav {
+  margin-top: 0 !important;
 }
-
 
 
 //grid
-.mat-grid-tile .mat-figure{
-  justify-content: normal!important;
-  top: 2%!important;
-  left: 2%!important;
+.mat-grid-tile .mat-figure {
+  justify-content: normal !important;
+  top: 2% !important;
+  left: 2% !important;
   font-family: Montserrat;
 }
-.details-container{
-  margin-top: 5%;
-  margin-left: 2%!important;
+
+.details-container {
+  margin-top: 0;
+  margin-left: 2% !important;
   color: #186696;
-  text-align: left ;
+  text-align: left;
   font-weight: revert;
   width: 50%;
-  @media only screen and (max-width: $mobile){
-    margin-top: 15%;
+  @media only screen and (max-width: $mobile-large) {
+    margin-top: 10%;
     width: 70%;
     position: absolute;
-    top: 0;
+    top: 0!important;
     right: 0;
   }
 }
 
 .pharmacy-mobile-call {
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Montserrat Regular";
   font-weight: lighter;
+  color: #333333;
+  @media only screen and(max-width: $mobile-large) {
+    color: #003DAD!important;
+  }
+}
+
+.call {
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-weight: 400;
   color: black;
 }
-.call{
-  font-size: 11px;
-  font-weight: 700;
-  color: black;
-}
-.pharmacy-mobile{
+
+.pharmacy-mobile {
   font-size: 10px;
 }
-.pharmacy-image-container{
+
+.pharmacy-image-container {
   top: 0;
   @media only screen and (max-width: $mobile) {
     height: 30px;
     top: 0;
-    margin-top: 15%;
+    margin-top: 10%;
     position: absolute;
   }
 }
-.order-button-container{
+
+.order-button-container {
   position: absolute;
   width: 80%;
   bottom: 0;
@@ -147,39 +164,65 @@ owl-carousel-o{
   @media only screen and (max-width: $mobile) {
     width: 100%;
     position: relative;
-    margin-top: 55%;
+    margin-top: 30%;
   }
 }
-.slide-mobile{
+
+.slide-mobile {
   @media only screen and (max-width: $mobile) {
-    height: 120px;
-    width: 150%;
+    height: 90px;
+    width: 140%;
   }
 }
-.display-txt{
-  @media only screen and (max-width: $mobile) {
+
+.display-txt {
+  @media only screen and (max-width: $mobile-large) {
     display: none;
   }
 }
-.mat-progress-spinner circle, .mat-spinner circle{
-  stroke: #53BFB4!important;
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #53BFB4 !important;
 }
-.mat-progress-spinner{
+
+.mat-progress-spinner {
   //position: center!important;
 }
-.spinner{
-  margin-left: 45%;
-  @media only screen and (max-width: $mobile) {
-    margin-left: 33%;
+
+.spinner {
+  margin-left: 48.5%;
+  @media only screen and (max-width: $mobile-large) {
+    margin-left: 43%!important;
+    margin-top: 9%;
   }
 }
-.mat-paginator{
-  background-color: rgba(0,0,0,0)!important;
-  color: black!important;
+
+.mat-paginator {
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: black !important;
 }
-.mat-paginator, .mat-paginator-page-size .mat-select-trigge{
-  color: black!important;
+
+.mat-paginator, .mat-paginator-page-size .mat-select-trigge {
+  color: black !important;
 }
-.mat-paginator-page-size-label{
-  display: none!important;
+
+.mat-paginator-page-size-label {
+  display: none !important;
 }
+
+.mat-slider-thumb-label {
+  transform: rotate(45deg) !important;
+  border-radius: 50% 50% 0 !important;
+}
+
+.mat-slider-thumb {
+  transform: scale(0) !important;
+}
+
+.mat-slider-thumb-label-text {
+  opacity: 1 !important;
+}
+.slider{
+  margin-top: 2%;
+}
+
