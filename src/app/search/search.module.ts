@@ -9,7 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {LoaderComponent} from '../loader/loader.component';
-import {StylePaginatorDirective} from "./style-paginator.directive";
+import {StylePaginatorDirective} from './style-paginator.directive';
 
 
 

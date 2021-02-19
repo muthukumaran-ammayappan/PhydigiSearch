@@ -163,14 +163,13 @@ export class SearchComponent implements OnInit {
   }
 
   getLocation() {
-    this.searchPharmacy();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
-          this.searchPharmacy();
           if (position) {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
           }
+          this.searchPharmacy();
         },
         (error: PositionError) => {
           this.searchPharmacy();
@@ -200,9 +199,9 @@ export class SearchComponent implements OnInit {
     this.loading = true;
 
     let param = '';
-    // if (search) {
-    param = 'search=' + search + '&';
-    // }
+    if (search !== '') {
+    param = 'search='   + search + '&';
+    }
     if (this.lat !== null && this.lat !== '') {
       param += 'lat=' + this.lat + '&';
     } else {
@@ -216,7 +215,8 @@ export class SearchComponent implements OnInit {
     if (this.km) {
       param += 'km=' + this.km;
     }
-   this.searchService.fetchAllStores(param)
+    // console.log(param);
+    this.searchService.fetchAllStores(param)
       .subscribe(stores => {
         if (stores.data && stores.data.length > 0) {
           stores.data.forEach(store => {
@@ -228,11 +228,11 @@ export class SearchComponent implements OnInit {
             this.loading = false;
           });
           this.pharmacies = stores.data;
+          // console.log(this.pharmacies);
           this.filteredPharmacies = this.pharmacies.slice(0, stores.data.length >= 10 ? 10 :  stores.data.length + 1);
-
           this.datasource = stores.data;
           this.pageIndex = 1;
-          this.pageSize = 10;
+          this.pageSize = 5;
           this.length = stores.data.length;
           this.loading = false;
         } else {
