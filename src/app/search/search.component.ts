@@ -41,9 +41,8 @@ export class SearchComponent implements OnInit {
   pageSize: number;
   length: number;
 
-
-  public bengalurLat = '13.066412600498435';
-  public bengalurLng = '77.60393005906081';
+  public bengalurLat = '12.967343065878191';
+  public bengalurLng = '77.573937871773';
   public lat = null;
   public lng = null;
 
@@ -163,6 +162,7 @@ export class SearchComponent implements OnInit {
   }
 
   getLocation() {
+    this.searchPharmacy();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
           if (position) {
@@ -200,7 +200,7 @@ export class SearchComponent implements OnInit {
 
     let param = '';
     if (search !== '') {
-    param = 'search='   + search + '&';
+      param = 'search=' + search + '&';
     }
     if (this.lat !== null && this.lat !== '') {
       param += 'lat=' + this.lat + '&';
@@ -229,7 +229,7 @@ export class SearchComponent implements OnInit {
           });
           this.pharmacies = stores.data;
           // console.log(this.pharmacies);
-          this.filteredPharmacies = this.pharmacies.slice(0, stores.data.length >= 10 ? 10 :  stores.data.length + 1);
+          this.filteredPharmacies = this.pharmacies.slice(0, stores.data.length >= 10 ? 10 : stores.data.length + 1);
           this.datasource = stores.data;
           this.pageIndex = 1;
           this.pageSize = 10;
@@ -284,7 +284,6 @@ export class SearchComponent implements OnInit {
     this.filteredPharmacies = this.pharmacies.slice(startIndex, endIndex);
     return event;
   }
-
 
 
 }
