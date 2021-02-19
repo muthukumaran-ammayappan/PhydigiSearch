@@ -232,7 +232,7 @@ export class SearchComponent implements OnInit {
           this.filteredPharmacies = this.pharmacies.slice(0, stores.data.length >= 10 ? 10 :  stores.data.length + 1);
           this.datasource = stores.data;
           this.pageIndex = 1;
-          this.pageSize = 5;
+          this.pageSize = 10;
           this.length = stores.data.length;
           this.loading = false;
         } else {
