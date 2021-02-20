@@ -162,7 +162,6 @@ export class SearchComponent implements OnInit {
   }
 
   getLocation() {
-    this.searchPharmacy();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: Position) => {
           if (position) {
@@ -236,6 +235,7 @@ export class SearchComponent implements OnInit {
           this.length = stores.data.length;
           this.loading = false;
         } else {
+          this.pharmacies = this.filteredPharmacies = [];
           this.loading = false;
         }
       });
