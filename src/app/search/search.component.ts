@@ -96,56 +96,56 @@ export class SearchComponent implements OnInit {
   }
 
   dayStatus(data) {
-    const currentTime = this.datepipe.transform(new Date(), 'hh:mm');
+    const currentTime = this.datepipe.transform(new Date(), 'hh:mm', 'IST');
     const currentDay = new Date().getDay();
 
     const returnData = new StoreTiming();
 
     if (currentDay === 0) {
       returnData.isOpen = !(data.sunStartHour > currentTime || data.sunEndHour < currentTime);
-      returnData.startHour = data.sunStartHour;
+      returnData.startHour = data.monStartHour;
       returnData.closeHour = data.sunEndHour;
 
       return returnData;
     } else if (currentDay === 1) {
 
       returnData.isOpen = !(data.monStartHour > currentTime || data.monEndHour < currentTime);
-      returnData.startHour = data.monStartHour;
+      returnData.startHour = data.tueStartHour;
       returnData.closeHour = data.monEndHour;
 
       return returnData;
     } else if (currentDay === 2) {
 
       returnData.isOpen = !(data.tueStartHour > currentTime || data.tueEndHour < currentTime);
-      returnData.startHour = data.tueStartHour;
+      returnData.startHour = data.wedStartHour;
       returnData.closeHour = data.tueEndHour;
 
       return returnData;
     } else if (currentDay === 3) {
 
       returnData.isOpen = !(data.wedStartHour > currentTime || data.wedEndHour < currentTime);
-      returnData.startHour = data.wedStartHour;
+      returnData.startHour = data.thuStartHour;
       returnData.closeHour = data.wedEndHour;
 
       return returnData;
     } else if (currentDay === 4) {
 
       returnData.isOpen = !(data.thuStartHour > currentTime || data.thuEndHour < currentTime);
-      returnData.startHour = data.thuStartHour;
+      returnData.startHour = data.friStartHour;
       returnData.closeHour = data.thuEndHour;
 
       return returnData;
     } else if (currentDay === 5) {
 
       returnData.isOpen = !(data.friStartHour > currentTime || data.friEndHour < currentTime);
-      returnData.startHour = data.friStartHour;
+      returnData.startHour = data.satStartHour;
       returnData.closeHour = data.friEndHour;
 
       return returnData;
     } else if (currentDay === 6) {
 
       returnData.isOpen = !(data.satStartHour > currentTime || data.satEndHour < currentTime);
-      returnData.startHour = data.satStartHour;
+      returnData.startHour = data.sunStartHour;
       returnData.closeHour = data.satEndHour;
 
       return returnData;
