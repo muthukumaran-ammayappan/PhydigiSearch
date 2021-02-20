@@ -22,7 +22,9 @@ body {
 .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label, .mat-accent .mat-slider-track-fill {
   background-color: #53BFB4 !important;
 }
-
+.mat-slider-track-background{
+  background-color: #E8E8E8!important;
+}
 .mat-accent .mat-slider-thumb-label-text {
   color: #333333;
   font-family: Montserrat;
@@ -108,7 +110,7 @@ owl-carousel-o {
 }
 
 .details-container {
-  margin-top: 0;
+  margin-top: 1.5%;
   color: #186696;
   text-align: left;
   font-weight: revert;
@@ -129,8 +131,10 @@ owl-carousel-o {
   font-family: "Montserrat Regular";
   font-weight: lighter;
   color: #333333;
+  margin-top: 10%!important;
   @media only screen and(max-width: $mobile-large) {
     color: #003DAD!important;
+    margin-top: 0!important;
   }
 }
 
@@ -256,3 +260,7 @@ owl-carousel-o {
 .mat-paginator, .mat-paginator-page-size .mat-select-trigge {
   color: rgba(0,0,0,0)!important;
 }
+.mat-slider-thumb{
+  transform: scale(0.5)!important;
+}
+

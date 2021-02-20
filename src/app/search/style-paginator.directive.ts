@@ -157,7 +157,6 @@ export class StylePaginatorDirective {
     this._currentPage = i;
     this.matPag.pageIndex = i;
     this.initPageRange();
-    // console.log('res', i);
   }
 
   public ngAfterViewInit() {
