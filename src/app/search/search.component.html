@@ -22,9 +22,9 @@
 
 <app-loader *ngIf="loading"></app-loader>
 <div class="lister" *ngIf="filteredPharmacies.length > 0 && !loading"><br>
-  <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 2">About {{length}} results (Near {{km}}km)</span>
+  <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 2">About {{filteredPharmacies.length}} results (Near {{km}}km)</span>
   <mat-grid-list [cols]="cols" rowHeight="{{rows ? '5.6:4.5' : '3:1'}}" class="lister">
-    <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 1">About {{length}} results (Near {{km}}km)</span>
+    <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 1">About {{filteredPharmacies.length}} results (Near {{km}}km)</span>
     <mat-grid-tile class="grider" *ngFor="let pharmacy of filteredPharmacies;let i = index">
 
 
@@ -37,8 +37,8 @@
       </div>
 
       <div class="details-container" *ngFor="let pharmacyDetails of pharmacy.slice(0,1)">
-        <div>{{getImageFromService(pharmacyDetails.imageLogoId)}}</div>
-        <h3 class="pharmacy-name"><a class="link-blue" href='https://dev.phydigi.com/{{pharmacyDetails.storeNumber}}/store'>{{pharmacyDetails.registeredPharmacyName}}</a></h3>
+        <div>{{getImageFromService(pharmacyDetails.imageLogoId)}}{{getStoreNumber(pharmacyDetails.storeNumber)}}</div>
+        <h3 class="pharmacy-name">{{pharmacyDetails.registeredPharmacyName}}</h3>
         <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5>
         <p *ngIf="cols == 1" class="map-distance"><img class="map-marker-logo" src="/assets/images/location.png" height="13" width="9">  {{pharmacy[3] | number : '1.0-2'}}km</p>
         <h5 class="pharmacy-status">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? tConvert(pharmacyDetails.closeHour) : tConvert(pharmacyDetails.startHour)}}</h5>
@@ -51,7 +51,7 @@
       </div>
 
       <div class="order-button-container">
-        <button class="mat-button order-button">Order Ahead</button>
+        <a class="link-blue" href='https://dev.phydigi.com/{{storeNumber}}/store'><button class="mat-button order-button">Order Ahead</button></a>
       </div>
     </mat-grid-tile>
   </mat-grid-list>

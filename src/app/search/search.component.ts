@@ -40,6 +40,7 @@ export class SearchComponent implements OnInit {
   pageIndex: number;
   pageSize: number;
   length: number;
+  storeNumber;
 
   public bengalurLat = '12.967343065878191';
   public bengalurLng = '77.573937871773';
@@ -283,6 +284,10 @@ export class SearchComponent implements OnInit {
     }
     this.filteredPharmacies = this.pharmacies.slice(startIndex, endIndex);
     return event;
+  }
+
+  getStoreNumber(data) {
+    this.storeNumber = data;
   }
 
 

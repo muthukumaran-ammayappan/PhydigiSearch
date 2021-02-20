@@ -346,11 +346,15 @@ input:focus {
     margin-bottom: 1%;
   }
   }
-.link-blue{
-  color: #186696!important;;
-}
+//.link-blue{
+//  color: #186696!important;;
+//}
 .ui-grid, .ui-grid-viewport{
   @media only screen and (max-width: $mobile-large) {
     height: 20px!important;
   }
+}
+.link-blue{
+  color: #ffffff !important;
+  text-decoration: none;
 }
