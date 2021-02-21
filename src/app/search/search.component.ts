@@ -46,11 +46,14 @@ export class SearchComponent implements OnInit {
   public lat = null;
   public lng = null;
 
+  isMobile;
+
   constructor(public datepipe: DatePipe,
               private fb: FormBuilder,
               private searchService: SearchService,
               private breakpointObserver: BreakpointObserver) {
     this.breakPointObserver();
+    this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   }
 
   ngOnInit() {
@@ -229,7 +232,12 @@ export class SearchComponent implements OnInit {
           });
           this.pharmacies = stores.data;
           // console.log(this.pharmacies);
-          this.filteredPharmacies = this.pharmacies.slice(0, stores.data.length >= 10 ? 10 : stores.data.length + 1);
+          if (!this.isMobile) {
+            this.filteredPharmacies = this.pharmacies.slice(0, stores.data.length >= 10 ? 10 : stores.data.length + 1);
+          } else {
+            this.filteredPharmacies = this.pharmacies = stores.data;
+          }
+
           this.datasource = stores.data;
           this.pageIndex = 1;
           this.pageSize = 10;
