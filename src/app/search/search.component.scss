@@ -99,12 +99,10 @@ $mobile-small: 300px;
   }
 }
 .input-label {
-  margin-top: 3%;
   font: normal normal medium 12px/16px Montserrat;
   color: #333333;
   text-align: left;
-  opacity: 1;
-  margin-right: 80px;
+  opacity: 0.7;
   letter-spacing: 0;
   @media only screen and (max-width : $mobile-large) {
     font-size: 12px;
