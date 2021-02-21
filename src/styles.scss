@@ -14,7 +14,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Montserrat;
 }
 
 
@@ -73,12 +73,14 @@ owl-carousel-o {
 
 .owl-carousel .prev-slide {
   content: url("src/assets/images/chevron-prev.png");
-  left: 0;
+  left: 5%;
+  opacity: 0.6;
 }
 
 .owl-carousel .next-slide {
   content: url("src/assets/images/chevron-next.png");
-  right: 0;
+  right: 5%;
+  opacity: 0.6;
 }
 
 .owl-theme .owl-dots {
@@ -110,14 +112,14 @@ owl-carousel-o {
 }
 
 .details-container {
-  margin-top: 1.5%;
+  margin-top: 3.5%;
   color: #186696;
   text-align: left;
   font-weight: revert;
   width: 50%;
   margin-left: 2%;
   @media only screen and (max-width: $mobile-large) {
-    margin-top: 10%;
+    margin-top: 8%;
     width: 70%;
     position: absolute;
     top: 0!important;
@@ -160,8 +162,8 @@ owl-carousel-o {
 }
 
 .order-button-container {
-  position: absolute;
-  width: 80%;
+  //position: absolute;
+  width: 100%;
   bottom: 0;
   margin-bottom: 3%;
   right: 0;

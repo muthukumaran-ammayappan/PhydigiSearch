@@ -12,7 +12,8 @@ $mobile-small: 300px;
   z-index: 11;
   position: absolute;
   top: 10%;
-  left: 5%;
+  left: 10%;
+  opacity: 0.85;
   font-family: Montserrat;
   @media only screen and (max-width : $mobile-large) {
     width: 65%;
@@ -24,7 +25,7 @@ $mobile-small: 300px;
 }
 .carousel-content h5{
   color: white;
-  font-size: 15px;
+  font-size: 16px;
 }
 .carousel-content h6{
   color: white;

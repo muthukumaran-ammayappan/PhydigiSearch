@@ -5,12 +5,17 @@ $mobile: 480px;
 $mobile-small: 300px;
 
 //@media only screen and (max-width :  $desktop/$tablet/$mobile-large/$mobile/$mobile-small)
-
+.cardBox{
+  background: transparent url('../../assets/images/rectangle_169.png') 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 4px #00000029;
+}
 .card-color {
-  background-color: rgb(248, 248, 248);
-  border-radius: 0;
-  color: black;
-  height: 50%;
+  background: transparent url('../../assets/images/rectangle_169.png') 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 4px #00000029;
+  opacity: 1;
+  width: 100%;
+  padding: 10px;
+  height: 80%;
   @media only screen and (max-width: $mobile-large) {
     height: auto;
   }
@@ -47,22 +52,23 @@ $mobile-small: 300px;
 }
 
 .mat-card {
-  padding: 2px !important;
+  padding: 10px !important;
 }
 
 // input
 
 .input-font {
   font-family: Montserrat;
-  font-size: 13px;
+  font-size: 14px;
   @media only screen and (max-width : $mobile-large) {
     height: 50px!important;
     padding: 0 5px 0 5px;
   }
 }
 .search{
-  border:1px solid rgba(0,0,0,0.2);
+  border:1px solid #D1D1D1;
   border-radius: 2px;
+  font-size: 14px;
   width: 80%;
   height: 40%;
   @media only screen and (max-width : $mobile) {
@@ -74,15 +80,16 @@ $mobile-small: 300px;
 }
 .input-field {
   font-weight: normal;
-  width: 80%;
+  width: 90%;
   margin-left: 2%;
   height: 100%;
+  padding: 15px;
   vertical-align: middle;
   text-align: left!important;
   //border: 1.5px solid rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 14px;
   background-color: rgba(0,0,0,0);
   @media only screen and (max-width : $mobile-large){
     width: 90%;
@@ -93,15 +100,17 @@ $mobile-small: 300px;
 }
 .input-label {
   margin-top: 3%;
-  font-size: 10px;
-  margin-right: 4%;
+  font: normal normal medium 12px/16px Montserrat;
   color: #333333;
+  text-align: left;
+  opacity: 1;
+  margin-right: 80px;
+  letter-spacing: 0;
   @media only screen and (max-width : $mobile-large) {
     font-size: 12px;
     font-weight: normal;
     margin-left: 2.5%;
     text-align: left;
-    width: 100%;
   }
 }
 .search-icon{
@@ -199,7 +208,11 @@ input:focus {
 }
 
 .slider {
-  width: 80%;
+  width: 90%;
+}
+.imageSize{
+  width: 24px;
+  height: 24px;
 }
 
 //footer
@@ -213,7 +226,7 @@ input:focus {
 //grider
 
 .grider {
-  border-bottom: 3px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   height: 55px !important;
   top: 0;
   @media only screen and (max-width : $mobile-large){
@@ -246,9 +259,9 @@ input:focus {
   text-align: left;
 }
 .pharmacy-name{
-  font-size: 16px;
+  font-size: 18px;
   color: #186696!important;
-  margin-bottom: 3%;
+  margin-top: 5px;
   font-family: "Montserrat Regular";
   font-weight: bold;
   @media only screen and (max-width: $mobile-large)  {
@@ -257,17 +270,16 @@ input:focus {
 }
 .pharmacy-address{
   font-size: 14px;
-  margin-bottom: 4%;
   color: #333333;
   width: 100%;
+  margin-top: 5px;
   font-weight: 600;
   @media only screen and (max-width: $mobile-large) {
     margin-bottom: 1%;
   }
   }
 .pharmacy-status{
-  font-family: 'Montserrat Medium';
-  font-size: 10px;
+  font-size: 14px;
   color: #333333;
   width: 100%;
   @media only screen and (max-width : $mobile-large) {
@@ -280,17 +292,15 @@ input:focus {
   color: white;
   border: #53BFB4;
   float: right;
-  font-family: Montserrat;
   font-size: 12px!important;
   height: 35px;
   width: 35%;
   @media only screen and (max-width : $mobile-large){
     width: 100%;
-    margin-top: 15%;
   }
   @media only screen and (max-width : $mobile) {
     width: 100%;
-    margin-top: 30%;
+
   }
   }
 .open-now{
@@ -299,14 +309,14 @@ input:focus {
   position: relative;
 }
 .delivery-available{
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Montserrat Regular";
   color: #333333;
 }
 .result-counter{
-  font-family: Montserrat;
-  font-size: 10px;
+  font-size: 14px;
   color:#777777;
+  opacity: 1;
   @media only screen and (max-width : $mobile-large) {
     position: relative;
     margin-top: 5%!important;
@@ -358,3 +368,35 @@ input:focus {
   color: #ffffff !important;
   text-decoration: none;
 }
+// card color added
+.cardColor{
+  background-color: #F8F8F8;
+  padding: 10px;
+}
+.myContent-left .col-md-4 {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  @media only screen and (max-width :$mobile-large) {
+    border-right-width: 0px;
+  }
+}
+.myContent-left .col-md-4:nth-last-child(1) {
+  border-right-width: 0;
+}
+.dot {
+  background-image: url('../../assets/images/dashed_slider.png');
+}
+.imgReSize{
+  //margin-right: 40px;
+  //margin-left: 40px;
+}
+.fullContainer .col-md-6{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 30px 30px;
+  @media only screen and (max-width :$mobile-large) {
+    padding: 30px 10px;
+  }
+}
+.fullContainer .col-md-6:nth-child(odd){
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
