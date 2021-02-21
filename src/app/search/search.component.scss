@@ -136,15 +136,19 @@ input:focus {
   }
 }
 .button-open {
-  font-family: Montserrat !important;
-  border-radius: 15px;
-  border: 1.5px solid #D1D1D1;
   margin-top: 9.5%;
-  width: 120px;
-  background-color: white;
+  width: 150px;
   line-height: 0!important;
-  color: black;
-  height: 30px;
+  height: 35px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #D1D1D1;
+  border-radius: 25px;
+  text-align: center;
+  font: normal normal medium 14px/18px Montserrat !important;
+  letter-spacing: 0px;
+  color: #333333;
+  opacity: 1;
+
   @media only screen and (max-width : $mobile-large) {
     margin-bottom: 5%;
     margin-left: 2%;
@@ -166,16 +170,16 @@ input:focus {
 
 }
 .button-delivery {
-  font-family: Montserrat !important;
-  border-radius: 15px;
+  font: normal normal medium 14px/18px Montserrat !important;
+  border-radius: 25px;
   border: 1.3px solid rgb(193, 193, 193);
   margin-top: 5%;
   background-color: white;
-  color: #4E4D5D;
-  width: 120px;
+  color: #333333;
+  width: 150px;
   line-height: 0!important;
   margin-left: 30px;
-  height: 30px;
+  height: 35px;
   @media only screen and (max-width: $mobile-large){
     margin-bottom: 5%;
     margin-top: 7%;
@@ -206,7 +210,7 @@ input:focus {
 }
 
 .slider {
-  width: 90%;
+  width: 100%;
 }
 .imageSize{
   width: 24px;
@@ -257,11 +261,13 @@ input:focus {
   text-align: left;
 }
 .pharmacy-name{
-  font-size: 18px;
-  color: #186696!important;
+  letter-spacing: 0px;
+  opacity: 1;
+  text-align: left;
+  font: normal normal 600 18px/22px Montserrat;
+  color: #186696;
   margin-top: 5px;
-  font-family: "Montserrat Regular";
-  font-weight: bold;
+  //font-weight: se;
   @media only screen and (max-width: $mobile-large)  {
     margin-bottom: 1.3%;
   }
@@ -277,22 +283,25 @@ input:focus {
   }
   }
 .pharmacy-status{
-  font-size: 14px;
+  font: normal normal medium 12px/19px Montserrat;
+  letter-spacing: 0px;
   color: #333333;
-  width: 100%;
+  opacity: 1;
+
   @media only screen and (max-width : $mobile-large) {
     width: 100%;
   }
 }
 .order-button{
-  border-radius: 25px;
-  background-color: #53BFB4;
+  border-radius: 23px;
+  background: #53BFB4 0% 0% no-repeat padding-box;
+  opacity: 1;
   color: white;
   border: #53BFB4;
   float: right;
   font-size: 12px!important;
-  height: 35px;
-  width: 35%;
+  height: 40px;
+  width: 142px;
   @media only screen and (max-width : $mobile-large){
     width: 100%;
   }
@@ -307,9 +316,15 @@ input:focus {
   position: relative;
 }
 .delivery-available{
-  font-size: 14px;
-  font-family: "Montserrat Regular";
+  text-align: left;
+  font: normal normal normal 12px/15px Montserrat;
+  letter-spacing: 0px;
   color: #333333;
+  opacity: 1;
+}
+
+.redColor{
+  color: #F5365D;
 }
 .result-counter{
   font-size: 14px;
@@ -401,3 +416,18 @@ input:focus {
   }
 }
 
+//***********
+.search-label {
+  font: normal normal medium 12px/16px Montserrat !important;
+  letter-spacing: 0px;
+  color: #333333;
+  opacity: 1;
+}
+
+.search-placeholder{
+  text-align: left;
+  font: normal normal normal 14px/18px Montserrat;
+  letter-spacing: 0px;
+  color: #777777;
+  opacity: 1;
+}

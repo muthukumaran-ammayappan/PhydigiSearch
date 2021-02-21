@@ -8,15 +8,19 @@ $mobile: 480px;
 $mobile-small: 300px;
 /* You can add global styles to this file, and also import other style files */
 
+body.body-class-name .a{text-decoration: none}
+
 html, body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: Montserrat;
 }
 
+body > div > a {
+  text-decoration: none;
+}
 
 /*mat-slider*/
 .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label, .mat-accent .mat-slider-track-fill {
@@ -130,10 +134,12 @@ owl-carousel-o {
 
 .pharmacy-mobile-call {
   font-size: 14px;
-  font-family: "Montserrat Regular";
-  font-weight: lighter;
+  margin-top: 3%!important;
+
+  font: normal normal normal 13px/19px Montserrat;
+  letter-spacing: 0px;
   color: #333333;
-  margin-top: 10%!important;
+  opacity: 1;
   @media only screen and(max-width: $mobile-large) {
     color: #003DAD!important;
     margin-top: 0!important;

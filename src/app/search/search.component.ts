@@ -40,7 +40,6 @@ export class SearchComponent implements OnInit {
   pageIndex: number;
   pageSize: number;
   length: number;
-  storeNumber;
 
   public bengalurLat = '12.967343065878191';
   public bengalurLng = '77.573937871773';
@@ -92,7 +91,7 @@ export class SearchComponent implements OnInit {
   // Image converter
   getImageFromService(data) {
     const API_HOST = 'https://dev.phydigi.com:9002/api/' + 'image?id=';
-    this.img = API_HOST + data;
+    return  API_HOST + data;
   }
 
   dayStatus(data) {
@@ -153,6 +152,7 @@ export class SearchComponent implements OnInit {
   }
 
   tConvert(time) {
+    // time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
     time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
     if (time.length > 1) {
       time = time.slice(1);
@@ -285,10 +285,4 @@ export class SearchComponent implements OnInit {
     this.filteredPharmacies = this.pharmacies.slice(startIndex, endIndex);
     return event;
   }
-
-  getStoreNumber(data) {
-    this.storeNumber = data;
-  }
-
-
 }

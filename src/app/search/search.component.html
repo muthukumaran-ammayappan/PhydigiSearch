@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
   <div class="row cardColor myContent-left justify-content-center">
     <div class="col-md-4 text-right">
@@ -5,10 +6,10 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-10 text-left">
-          <label class="input-label text-left" for="search">Search your Local Pharmacy & Order Ahead</label>
+          <label class="search-label text-left" for="search">Search your Local Pharmacy & Order Ahead</label>
           <div class="input-group col-md-12 ml-0 mr-0 pl-0 pr-0">
             <div class="input-group">
-              <input class="form-control py-2 border-right-0 border"
+              <input class="form-control py-2 border-right-0 border search-placeholder"
                      [(ngModel)]="searchValue" (input)="searchTimer($event.target.value)"
                      type="search" value="search"
                      placeholder="Search by Pharmacy,city, PIN code or area"
@@ -32,12 +33,12 @@
     <div class="col-md-4 text-center slider-top">
       <div class="row">
         <div class="col-2 mt-3 p-0 text-right">
-          <img src="/assets/images/Icon%20feather-home.png" class="imageSize">
+          <img src="/assets/images/Icon-feather-home.png" class="imageSize">
         </div>
         <div class="col-8 m-0 p-0">
           <mat-slider [(ngModel)]="km" (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
                       class="slider"
-                      thumbLabel min="0" max="7" step="1" value="3"></mat-slider>
+                      thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
         </div>
         <div class="col-2 mt-3 p-0 text-left">
           <img src="/assets/images/pharmacy.png" class="imageSize">
@@ -49,146 +50,152 @@
 
 <app-loader *ngIf="loading"></app-loader>
 <div class="lister" *ngIf="filteredPharmacies.length > 0 && !loading"><br>
-  <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 2">About {{filteredPharmacies.length}}
+  <span style="margin-left: 20px" class="result-counter" *ngIf="filteredPharmacies != null && cols == 2">About {{filteredPharmacies.length}}
     results (Near {{km}}km)</span>
-  <div class="row mt-4 fullContainer">
-    <div class="col-md-6">
+  <div class="row fullContainer">
+    <div *ngFor="let pharmacy of filteredPharmacies;let i = index" class="col-md-6">
       <div class="media">
-        <img class="pharmacy-image" src="https://picsum.photos/id/237/200/300" alt="Generic placeholder image">
+        <img class="pharmacy-image" [src]=getImageFromService(pharmacy[0].imageLogoId) alt="Order Ahead">
         <div class="media-body pl-2">
           <div class="row m-0 p-0">
             <div class="col-10 p-0 m-0">
-              <h5 class="pharmacy-name ml-0 p-0 m-0">registeredPharmacyName</h5>
+              <h5 class="pharmacy-name ml-0 p-0 m-0">{{pharmacy[0].registeredPharmacyName}}</h5>
             </div>
             <div class="col-2 p-0 m-0">
               <p class="map-distance map-marker-logo p-0 m-0">
                 <img src="/assets/images/location.png"
-                     width="9c"> 54km</p>
+                     width="9c"> {{pharmacy[3] | number : '1.0-2'}}km</p>
             </div>
           </div>
-          <h5 class="pharmacy-address">addressLine1</h5>
+          <h5 class="pharmacy-address">{{pharmacy[0].addressLine1}}</h5>
           <h6
-            class="pharmacy-status  mt-2">Closes at isOpen</h6>
+            class="pharmacy-status  mt-2">{{pharmacy[0].isOpen ? 'Closes at' : 'Opens at'}} {{pharmacy[0].isOpen ? tConvert(pharmacy[0].closeHour) : tConvert(pharmacy[0].startHour)}}</h6>
           <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
-            Delivery Available
+            {{pharmacy[0].homeDelivery == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <img src="/assets/images/greentick.png"
+            <img src="{{pharmacy[0].isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}"
                  height="8px" width="9px">
-            Opened</h6>
-
-        </div>
-      </div>
-      <a class="link-blue" href='https://dev.phydigi.com/{{storeNumber}}/store'>
-        <button class="mat-button order-button">Order Ahead</button>
-      </a>
-    </div>
-    <div class="col-md-6">
-      <div class="media">
-        <img class="pharmacy-image" src="https://picsum.photos/id/237/200/300" alt="Generic placeholder image">
-        <div class="media-body pl-2">
-          <div class="row m-0 p-0">
-            <div class="col-10 p-0 m-0">
-              <h5 class="pharmacy-name ml-0 p-0 m-0">registeredPharmacyName</h5>
-            </div>
-            <div class="col-2 p-0 m-0">
-              <p class="map-distance map-marker-logo p-0 m-0">
-                <img src="/assets/images/location.png"
-                     width="9c"> 54km</p>
-            </div>
+            <span class="{{pharmacy[0].isOpen ? null : 'redColor'}}"> {{pharmacy[0].isOpen ? "Open Now" : "Closed"}}</span></h6>
+          <div class="row m-0" style="float: left; padding-top: 5px">
+            <h5 class="pharmacy-mobile-call mt-2"><b class="call"><strong>Call: </strong>
+            </b><span> &nbsp;{{pharmacy[1] | slice:0:3}}-{{pharmacy[1] | slice:3:7}}-{{pharmacy[1] | slice:7:10}}</span>
+            </h5>
           </div>
-          <h5 class="pharmacy-address">addressLine1</h5>
-          <h6
-            class="pharmacy-status  mt-2">Closes at isOpen</h6>
-          <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
-            Delivery Available
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <img src="/assets/images/greentick.png"
-                 height="8px" width="9px">
-            Opened</h6>
-          <div class="row">
-            <div class="order-button-container">
-              <a class="link-blue" href='https://dev.phydigi.com/{{storeNumber}}/store'>
-                <button class="mat-button order-button">Order Ahead</button>
-              </a>
-            </div>
+          <div class="row  p-0 m-0" style="float: right">
+            <a class="link-blue" href='https://dev.phydigi.com/{{pharmacy[0].storeNumber}}/store'>
+              <button class="mat-button order-button">Order Ahead</button>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="media">
-        <img class="pharmacy-image" src="https://picsum.photos/id/237/200/300" alt="Generic placeholder image">
-        <div class="media-body pl-2">
-          <div class="row m-0 p-0">
-            <div class="col-10 p-0 m-0">
-              <h5 class="pharmacy-name ml-0 p-0 m-0">registeredPharmacyName</h5>
-            </div>
-            <div class="col-2 p-0 m-0">
-              <p class="map-distance map-marker-logo p-0 m-0">
-                <img src="/assets/images/location.png"
-                     width="9c"> 54km</p>
-            </div>
-          </div>
-          <h5 class="pharmacy-address">addressLine1</h5>
-          <h6
-            class="pharmacy-status  mt-2">Closes at isOpen</h6>
-          <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
-            Delivery Available
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <img src="/assets/images/greentick.png"
-                 height="8px" width="9px">
-            Opened</h6>
-          <div class="row">
-            <div class="order-button-container">
-              <a class="link-blue" href='https://dev.phydigi.com/{{storeNumber}}/store'>
-                <button class="mat-button order-button">Order Ahead</button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!--    <div class="col-md-6">-->
+    <!--      <div class="media">-->
+    <!--        <img class="pharmacy-image" src="https://picsum.photos/id/237/200/300" alt="Generic placeholder image">-->
+    <!--        <div class="media-body pl-2">-->
+    <!--          <div class="row m-0 p-0">-->
+    <!--            <div class="col-10 p-0 m-0">-->
+    <!--              <h5 class="pharmacy-name ml-0 p-0 m-0">registeredPharmacyName</h5>-->
+    <!--            </div>-->
+    <!--            <div class="col-2 p-0 m-0">-->
+    <!--              <p class="map-distance map-marker-logo p-0 m-0">-->
+    <!--                <img src="/assets/images/location.png"-->
+    <!--                     width="9c"> 54km</p>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <!--          <h5 class="pharmacy-address">addressLine1</h5>-->
+    <!--          <h6-->
+    <!--            class="pharmacy-status  mt-2">Closes at isOpen</h6>-->
+    <!--          <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">-->
+    <!--            Delivery Available-->
+    <!--            &nbsp;&nbsp;|&nbsp;&nbsp;-->
+    <!--            <img src="/assets/images/greentick.png"-->
+    <!--                 height="8px" width="9px">-->
+    <!--            Opened</h6>-->
+    <!--          <div class="row">-->
+    <!--            <div class="order-button-container">-->
+    <!--              <a class="link-blue" href='https://dev.phydigi.com/{{storeNumber}}/store'>-->
+    <!--                <button class="mat-button order-button">Order Ahead</button>-->
+    <!--              </a>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    <div class="col-md-6">-->
+    <!--      <div class="media">-->
+    <!--        <img class="pharmacy-image" src="https://picsum.photos/id/237/200/300" alt="Generic placeholder image">-->
+    <!--        <div class="media-body pl-2">-->
+    <!--          <div class="row m-0 p-0">-->
+    <!--            <div class="col-10 p-0 m-0">-->
+    <!--              <h5 class="pharmacy-name ml-0 p-0 m-0">registeredPharmacyName</h5>-->
+    <!--            </div>-->
+    <!--            <div class="col-2 p-0 m-0">-->
+    <!--              <p class="map-distance map-marker-logo p-0 m-0">-->
+    <!--                <img src="/assets/images/location.png"-->
+    <!--                     width="9c"> 54km</p>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <!--          <h5 class="pharmacy-address">addressLine1</h5>-->
+    <!--          <h6-->
+    <!--            class="pharmacy-status  mt-2">Closes at isOpen</h6>-->
+    <!--          <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">-->
+    <!--            Delivery Available-->
+    <!--            &nbsp;&nbsp;|&nbsp;&nbsp;-->
+    <!--            <img src="/assets/images/greentick.png"-->
+    <!--                 height="8px" width="9px">-->
+    <!--            Opened</h6>-->
+    <!--          <div class="row">-->
+    <!--            <div class="order-button-container">-->
+    <!--              <a class="link-blue" href='https://dev.phydigi.com/{{storeNumber}}/store'>-->
+    <!--                <button class="mat-button order-button">Order Ahead</button>-->
+    <!--              </a>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
   </div>
 
-  <mat-grid-list [cols]="cols" rowHeight="{{rows ? '5.6:4.5' : '3:1'}}" class="lister">
-    <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 1">About {{filteredPharmacies.length}}
-      results (Near {{km}}km)</span>
-    <mat-grid-tile class="grider myContent-left"
-                   *ngFor="let pharmacy of filteredPharmacies;let i = index">
-      <div class="pharmacy-image-container">
-        <img class="pharmacy-image" [src]="img">
-      </div>
-      <div *ngIf="cols == 2" class="map-marker">
-        <p class="map-distance map-marker-logo p-0">
-          <img src="/assets/images/location.png"
-             width="9c">  {{pharmacy[3] | number : '1.0-2'}}km</p>
-      </div>
-      <div class="details-container" *ngFor="let pharmacyDetails of pharmacy.slice(0,1)">
-        <div>{{getImageFromService(pharmacyDetails.imageLogoId)}}{{getStoreNumber(pharmacyDetails.storeNumber)}}</div>
-        <h3 class="pharmacy-name">{{pharmacyDetails.registeredPharmacyName}}</h3>
-        <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5>
-        <p *ngIf="cols == 1" class="map-distance mt-4">
-          <img class="map-marker-logo" src="/assets/images/location.png"
-               height="13" width="9">  {{pharmacy[3] | number : '1.0-2'}}km</p>
-        <h6
-          class="pharmacy-status mt-2">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? tConvert(pharmacyDetails.closeHour) : tConvert(pharmacyDetails.startHour)}}</h6>
-        <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
-          {{pharmacyDetails.homeDelivery == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <img src="{{pharmacyDetails.isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}"
-               height="8px" width="9px">
-          {{pharmacyDetails.isOpen ? "Opened" : "Closed"}}</h6>
-        <h5 class="pharmacy-mobile-call mt-2"><b class="call"><strong>Call:</strong> </b><span> {{pharmacy[1]}}</span>
-        </h5>
-      </div>
+  <!--  <mat-grid-list [cols]="cols" rowHeight="{{rows ? '5.6:4.5' : '3:1'}}" class="lister">-->
+  <!--    <span class="result-counter" *ngIf="filteredPharmacies != null && cols == 1">About {{filteredPharmacies.length}}-->
+  <!--      results (Near {{km}}km)</span>-->
+  <!--    <mat-grid-tile class="grider myContent-left"-->
+  <!--                   *ngFor="let pharmacy of filteredPharmacies;let i = index">-->
+  <!--      <div class="pharmacy-image-container">-->
+  <!--        <img class="pharmacy-image" [src]="img">-->
+  <!--      </div>-->
+  <!--      <div *ngIf="cols == 2" class="map-marker">-->
+  <!--        <p class="map-distance map-marker-logo p-0">-->
+  <!--          <img src="/assets/images/location.png"-->
+  <!--               width="9c">  {{pharmacy[3] | number : '1.0-2'}}km</p>-->
+  <!--      </div>-->
+  <!--      <div class="details-container" *ngFor="let pharmacyDetails of pharmacy.slice(0,1)">-->
+  <!--        <div>{{getImageFromService(pharmacyDetails.imageLogoId)}}{{getStoreNumber(pharmacyDetails.storeNumber)}}</div>-->
+  <!--        <h3 class="pharmacy-name">{{pharmacyDetails.registeredPharmacyName}}</h3>-->
+  <!--        <h5 class="pharmacy-address">{{pharmacyDetails.addressLine1}}</h5>-->
+  <!--        <p *ngIf="cols == 1" class="map-distance mt-4">-->
+  <!--          <img class="map-marker-logo" src="/assets/images/location.png"-->
+  <!--               height="13" width="9">  {{pharmacy[3] | number : '1.0-2'}}km</p>-->
+  <!--        <h6-->
+  <!--          class="pharmacy-status mt-2">{{pharmacyDetails.isOpen ? 'Closes at' : 'Opens at'}} {{pharmacyDetails.isOpen ? tConvert(pharmacyDetails.closeHour) : tConvert(pharmacyDetails.startHour)}}</h6>-->
+  <!--        <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">-->
+  <!--          {{pharmacyDetails.homeDelivery == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}-->
+  <!--          &nbsp;&nbsp;|&nbsp;&nbsp;-->
+  <!--          <img src="{{pharmacyDetails.isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}"-->
+  <!--               height="8px" width="9px">-->
+  <!--          {{pharmacyDetails.isOpen ? "Opened" : "Closed"}}</h6>-->
+  <!--        <h5 class="pharmacy-mobile-call mt-2"><b class="call"><strong>Call:</strong> </b><span> {{pharmacy[1]}}</span>-->
+  <!--        </h5>-->
+  <!--      </div>-->
 
-      <div class="order-button-container">
-        <a class="link-blue" href='https://dev.phydigi.com/{{storeNumber}}/store'>
-          <button class="mat-button order-button">Order Ahead</button>
-        </a>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <!--      <div class="order-button-container">-->
+  <!--        <a class="link-blue" href='https://dev.phydigi.com/{{storeNumber}}/store'>-->
+  <!--          <button class="mat-button order-button">Order Ahead</button>-->
+  <!--        </a>-->
+  <!--      </div>-->
+  <!--    </mat-grid-tile>-->
+  <!--  </mat-grid-list>-->
   <mat-paginator #paginator style-paginator
                  [length]="length"
                  [pageIndex]="pageIndex[1]"
@@ -203,3 +210,7 @@
 <div class="footer">
   <app-footer></app-footer>
 </div>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!--<link rel="stylesheet" href="../../styles.scss">-->
