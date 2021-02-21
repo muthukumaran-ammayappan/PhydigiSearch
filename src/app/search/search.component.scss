@@ -276,6 +276,7 @@ input:focus {
   font-size: 14px;
   color: #333333;
   width: 100%;
+  font: normal normal 600 14px/18px Montserrat;
   margin-top: 5px;
   font-weight: 600;
   @media only screen and (max-width: $mobile-large) {
@@ -283,13 +284,14 @@ input:focus {
   }
   }
 .pharmacy-status{
-  font: normal normal medium 12px/19px Montserrat;
+  font: normal normal 600 12px/16px Montserrat !important;
   letter-spacing: 0px;
   color: #333333;
   opacity: 1;
 
   @media only screen and (max-width : $mobile-large) {
     width: 100%;
+    font: normal normal 600 12px/16px Montserrat !important;
   }
 }
 .order-button{
@@ -298,15 +300,15 @@ input:focus {
   opacity: 1;
   color: white;
   border: #53BFB4;
-  float: right;
+  float: right im !important;
   font-size: 12px!important;
   height: 40px;
-  width: 142px;
+  width: 100%;
   @media only screen and (max-width : $mobile-large){
-    width: 100%;
+    width: 100% !important;
   }
   @media only screen and (max-width : $mobile) {
-    width: 100%;
+    width: 100% !important;
 
   }
   }
@@ -331,7 +333,6 @@ input:focus {
   color:#777777;
   opacity: 1;
   @media only screen and (max-width : $mobile-large) {
-    position: relative;
     margin-top: 5%!important;
     left: 0;
   }
@@ -369,9 +370,6 @@ input:focus {
     margin-bottom: 1%;
   }
   }
-//.link-blue{
-//  color: #186696!important;;
-//}
 .ui-grid, .ui-grid-viewport{
   @media only screen and (max-width: $mobile-large) {
     height: 20px!important;
@@ -380,6 +378,15 @@ input:focus {
 .link-blue{
   color: #ffffff !important;
   text-decoration: none;
+  width: 100%;
+  float: right !important;
+  @media only screen and (max-width : $mobile-large){
+    width: 100% !important;
+  }
+  @media only screen and (max-width : $mobile) {
+    width: 100% !important;
+
+  }
 }
 // card color added
 .cardColor{
@@ -418,9 +425,11 @@ input:focus {
 
 //***********
 .search-label {
+  font-family: Montserrat;
   font: normal normal medium 12px/16px Montserrat !important;
   letter-spacing: 0px;
   color: #333333;
+  font-size: 14px;
   opacity: 1;
 }
 
