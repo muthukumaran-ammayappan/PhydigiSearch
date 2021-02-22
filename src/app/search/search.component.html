@@ -21,10 +21,10 @@
     </div>
     <div class="col-md-4 text-center">
       <button class="button-open {{isOpen? 'colorGrey' : null}} " (click)="onClickOpen()"><i
-          class="{{color ? 'fa fa-check' : null}}"></i> Open
+          class="{{isOpen ? 'fa fa-check' : null}}"></i> Open
       </button>
       <button class="button-delivery {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><i
-          class="{{deliColor ? 'fa fa-check' : null}}"></i> Delivery
+          class="{{isDeliveryEnable ? 'fa fa-check' : null}}"></i> Delivery
       </button>
     </div>
     <div class="col-md-4 text-center slider-top">

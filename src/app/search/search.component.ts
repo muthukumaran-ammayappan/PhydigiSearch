@@ -33,9 +33,6 @@ export class SearchComponent implements OnInit {
   isOpen = false;
   isDeliveryEnable = false;
   img;
-  color = false;
-  deliColor = false;
-
   pageEvent: PageEvent;
   datasource: null;
   pageIndex: number;
