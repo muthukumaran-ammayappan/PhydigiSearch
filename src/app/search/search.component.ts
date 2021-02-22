@@ -38,6 +38,7 @@ export class SearchComponent implements OnInit {
   pageIndex: number;
   pageSize: number;
   length: number;
+  isSearch = false;
 
   public bengalurLat = '12.967343065878191';
   public bengalurLng = '77.573937871773';
@@ -202,6 +203,9 @@ export class SearchComponent implements OnInit {
     let param = '';
     if (search !== '') {
       param = 'search=' + search + '&';
+      this.isSearch = true;
+    } else {
+      this.isSearch = false;
     }
     if (this.lat !== null && this.lat !== '') {
       param += 'lat=' + this.lat + '&';

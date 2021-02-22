@@ -10,6 +10,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {LoaderComponent} from '../loader/loader.component';
 import {StylePaginatorDirective} from './style-paginator.directive';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -29,6 +30,7 @@ import {StylePaginatorDirective} from './style-paginator.directive';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
+    MatTooltipModule,
   ],
   exports: [
     SearchComponent,

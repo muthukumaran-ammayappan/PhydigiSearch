@@ -30,14 +30,16 @@
     <div class="col-md-4 text-center slider-top">
       <div class="row">
         <div class="col-2 mt-3 p-0 text-right">
-          <svg xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7" viewBox="0 0 19.7 21.7"><defs><style>.a{fill:none;stroke:#333;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.7px;}</style></defs><g transform="translate(-3.65 -2.15)"><path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z" transform="translate(0 0)"/><path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)"/></g></svg>
+          <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7" viewBox="0 0 19.7 21.7"><defs><style>.a{fill:none;stroke:#333;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.7px;}</style></defs><g transform="translate(-3.65 -2.15)"><path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z" transform="translate(0 0)"/><path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)"/></g></svg><br>
+          <label class="label-slider-home">Home</label>
         </div>
         <div class="col-8 m-0 p-0">
-          <mat-slider [(ngModel)]="km" (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
+          <mat-slider [(ngModel)]="km" disabled="{{isSearch}}" (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
             class="slider" thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
         </div>
         <div class="col-2 mt-3 p-0 text-left">
-          <img src="/assets/images/pharmacy.png" class="imageSize">
+          <img matTooltip="My Pharmacy" src="/assets/images/pharmacy.png" class="imageSize"><br>
+          <label class="label-slider-pharmacy">My Pharmacy</label>
         </div>
       </div>
     </div>
@@ -61,7 +63,7 @@
               <h5 class="pharmacy-address">{{pharmacy[0].addressLine1}}</h5>
             </div>
             <div class="col-md-2 p-0 m-0 col-sm-12 col-lg-2">
-              <p class="map-distance map-marker-logo p-0 m-0">
+              <p *ngIf="!isSearch" class="map-distance map-marker-logo p-0 m-0">
                 <img src="/assets/images/location.png" style="margin-top: -5px" width="9c"> {{pharmacy[2] | number : '1.0-2'}}km</p>
             </div>
           </div>
