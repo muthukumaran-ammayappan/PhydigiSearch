@@ -20,10 +20,10 @@
       </div>
     </div>
     <div class="col-md-4 text-center">
-      <button class="button-open {{color? 'colorGrey' : null}} " (click)="onClickOpen()"><i
+      <button class="button-open {{isOpen? 'colorGrey' : null}} " (click)="onClickOpen()"><i
           class="{{color ? 'fa fa-check' : null}}"></i> Open
       </button>
-      <button class="button-delivery {{deliColor? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><i
+      <button class="button-delivery {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><i
           class="{{deliColor ? 'fa fa-check' : null}}"></i> Delivery
       </button>
     </div>
@@ -62,7 +62,7 @@
             </div>
             <div class="col-md-2 p-0 m-0 col-sm-12 col-lg-2">
               <p class="map-distance map-marker-logo p-0 m-0">
-                <img src="/assets/images/location.png" style="margin-top: -5px" width="9c"> {{pharmacy[3] | number : '1.0-2'}}km</p>
+                <img src="/assets/images/location.png" style="margin-top: -5px" width="9c"> {{pharmacy[2] | number : '1.0-2'}}km</p>
             </div>
           </div>
           <h6 class="pharmacy-status mt-2">{{pharmacy[0].isOpen ? 'Closes at' : 'Opens at'}}
@@ -96,7 +96,7 @@
   </div>
 
   <mat-paginator #paginator style-paginator [hidden]="isMobile" [length]="length" [pageIndex]="pageIndex[1]" [pageSize]="pageSize"
-    [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent = OnPageChange($event)">
+    (page)="pageEvent = OnPageChange($event)">
   </mat-paginator>
 </div><br><br>
 <div *ngIf="filteredPharmacies.length == 0 && !loading">

@@ -5,6 +5,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {DatePipe} from '@angular/common';
 import {StoreTiming} from '../model/search.model';
 import {PageEvent} from '@angular/material';
+import {environment} from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-search',
@@ -93,7 +94,7 @@ export class SearchComponent implements OnInit {
 
   // Image converter
   getImageFromService(data) {
-    const API_HOST = 'https://dev.phydigi.com:9002/api/' + 'image?id=';
+    const API_HOST = environment.serviceURL + 'image?id=';
     return  API_HOST + data;
   }
 
@@ -218,7 +219,6 @@ export class SearchComponent implements OnInit {
     if (this.km) {
       param += 'km=' + this.km;
     }
-    // console.log(param);
     this.searchService.fetchAllStores(param)
       .subscribe(stores => {
         if (stores.data && stores.data.length > 0) {
@@ -261,13 +261,11 @@ export class SearchComponent implements OnInit {
   onClickOpen() {
     this.isOpen = !this.isOpen;
     this.filterStores();
-    this.color = this.isOpen === true;
   }
 
   onClickDelivery() {
     this.isDeliveryEnable = !this.isDeliveryEnable;
     this.filterStores();
-    this.deliColor = this.isDeliveryEnable == true;
   }
 
   filterStores() {

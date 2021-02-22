@@ -311,6 +311,9 @@ input:focus {
 
   }
   }
+.order-button:focus{
+  outline: none;
+}
 .open-now{
   font-size: 10px;
   color: black;
@@ -447,4 +450,8 @@ input:focus {
   letter-spacing: 0px;
   color: #777777;
   opacity: 1;
+}
+
+.form-control:focus{
+  box-shadow:none;
 }

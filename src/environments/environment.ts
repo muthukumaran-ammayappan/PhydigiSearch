@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  serviceURL: 'https://dev.phydigi.com:9002/api/',
+  serviceURL: 'http://localhost:9002/api/',
 };
 
 /*
