@@ -16,6 +16,10 @@ export class SearchService {
     return this.httpClient.get<any>(`${this.getAccesspoint()}ops/store/pharmacySearch?` + postData);
   }
 
+  fetchAllSlides(postData) {
+    return this.httpClient.get<any>(`${this.getAccesspoint()}ops/store/getSearchImage?` + postData);
+  }
+
   getAccesspoint() {
     return environment.serviceURL;
   }

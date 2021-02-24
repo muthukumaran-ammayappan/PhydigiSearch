@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import {SearchService} from '../services/search.service';
+import {environment} from "../../environments/environment.prod";
 
 @Component({
   selector: 'app-slides',
@@ -8,13 +10,11 @@ import {OwlOptions} from 'ngx-owl-carousel-o';
 })
 export class SlidesComponent implements OnInit {
 
-  constructor() {
+  constructor(private searchService: SearchService) {
   }
 
-  slides = [{url: '/assets/images/eye.jpg'},
-    {url: '/assets/images/eye2.png'},
-    {url: '/assets/images/pills.jpg'}];
-
+  slideResult: [];
+  url = 'http://localhost:9002/api/';
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -43,6 +43,16 @@ export class SlidesComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.getSlides();
+    // this.url = environment.serviceURL;
+  }
+
+  getSlides() {
+    const postData = null;
+    this.searchService.fetchAllSlides(postData)
+      .subscribe(response => {
+        this.slideResult = response.data;
+      });
   }
 
 }

@@ -44,9 +44,13 @@ $mobile-small: 300px;
   }
 }
 .more-mobile{
+  bottom: 2%;
   @media only screen and (max-width : $mobile-large) {
     z-index: 10;
     position: absolute;
     top:38%;
   }
+}
+.link-image{
+  pointer-events: none;
 }

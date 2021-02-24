@@ -136,17 +136,23 @@ owl-carousel-o {
   font-size: 14px;
   margin-top: 3%!important;
 
+  margin-left: 18%;
   font: normal normal normal 13px/19px Montserrat;
   letter-spacing: 0px;
-  color: #333333;
+  color: #333333!important;
   opacity: 1;
   @media only screen and(max-width: $mobile-large) {
     color: #003DAD!important;
     margin-top: 0!important;
-    margin-left: 16%;
+    margin-left: 20%;
   }
 }
-
+.pharmacy-mobile-link{
+ color: #333333;
+  @media only screen and(max-width: $mobile-large) {
+    color: #003DAD !important;
+  }
+}
 .call {
   font-family: 'Montserrat';
   font-size: 12px;
@@ -183,6 +189,7 @@ owl-carousel-o {
 }
 
 .slide-mobile {
+  height: 159px;
   @media only screen and (max-width: $mobile) {
     height: 90px;
     width: 140%;
@@ -279,3 +286,8 @@ owl-carousel-o {
 .mat-paginator-page-size{
   display: none!important;
 }
+.mat-slider.mat-slider-horizontal .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 2px,transparent 0,transparent);
+
+}
+
