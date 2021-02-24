@@ -179,7 +179,7 @@ export class SearchComponent implements OnInit {
         },
         (error: PositionError) => {
           this.searchPharmacy();
-          console.log(error);
+          // console.log(error);
         });
     } else {
       this.searchPharmacy();
