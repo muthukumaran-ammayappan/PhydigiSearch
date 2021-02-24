@@ -123,9 +123,6 @@ export class SearchComponent implements OnInit {
 
       return returnData;
     } else if (currentDay === 3) {
-      console.log('wednes day currentTime - ', currentTime, 'currentDay -', currentDay);
-      console.log('data.wedStartHour - ', data.wedStartHour, '<', currentTime,
-        '|| data.wedEndHour' , data.wedEndHour, '> currentTime', currentTime );
 
       returnData.isOpen = (data.wedStartHour < currentTime && data.wedEndHour > currentTime);
       returnData.startHour = data.thuStartHour;

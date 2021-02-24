@@ -67,7 +67,7 @@
           <div class="row m-0 p-0">
             <div class="col-md-10 p-0 m-0 col-sm-12 col-lg-10">
               <h5 class="pharmacy-name ml-0 p-0 m-0">{{pharmacy[0].displayName}}</h5>
-              <h5 class="pharmacy-address">{{pharmacy[0].addressLine1}}{{pharmacy[0].addressLine2}}</h5>
+              <h5 class="pharmacy-address">{{pharmacy[0].addressLine1}}, {{pharmacy[0].addressLine2}}</h5>
             </div>
             <div class="col-md-2 p-0 m-0 col-sm-12 col-lg-2">
               <p *ngIf="!isSearch" class="map-distance map-marker-logo p-0 m-0">
@@ -89,18 +89,16 @@
       <div class="row m-0 p-0" style="padding-top: 5px">
         <div class="col-md-2">
         </div>
-        <div class="col-md-4 col-sm-12 text-left" style="padding-left: 0px!important;">
+        <div class="col-md-4 col-sm-12" style="padding-left: 0px!important;">
           <h5 class="pharmacy-mobile-call mt-2"><b class="call"><strong>Call: </strong>
             </b><a class="pharmacy-mobile-link" href="tel:{{pharmacy[1]}}"><span>
             &nbsp;{{pharmacy[1] | slice:0:3}}-{{pharmacy[1] | slice:3:7}}-{{pharmacy[1] | slice:7:10}}</span></a>
           </h5>
         </div>
-        <div class="col-md-5 col-sm-12">
-          <div class="text-right">
+        <div class="col-md-6 col-sm-12" style ="padding: 0px; border: unset">
           <a class="link-blue" href='https://dev.phydigi.com/{{pharmacy[0].storeNumber}}/store'>
             <button class="order-button">Order Ahead</button>
           </a>
-          </div>
         </div>
       </div>
     </div>
