@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {SearchService} from '../services/search.service';
-import {environment} from "../../environments/environment.prod";
+import {environment} from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-slides',
@@ -14,7 +14,7 @@ export class SlidesComponent implements OnInit {
   }
 
   slideResult: [];
-  url = 'http://localhost:9002/api/';
+  url ;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -44,7 +44,7 @@ export class SlidesComponent implements OnInit {
 
   ngOnInit() {
     this.getSlides();
-    // this.url = environment.serviceURL;
+    this.url = environment.serviceURL;
   }
 
   getSlides() {
