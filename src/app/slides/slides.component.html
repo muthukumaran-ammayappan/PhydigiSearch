@@ -1,12 +1,7 @@
 <owl-carousel-o [options]="customOptions">
   <ng-template carouselSlide class="carousel-height" *ngFor="let slide of slideResult">
     <a href="{{slide.carouselLink}}" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}imageSearch?id={{slide.id}}"></a>
-<!--    <img *ngIf="slide.carouselLink == null" class="slide-mobile" src="{{url}}imageSearch?id={{slide.id}}">-->
     <div class="carousel-content">
-<!--      <h3 class="display-txt">LOREM IPSUM</h3>-->
-<!--      <h5 class="font-mobile">Lorem Ipsum is simply dummy text of the printing <span class="hide-mobile">and typesetting industry. Lorem Ipsum has-->
-<!--       been the industry's standard dummy text ever since the 1500s, when an unknown.</span></h5>-->
-<!--      <h6 class="more-mobile"><a>Know More</a></h6>-->
     </div>
   </ng-template>
 </owl-carousel-o>
