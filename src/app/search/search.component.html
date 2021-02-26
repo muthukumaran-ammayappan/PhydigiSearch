@@ -5,12 +5,12 @@
         <div class="col-md-2">
         </div>
         <div class="col-md-10 text-center">
-          <label class="search-label text-left" for="search">Search Your Local Pharmacy</label>
+          <label class="search-label text-left" for="search">Search your Local Pharmacy</label>
           <div class="input-group col-md-12 ml-0 mr-0 pl-0 pr-0">
             <div class="input-group">
               <input class="form-control py-2 border-right-0 border search-placeholder" [(ngModel)]="searchValue"
                 (input)="searchTimer($event.target.value)" type="search" value="search"
-                placeholder="Search by Pharmacy,City,PIN code or area" id="search">
+                placeholder="Search by Pharmacy,City,PIN code or Area" id="search">
               <span class="input-group-append">
                 <div class="input-group-text bg-white"><img src="/assets/images/Icon-ionic-ios-search.png" height="16px" width="16px"></div>
               </span>
@@ -23,7 +23,7 @@
       <div class="row m-0 text-center" style="text-align: center;">
         <label class="label-filter">Filters</label>
       </div>
-      <button class="button-open {{isOpen? 'colorGrey' : null}} " (click)="onClickOpen()"><i
+      <button class="button-open {{isOpen? 'colorGrey' : ''}} " (click)="onClickOpen()"><i
           class="{{isOpen ? 'fa fa-check' : null}}"></i> Open
       </button>
       <button class="button-delivery {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><i
@@ -67,7 +67,7 @@
           <div class="row m-0 p-0">
             <div class="col-md-10 p-0 m-0 col-sm-12 col-lg-10">
               <h5 class="pharmacy-name ml-0 p-0 m-0">{{pharmacy[0].displayName}}</h5>
-              <h5 class="pharmacy-address">{{pharmacy[0].addressLine1}}, {{pharmacy[0].addressLine2}}</h5>
+              <h5 class="pharmacy-address">{{pharmacy[0].addressLine1 + (pharmacy[0].addressLine2 ? ', '+pharmacy[0].addressLine2:'') + ', ' + pharmacy[0].city.cityName + ', ' + pharmacy[0].city.state.stateName + ', ' + pharmacy[0].city.pinCode}}</h5>
             </div>
             <div class="col-md-2 p-0 m-0 col-sm-12 col-lg-2">
               <p *ngIf="!isSearch" class="map-distance map-marker-logo p-0 m-0">
@@ -82,11 +82,26 @@
             <img src="{{pharmacy[0].isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}" height="8px"
               width="9px">
             <span class="{{pharmacy[0].isOpen ? null : 'redColor'}}">
-              {{pharmacy[0].isOpen ? "Open Now" : "Closed"}}</span></h6>
+              {{pharmacy[0].isOpen ? "Open Now" : "Closed"}}</span></h6><br *ngIf="cols == 2">
 
+          <div *ngIf="cols == 2" class="row m-0 p-0 space-hider" style="padding-top: 5px">
+            <div class="col-md-5 col-sm-12" style="padding-left: 0px!important;">
+              <h5 class="pharmacy-mobile-call mt-2"><b class="call"><strong>Call: </strong>
+              </b><a class="pharmacy-mobile-link" href="tel:{{pharmacy[1]}}"><span>
+            &nbsp;{{pharmacy[1] | slice:0:3}}-{{pharmacy[1] | slice:3:7}}-{{pharmacy[1] | slice:7:10}}</span></a>
+              </h5>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-6 col-sm-12" style ="padding: 0px; border: unset">
+              <a class="link-blue" href='{{API_HOST}}/{{pharmacy[0].storeNumber}}/store'>
+                <button mat-button class="order-button">Order Ahead</button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row m-0 p-0" style="padding-top: 5px">
+      <div *ngIf="cols == 1" class="row m-0 p-0" style="padding-top: 5px">
         <div class="col-md-2">
         </div>
         <div class="col-md-4 col-sm-12" style="padding-left: 0px!important;">
@@ -96,8 +111,8 @@
           </h5>
         </div>
         <div class="col-md-6 col-sm-12" style ="padding: 0px; border: unset">
-          <a class="link-blue" href='https://dev.phydigi.com/{{pharmacy[0].storeNumber}}/store'>
-            <button class="order-button">Order Ahead</button>
+          <a class="link-blue" href='{{API_HOST}}{{pharmacy[0].storeNumber}}/store'>
+            <button mat-button class="order-button">Order Ahead</button>
           </a>
         </div>
       </div>
@@ -109,7 +124,7 @@
   </mat-paginator>
 </div><br><br>
 <div *ngIf="filteredPharmacies.length == 0 && !loading">
-  <h1 class="no-results">No Results !</h1>
+  <h1 class="no-results">Sorry we couldn't find any results</h1>
 </div>
 <div class="footer">
   <app-footer></app-footer>

@@ -39,6 +39,7 @@ export class SearchComponent implements OnInit {
   pageSize: number;
   length: number;
   isSearch = false;
+  API_HOST = environment.serviceURL;
 
   public bengalurLat = '12.967343065878191';
   public bengalurLng = '77.573937871773';
@@ -92,8 +93,7 @@ export class SearchComponent implements OnInit {
 
   // Image converter
   getImageFromService(data) {
-    const API_HOST = environment.serviceURL + 'image?id=';
-    return  API_HOST + data;
+    return  this.API_HOST + ':9002/api/image?id=' + data;
   }
 
   dayStatus(data) {
@@ -223,6 +223,7 @@ export class SearchComponent implements OnInit {
     }
     this.searchService.fetchAllStores(param)
       .subscribe(stores => {
+        console.log(stores);
         if (stores.data && stores.data.length > 0) {
           stores.data.forEach(store => {
             const returnData = this.dayStatus(store[0]);

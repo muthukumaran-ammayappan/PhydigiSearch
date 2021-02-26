@@ -11,6 +11,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {LoaderComponent} from '../loader/loader.component';
 import {StylePaginatorDirective} from './style-paginator.directive';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -31,6 +32,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatTooltipModule,
+    MatButtonModule,
   ],
   exports: [
     SearchComponent,
