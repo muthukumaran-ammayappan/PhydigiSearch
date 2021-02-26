@@ -31,7 +31,7 @@
     </div>
     <div class="col-md-4 text-center slider-top">
       <div class="row slider-padding">
-        <div class="col-1 mt-3 text-right" style="padding-right: 0!important;">
+        <div class="col-1 slide-home-icon text-right" style="padding-right: 0!important;">
           <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7" viewBox="0 0 19.7 21.7"><defs><style>.a{fill:none;stroke:#333;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.7px;}</style></defs><g transform="translate(-3.65 -2.15)"><path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z" transform="translate(0 0)"/><path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)"/></g></svg><br>
         </div>
         <div class="col-10 m-0" style="width: 100%; padding-left: 0!important; padding-right: 0!important;">
@@ -81,9 +81,9 @@
             <img src="{{pharmacy[0].isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}" height="8px"
               width="9px">
             <span class="{{pharmacy[0].isOpen ? null : 'redColor'}}">
-              {{pharmacy[0].isOpen ? "Open Now" : "Closed"}}</span></h6><br *ngIf="cols == 2">
+              {{pharmacy[0].isOpen ? "Open Now" : "Closed"}}</span></h6>
 
-          <div *ngIf="cols == 2" class="row m-0 p-0 space-hider" style="padding-top: 5px">
+          <div *ngIf="cols == 2" class="row m-0 space-hider" style="padding-top: 5px">
             <div class="col-md-5 col-sm-12" style="padding-left: 0px!important;">
               <h5 class="pharmacy-mobile-call mt-2"><b class="call"><strong>Call: </strong>
               </b><a class="pharmacy-mobile-link" href="tel:{{pharmacy[1]}}"><span>

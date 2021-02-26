@@ -307,7 +307,7 @@ input:focus {
   white-space: nowrap;
   overflow: hidden;
   @media only screen and (max-width: $mobile-large) {
-    font: normal normal 500 14px/18px Montserrat;
+    font: normal normal 14px/18px Montserrat;
     margin-bottom: 1%;
     text-overflow: unset;
     white-space: unset;
@@ -589,4 +589,7 @@ input:focus {
 }
 .pharmacy{
   padding-left: 0;
+}
+.slide-home-icon{
+margin-top: 1.2rem!important;
 }
