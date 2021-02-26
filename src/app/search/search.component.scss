@@ -5,10 +5,11 @@ $mobile: 480px;
 $mobile-small: 300px;
 
 //@media only screen and (max-width :  $desktop/$tablet/$mobile-large/$mobile/$mobile-small)
-.cardBox{
+.cardBox {
   background: transparent url('../../assets/images/rectangle_169.png') 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 4px #00000029;
 }
+
 .card-color {
   background: transparent url('../../assets/images/rectangle_169.png') 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 4px #00000029;
@@ -32,9 +33,9 @@ $mobile-small: 300px;
   display: flex;
   @media only screen and (max-width: $mobile) {
     display: block;
-    .col-lg-4,.col-md-4,.col-sm-12{
-      padding-right: 2px!important;
-      padding-left: 2px!important;
+    .col-lg-4, .col-md-4, .col-sm-12 {
+      padding-right: 2px !important;
+      padding-left: 2px !important;
     }
   }
 
@@ -60,24 +61,26 @@ $mobile-small: 300px;
 .input-font {
   font-family: Montserrat;
   font-size: 14px;
-  @media only screen and (max-width : $mobile-large) {
-    height: 50px!important;
+  @media only screen and (max-width: $mobile-large) {
+    height: 50px !important;
     padding: 0 5px 0 5px;
   }
 }
-.search{
-  border:1px solid #D1D1D1;
+
+.search {
+  border: 1px solid #D1D1D1;
   border-radius: 2px;
   font-size: 14px;
   width: 80%;
   height: 40%;
-  @media only screen and (max-width : $mobile) {
+  @media only screen and (max-width: $mobile) {
     float: none;
     width: 95%;
     height: 80%;
   }
-    float: right;
+  float: right;
 }
+
 .input-field {
   font-weight: normal;
   width: 90%;
@@ -85,33 +88,35 @@ $mobile-small: 300px;
   height: 100%;
   padding: 15px;
   vertical-align: middle;
-  text-align: left!important;
+  text-align: left !important;
   //border: 1.5px solid rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 2px;
   font-size: 14px;
-  background-color: rgba(0,0,0,0);
-  @media only screen and (max-width : $mobile-large){
+  background-color: rgba(0, 0, 0, 0);
+  @media only screen and (max-width: $mobile-large) {
     width: 90%;
     justify-content: flex-end;
     font-weight: normal;
     //margin-bottom: 2%;
   }
 }
+
 .input-label {
   font: normal normal medium 12px/16px Montserrat;
   color: #333333;
   text-align: left;
   opacity: 0.7;
   letter-spacing: 0;
-  @media only screen and (max-width : $mobile-large) {
+  @media only screen and (max-width: $mobile-large) {
     font-size: 12px;
     font-weight: normal;
     margin-left: 2.5%;
     text-align: left;
   }
 }
-.search-icon{
+
+.search-icon {
   float: right;
   margin-right: 2%;
   margin-top: 1%;
@@ -119,6 +124,7 @@ $mobile-small: 300px;
   z-index: 999;
   height: 80%;
 }
+
 input:focus {
   outline: none !important;
 }
@@ -129,16 +135,17 @@ input:focus {
 .card-button {
   font-family: Montserrat !important;
   text-align: center;
-  @media only screen and (max-width : $mobile-large) {
-    border-bottom: 1.2px solid rgba(0,0,0,0.1)!important;
+  @media only screen and (max-width: $mobile-large) {
+    border-bottom: 1.2px solid rgba(0, 0, 0, 0.1) !important;
     outline-offset: -2px;
     display: flex;
   }
 }
+
 .button-open {
   //margin-top: 7.5%;
   width: 150px;
-  line-height: 0!important;
+  line-height: 0 !important;
   height: 35px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   border: 1px solid #D1D1D1;
@@ -149,7 +156,7 @@ input:focus {
   color: #333333;
   opacity: 1;
 
-  @media only screen and (max-width : $mobile-large) {
+  @media only screen and (max-width: $mobile-large) {
     margin-bottom: 3%;
     margin-left: 0;
     //margin-top: 7%;
@@ -159,16 +166,24 @@ input:focus {
     font-size: 15px;
   }
 }
-.colorGrey{
+
+.button-open:active{
+  outline: none !important;
+}
+
+.colorGrey {
   background-color: #4E4D5D;
   color: white;
 }
-.button-open:focus, .button-delivery:focus{
+
+.button-open:focus, .button-delivery:focus {
   outline: none;
 }
-.button-open:hover, .button-delivery:hover{
+
+.button-open:hover, .button-delivery:hover {
 
 }
+
 .button-delivery {
   font: normal normal medium 14px/18px Montserrat !important;
   border-radius: 25px;
@@ -177,10 +192,10 @@ input:focus {
   background-color: white;
   color: #333333;
   width: 150px;
-  line-height: 0!important;
+  line-height: 0 !important;
   margin-left: 30px;
   height: 35px;
-  @media only screen and (max-width: $mobile-large){
+  @media only screen and (max-width: $mobile-large) {
     margin-bottom: 3%;
     //margin-top: 7%;
     margin-right: 0;
@@ -190,10 +205,12 @@ input:focus {
     font-size: 15px;
   }
 }
-.colorGreyDelivery{
+
+.colorGreyDelivery {
   background-color: #4E4D5D;
   color: white;
 }
+
 .tick-image {
   color: grey;
   height: 20%;
@@ -204,15 +221,20 @@ input:focus {
 
 .slider-top {
   margin-top: 2%;
-  @media only screen and (max-width: $mobile-large){
+  @media only screen and (max-width: $mobile-large) {
     margin-top: 5%;
   }
 }
 
 .slider {
   width: 100%;
+  .cardColor[_ngcontent-waf-c2] .col[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-auto[_ngcontent-waf-c2]{
+    padding-right: 0 !important;
+    padding-left: 0!important;
+  }
 }
-.imageSize{
+
+.imageSize {
   width: 24px;
   height: 24px;
   margin-bottom: 10px;
@@ -232,11 +254,12 @@ input:focus {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   height: 55px !important;
   top: 0;
-  @media only screen and (max-width : $mobile-large){
+  @media only screen and (max-width: $mobile-large) {
     margin-bottom: 5%;
-    height: 20px!important;
- }
+    height: 20px !important;
+  }
 }
+
 .lister {
   padding-left: 50px;
   padding-right: 50px;
@@ -251,17 +274,18 @@ input:focus {
   top: 1%;
   height: 120px;
   width: 120px;
-  @media only screen and (max-width : $mobile-large){
+  @media only screen and (max-width: $mobile-large) {
     height: 60px;
     width: 60px;
-    top: 0!important;
+    top: 0 !important;
   }
 }
 
-.left-align{
+.left-align {
   text-align: left;
 }
-.pharmacy-name{
+
+.pharmacy-name {
   letter-spacing: 0px;
   opacity: 1;
   text-align: left;
@@ -269,11 +293,12 @@ input:focus {
   color: #186696;
   margin-top: 5px;
   //font-weight: se;
-  @media only screen and (max-width: $mobile-large)  {
+  @media only screen and (max-width: $mobile-large) {
     margin-bottom: 1.3%;
   }
 }
-.pharmacy-address{
+
+.pharmacy-address {
   color: #333333;
   width: 100%;
   font: normal normal 500 14px/18px Montserrat;
@@ -282,50 +307,56 @@ input:focus {
     font: normal normal 500 14px/18px Montserrat;
     margin-bottom: 1%;
   }
-  }
-.pharmacy-status{
+}
+
+.pharmacy-status {
   font: normal normal 500 12px/16px Montserrat !important;
   letter-spacing: 0px;
   color: #333333;
   opacity: 1;
 
-  @media only screen and (max-width : $mobile-large) {
+  @media only screen and (max-width: $mobile-large) {
     width: 100%;
     font: normal normal 500 12px/16px Montserrat !important;
   }
 }
-.order-button{
+
+.order-button {
   border-radius: 20px;
   background: #53BFB4 0% 0% no-repeat padding-box;
   opacity: 1;
   color: white;
   border: #53BFB4;
   float: right !important;
-  font-size: 14.5px!important;
-  font-weight: 600!important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
   font-family: Montserrat;
-  height: 41px;
-  width: 153px;
-  @media only screen and (max-width : $mobile-large){
+  height: 40px;
+  width: 152px;
+  @media only screen and (max-width: $mobile-large) {
     width: 100% !important;
   }
-  @media only screen and (max-width : $mobile) {
+  @media only screen and (max-width: $mobile) {
     width: 100% !important;
 
   }
-  }
-.order-button:focus{
+}
+
+.order-button:focus {
   outline: none;
 }
-.order-button:hover{
+
+.order-button:hover {
   background: #51b3a9;
 }
-.open-now{
+
+.open-now {
   font-size: 10px;
   color: black;
   position: relative;
 }
-.delivery-available{
+
+.delivery-available {
   text-align: left;
   font: normal normal normal 12px/15px Montserrat;
   letter-spacing: 0px;
@@ -333,104 +364,117 @@ input:focus {
   opacity: 1;
 }
 
-.redColor{
+.redColor {
   color: #F5365D;
 }
-.result-counter{
+
+.result-counter {
   font-size: 14px;
-  color:#777777;
+  color: #777777;
   opacity: 1;
-  @media only screen and (max-width : $mobile-large) {
-    margin-top: 5%!important;
+  @media only screen and (max-width: $mobile-large) {
+    margin-top: 5% !important;
     left: 0;
   }
 }
 
-.no-results{
+.no-results {
   text-align: center;
   color: #777777;
   font-size: 18px;
   font-weight: 400;
   font-family: Montserrat;
 }
-.map-marker{
+
+.map-marker {
   position: absolute;
-  top:18%;
-  right:5%;
-  @media only screen and (max-width :$mobile-large){
-    top:30%;
+  top: 18%;
+  right: 5%;
+  @media only screen and (max-width: $mobile-large) {
+    top: 30%;
     right: 55%;
     font-size: 7px;
   }
 }
-.map-distance{
+
+.map-distance {
   font-family: "Montserrat Medium";
   vertical-align: middle;
   color: #333333;
-  @media only screen and (max-width :$mobile-large) {
+  @media only screen and (max-width: $mobile-large) {
     color: #333333;
     font-size: 12px;
   }
 }
-.map-marker-logo{
-  @media only screen and (max-width :$mobile-large) {
+
+.map-marker-logo {
+  @media only screen and (max-width: $mobile-large) {
     margin-top: 0;
     margin-bottom: 1%;
   }
-  }
-.ui-grid, .ui-grid-viewport{
+}
+
+.ui-grid, .ui-grid-viewport {
   @media only screen and (max-width: $mobile-large) {
-    height: 20px!important;
+    height: 20px !important;
   }
 }
-.link-blue{
+
+.link-blue {
   color: #ffffff !important;
   text-decoration: none;
   width: 100%;
   float: right !important;
-  @media only screen and (max-width : $mobile-large){
+  @media only screen and (max-width: $mobile-large) {
     width: 100% !important;
   }
-  @media only screen and (max-width : $mobile) {
+  @media only screen and (max-width: $mobile) {
     width: 100% !important;
 
   }
 }
+
 // card color added
-.cardColor{
+.cardColor {
   background-color: #F8F8F8;
   //padding: 0 10px;
-  .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto{
-    padding-right: 8px!important;
-    padding-left: 8px!important;
+  .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    padding-right: 8px !important;
+    padding-left: 8px !important;
   }
 }
+
 .myContent-left .col-md-4 {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  @media only screen and (max-width :$mobile-large) {
+  @media only screen and (max-width: $mobile-large) {
     border-right-width: 0px;
   }
 }
+
 .myContent-left .col-md-4:nth-last-child(1) {
   border-right-width: 0;
 }
+
 .dot {
   background-image: url('../../assets/images/dashed_slider.png');
 }
-.imgReSize{
+
+.imgReSize {
   //margin-right: 40px;
   //margin-left: 40px;
 }
-.fullContainer .col-md-6{
+
+.fullContainer .col-md-6 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 30px 30px;
-  @media only screen and (max-width :$mobile-large) {
+  @media only screen and (max-width: $mobile-large) {
     padding: 30px 10px;
   }
 }
-.fullContainer .col-md-6:nth-child(odd){
+
+.fullContainer .col-md-6:nth-child(odd) {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  @media only screen and (max-width :$mobile-large) {
+  @media only screen and (max-width: $mobile-large) {
     border-right: 0px;
   }
 }
@@ -452,12 +496,12 @@ input:focus {
   font-size: 14px;
   opacity: 1;
   margin-left: 30px;
-  @media only screen and (max-width :$mobile-large) {
-    margin-left: 15px!important;
+  @media only screen and (max-width: $mobile-large) {
+    margin-left: 15px !important;
   }
-  }
+}
 
-.search-placeholder{
+.search-placeholder {
   border: 1px solid #D1D1D1;
   border-radius: 0px;
   text-align: left;
@@ -467,16 +511,18 @@ input:focus {
   opacity: 1;
 }
 
-.form-control:focus{
-  box-shadow:none;
+.form-control:focus {
+  box-shadow: none;
 }
-.label-slider-home{
+
+.label-slider-home {
   font-size: 9px;
   font-weight: bold;
   font-family: Montserrat;
   color: #333333;
 }
-.label-slider-pharmacy{
+
+.label-slider-pharmacy {
   font-size: 9px;
   font-weight: bold;
   font-family: Montserrat;
@@ -484,21 +530,27 @@ input:focus {
   position: center;
 }
 
-.label-filter{
+.label-filter {
   top: 2%;
   margin-top: 3%;
-  font-family: Montserrat!important;
+  font-family: Montserrat !important;
   font-size: 14px;
   font-weight: 500;
-  text-align: center!important;
+  text-align: center !important;
 }
 
-.slider-padding{
+.slider-padding {
   padding: 0 15px 0;
 }
 
-.space-hider{
-  @media only screen and (max-width :$mobile-large) {
+.space-hider {
+  @media only screen and (max-width: $mobile-large) {
     display: none;
   }
+}
+.home{
+  padding-right: 0;
+}
+.pharmacy{
+  padding-left: 0;
 }

@@ -15,6 +15,7 @@ $mobile-small: 300px;
   width: 100%;
 }
 .footer-link{
+  font: normal normal normal 12px/15px Montserrat;
   margin-top: 0.5%;
   color: black;
   margin-right: 2%;
@@ -25,6 +26,7 @@ $mobile-small: 300px;
   }
 }
 .footer-link-privacy{
+  font: normal normal normal 12px/15px Montserrat;
   margin-top: 0.5%;
   color: black;
   margin-left: 78%;
@@ -42,6 +44,7 @@ $mobile-small: 300px;
   margin-top: 0.5%;
   margin-left: 2%;
   width: 100%;
+  font: normal normal normal 12px/15px Montserrat;
   @media only screen and (max-width : $mobile){
     margin-top: 2%
   }
