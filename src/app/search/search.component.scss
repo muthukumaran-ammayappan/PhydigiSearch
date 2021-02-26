@@ -222,7 +222,7 @@ input:focus {
 .slider-top {
   margin-top: 2%;
   @media only screen and (max-width: $mobile-large) {
-    margin-top: 5%;
+    margin-top: unset;
   }
 }
 
@@ -474,7 +474,7 @@ input:focus {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 30px 30px;
   @media only screen and (max-width: $mobile-large) {
-    padding: 30px 10px;
+    padding: 30px 8px;
   }
 }
 
@@ -503,7 +503,7 @@ input:focus {
   opacity: 1;
   margin-left: 30px;
   @media only screen and (max-width: $mobile-large) {
-    margin-left: 15px !important;
+    margin-left: 8px;
   }
 }
 
@@ -526,6 +526,9 @@ input:focus {
   font-weight: bold;
   font-family: Montserrat;
   color: #333333;
+  @media only screen and (min-width: $desktop) {
+    margin-bottom: -15px;
+  }
 }
 
 .label-slider-pharmacy {
@@ -536,10 +539,18 @@ input:focus {
   position: center;
 }
 
+.label-slider-pharmacy-span {
+  margin-left: 20%;
+  margin-right: 5%;
+  @media only screen and (max-width: $mobile-large) {
+    margin-right: 0px;
+  }
+}
+
 .label-filter {
   top: 2%;
   margin-top: 3%;
-  font-family: Montserrat !important;
+  font: normal normal medium 9px/10px Montserrat !important;
   font-size: 14px;
   font-weight: 500;
   text-align: center !important;
@@ -547,6 +558,18 @@ input:focus {
 
 .slider-padding {
   padding: 0 15px 0;
+  @media only screen and (min-width: $desktop) {
+    margin-bottom: -15px;
+  }
+  @media only screen and (max-width: $mobile-large) {
+    height: 40px;
+  }
+}
+
+.slider-icon-row{
+  @media only screen and (min-width: $desktop) {
+    margin-bottom: 15px;
+  }
 }
 
 .space-hider {
@@ -556,6 +579,13 @@ input:focus {
 }
 .home{
   padding-right: 0;
+}
+.slider-home-icon-label{
+  @media only screen and (min-width: $desktop) {
+    margin-left: 28px;
+  }  @media only screen and (max-width: $mobile) {
+    margin-left: 10px;
+  }
 }
 .pharmacy{
   padding-left: 0;
