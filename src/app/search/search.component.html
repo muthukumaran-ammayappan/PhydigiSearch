@@ -23,11 +23,9 @@
       <div class="row m-0 text-center" style="text-align: center;">
         <label class="label-filter">Filters</label>
       </div>
-      <button mat-button class="btn button-open {{isOpen? 'colorGrey' : ''}} " (click)="onClickOpen()"><i
-          class="{{isOpen ? 'fa fa-check' : null}}"></i>  Open
+      <button mat-button class="btn button-open {{isOpen? 'colorGrey' : ''}} " (click)="onClickOpen()"><img *ngIf="isOpen" src="assets/images/tickgrey.png" height="20px" width="21px">  Open
       </button>
-      <button mat-button class="btn button-delivery {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><i
-          class="{{isDeliveryEnable ? 'fa fa-check' : null}}"></i>  Delivery
+      <button mat-button class="btn button-delivery {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><img *ngIf="isDeliveryEnable" src="assets/images/tickgrey.png" height="20px" width="21px">  Delivery
       </button>
       <hr *ngIf="isMobile">
     </div>
