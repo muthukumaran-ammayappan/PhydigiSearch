@@ -143,27 +143,27 @@ owl-carousel-o {
   @media only screen and(max-width: $mobile-large) {
     color: #003DAD!important;
     margin-top: 0!important;
-    margin-left: 20%;
-    padding-left: .5rem;
+    //margin-left: 20%;
+    //padding-left: .5rem;
   }
-  @media only screen and(min-width: 375px) {
-    color: #003DAD!important;
-    margin-top: 0!important;
-    margin-left: 18%;
-    padding-left: .5rem;
-  }
-  @media only screen and(min-width: 425px) {
-    color: #003DAD!important;
-    margin-top: 0!important;
-    margin-left: 15%;
-    padding-left: .5rem;
-  }
-  @media only screen and(min-width: $desktop) {
-    color: #003DAD!important;
-    margin-top: 0!important;
-    margin-left: -3%;
-    padding-left: .5rem;
-  }
+  //@media only screen and(min-width: 375px) {
+  //  color: #003DAD!important;
+  //  margin-top: 0!important;
+  //  margin-left: 18%;
+  //  padding-left: .5rem;
+  //}
+  //@media only screen and(min-width: 425px) {
+  //  color: #003DAD!important;
+  //  margin-top: 0!important;
+  //  margin-left: 15%;
+  //  padding-left: .5rem;
+  //}
+  //@media only screen and(min-width: $desktop) {
+  //  color: #003DAD!important;
+  //  margin-top: 0!important;
+  //  margin-left: -3%;
+  //  padding-left: .5rem;
+  //}
 }
 .pharmacy-mobile-link{
  color: #333333;
