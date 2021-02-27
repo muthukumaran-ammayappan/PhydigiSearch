@@ -508,7 +508,8 @@ input:focus {
 }
 
 .search-placeholder {
-  border: 1px solid #D1D1D1;
+  border: 1px solid #D1D1D1!important;
+  border-right: none!important;
   border-radius: 0px;
   text-align: left;
   font: normal normal normal 13px/18px Montserrat;
@@ -592,4 +593,9 @@ input:focus {
 }
 .slide-home-icon{
 margin-top: 1.2rem!important;
+}
+.input-group-text{
+  border: 1px solid #D1D1D1!important;
+  border-left: none!important;
+  border-radius: 0!important;
 }
