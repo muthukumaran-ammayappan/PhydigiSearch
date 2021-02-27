@@ -40,6 +40,7 @@ export class SearchComponent implements OnInit {
   length: number;
   isSearch = false;
   API_HOST = environment.serviceURL;
+  API_HOST_WITH_PORT = environment.serviceURL + environment.port;
 
   public bengalurLat = '12.967343065878191';
   public bengalurLng = '77.573937871773';
@@ -93,7 +94,7 @@ export class SearchComponent implements OnInit {
 
   // Image converter
   getImageFromService(data) {
-    return  this.API_HOST + '/api/image?id=' + data;
+    return  this.API_HOST_WITH_PORT + '/api/image?id=' + data;
   }
 
   dayStatus(data) {
