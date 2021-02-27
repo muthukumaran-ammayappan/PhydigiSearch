@@ -44,7 +44,7 @@ export class SlidesComponent implements OnInit {
 
   ngOnInit() {
     this.getSlides();
-    this.url = environment.serviceURL;
+    this.url = environment.serviceURL + environment.port;
   }
 
   getSlides() {

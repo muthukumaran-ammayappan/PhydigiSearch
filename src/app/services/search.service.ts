@@ -20,7 +20,7 @@ export class SearchService {
   }
 
   getAccesspoint() {
-    return environment.serviceURL;
+    return environment.serviceURL + environment.port;
   }
 
   getCityState(pinCode) {

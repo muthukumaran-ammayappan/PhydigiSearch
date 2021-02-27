@@ -23,9 +23,10 @@
       <div class="row m-0 text-center" style="text-align: center;">
         <label class="label-filter">Filters</label>
       </div>
-      <button mat-button class="btn button-open {{isOpen? 'colorGrey' : ''}} " (click)="onClickOpen()"><img *ngIf="isOpen" src="assets/images/tickgrey.png" height="20px" width="21px">  Open Now
+      <button mat-button class="btn button-open {{isOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()"><img *ngIf="isOpen" src="assets/images/tickgrey.png" height="20px" width="21px">  Open Now
       </button>
-      <button mat-button class="btn button-delivery {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><img *ngIf="isDeliveryEnable" src="assets/images/tickgrey.png" height="20px" width="21px">  Delivery
+      <button style="margin-left: 30px;"
+              mat-button class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><img *ngIf="isDeliveryEnable" src="assets/images/tickgrey.png" height="20px" width="21px">  Delivery
       </button>
       <hr *ngIf="isMobile">
     </div>
@@ -46,11 +47,6 @@
           <p class="label-slider-pharmacy">Pharmacy</p>
         </div>
       </div>
-<!--      <div class="row slider-icon-row">-->
-<!--          <label class="col-4 label-slider-home text-left"><span class="slider-home-icon-label">Home</span></label>-->
-<!--          <label class="col-4"></label>-->
-<!--          <label class="col-4 label-slider-pharmacy text-right"><span class="label-slider-pharmacy-span">Pharmacy</span></label>-->
-<!--      </div>-->
     </div>
   </div>
 </div>
