@@ -23,7 +23,7 @@
       <div class="row m-0 text-center" style="text-align: center;">
         <label class="label-filter">Filters</label>
       </div>
-      <button mat-button class="btn button-open {{isOpen? 'colorGrey' : ''}} " (click)="onClickOpen()"><img *ngIf="isOpen" src="assets/images/tickgrey.png" height="20px" width="21px">  Open
+      <button mat-button class="btn button-open {{isOpen? 'colorGrey' : ''}} " (click)="onClickOpen()"><img *ngIf="isOpen" src="assets/images/tickgrey.png" height="20px" width="21px">  Open Now
       </button>
       <button mat-button class="btn button-delivery {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><img *ngIf="isDeliveryEnable" src="assets/images/tickgrey.png" height="20px" width="21px">  Delivery
       </button>
@@ -31,22 +31,26 @@
     </div>
     <div class="col-md-4 text-center slider-top">
       <div class="row slider-padding">
-        <div class="col-1 slide-home-icon text-right" style="padding-right: 0!important;">
-          <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7" viewBox="0 0 19.7 21.7"><defs><style>.a{fill:none;stroke:#333;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.7px;}</style></defs><g transform="translate(-3.65 -2.15)"><path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z" transform="translate(0 0)"/><path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)"/></g></svg><br>
+        <div class="col-1 slide-home-icon text-right">
+          <div style="margin-bottom: -5px">
+            <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7" viewBox="0 0 19.7 21.7"><defs><style>.a{fill:none;stroke:#333;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.7px;}</style></defs><g transform="translate(-3.65 -2.15)"><path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z" transform="translate(0 0)"/><path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)"/></g></svg>
+          </div>
+          <p class="label-slider-home">Home</p>
         </div>
         <div class="col-10 m-0" style="width: 100%; padding-left: 0!important; padding-right: 0!important;">
           <mat-slider [(ngModel)]="km" tickInterval="1" disabled="{{isSearch}}" (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
             class="slider" thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
         </div>
         <div class="col-1 mt-3 text-left" style="padding-left: 0!important;">
-          <img matTooltip="Pharmacy" src="/assets/images/pharmacy.png" class="imageSize"><br>
+          <img matTooltip="Pharmacy" src="/assets/images/pharmacy.png" class="imageSize">
+          <p class="label-slider-pharmacy">Pharmacy</p>
         </div>
       </div>
-      <div class="row slider-icon-row">
-          <label class="col-4 label-slider-home text-left"><span class="slider-home-icon-label">Home</span></label>
-          <label class="col-4"></label>
-          <label class="col-4 label-slider-pharmacy text-right"><span class="label-slider-pharmacy-span">My Pharmacy</span></label>
-      </div>
+<!--      <div class="row slider-icon-row">-->
+<!--          <label class="col-4 label-slider-home text-left"><span class="slider-home-icon-label">Home</span></label>-->
+<!--          <label class="col-4"></label>-->
+<!--          <label class="col-4 label-slider-pharmacy text-right"><span class="label-slider-pharmacy-span">Pharmacy</span></label>-->
+<!--      </div>-->
     </div>
   </div>
 </div>
