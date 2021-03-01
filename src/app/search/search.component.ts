@@ -224,7 +224,7 @@ export class SearchComponent implements OnInit {
     }
     this.searchService.fetchAllStores(param)
       .subscribe(stores => {
-        console.log(stores);
+        // console.log(stores);
         if (stores.data && stores.data.length > 0) {
           stores.data.forEach(store => {
             const returnData = this.dayStatus(store[0]);

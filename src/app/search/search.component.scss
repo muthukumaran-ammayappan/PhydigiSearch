@@ -551,7 +551,7 @@ input:focus {
   font-size: 10px;
   margin-left: -10px;
   @media only screen and (max-width: $mobile-large) {
-    margin-left: -15px;
+    margin-left: -10px;
   }
 }
 
@@ -580,6 +580,9 @@ input:focus {
   font-weight: 500;
   text-align: center !important;
   margin-bottom: 0!important;
+}
+.text-setDistance{
+  vertical-align: middle;
 }
 
 .slider-padding {
@@ -617,7 +620,7 @@ input:focus {
 .slide-home-icon{
   padding-right: 0!important;
   margin-top: 1.2rem!important;
-  padding-left: 0!important;
+  //padding-left: 0!important;
   @media only screen and (max-width: $mobile) {
     padding-left: 0px;
   }
