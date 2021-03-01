@@ -221,7 +221,7 @@ input:focus {
 // Slider
 
 .slider-top {
-  margin-top: 2%;
+  //margin-top: 2%;
   @media only screen and (max-width: $mobile-large) {
     margin-top: unset;
   }
@@ -522,7 +522,10 @@ input:focus {
   border-radius: 0px;
   text-align: left;
   font: normal normal normal 11px/18px Montserrat;
-  letter-spacing: 0px;
+  @media only screen and (max-width: $mobile-large) {
+    font: normal normal normal 13px/16px Montserrat;
+  }
+    letter-spacing: 0px;
   color: #777777;
   opacity: 1;
 }
@@ -569,6 +572,16 @@ input:focus {
   text-align: center !important;
 }
 
+.label-setDistance{
+  top: 2%;
+  margin-top: 3%;
+  font: normal normal medium 9px/10px Montserrat !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center !important;
+  margin-bottom: 0!important;
+}
+
 .slider-padding {
   padding: 0 15px 0;
   margin-bottom: 5px;
@@ -604,6 +617,7 @@ input:focus {
 .slide-home-icon{
   padding-right: 0!important;
   margin-top: 1.2rem!important;
+  padding-left: 0!important;
   @media only screen and (max-width: $mobile) {
     padding-left: 0px;
   }
@@ -614,4 +628,16 @@ input:focus {
   border-radius: 0!important;
 }
 
+.icon-filter{
+  color: #186696!important;
+}
 
+.label-filter{
+  .a{
+    fill: none;
+    stroke: #186696;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5px;
+  }
+}
