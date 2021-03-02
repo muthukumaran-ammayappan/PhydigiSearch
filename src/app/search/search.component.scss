@@ -483,7 +483,7 @@ input:focus {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 30px 30px;
   @media only screen and (max-width: $mobile-large) {
-    padding: 30px 8px;
+    padding: 30px 10px;
   }
 }
 
@@ -512,7 +512,7 @@ input:focus {
   opacity: 1;
   margin-left: 30px;
   @media only screen and (max-width: $mobile-large) {
-    margin-left: 8px;
+    margin-left: 10px;
   }
 }
 
@@ -521,7 +521,7 @@ input:focus {
   border-right: none!important;
   border-radius: 0px;
   text-align: left;
-  font: normal normal normal 11px/18px Montserrat;
+  font: normal normal normal 13px/18px Montserrat;
   @media only screen and (max-width: $mobile-large) {
     font: normal normal normal 13px/16px Montserrat;
   }
@@ -536,6 +536,8 @@ input:focus {
 
 .label-slider-home {
   color: #333333;
+  font: normal normal medium 9px/10px Montserrat !important;
+  font-weight: 500;
   font-size: 10px;
   margin-left: -4px;
   @media only screen and (max-width: $mobile-large) {
@@ -548,10 +550,12 @@ input:focus {
 
 .label-slider-pharmacy {
   color: #333333;
+  font: normal normal medium 9px/10px Montserrat !important;
+  font-weight: 500;
   font-size: 10px;
   margin-left: -10px;
   @media only screen and (max-width: $mobile-large) {
-    margin-left: -10px;
+    margin-left: -14px;
   }
 }
 
@@ -570,6 +574,9 @@ input:focus {
   font-size: 14px;
   font-weight: 500;
   text-align: center !important;
+  @media only screen and (max-width: $mobile-large) {
+    margin-top: 0!important;
+  }
 }
 
 .label-setDistance{
@@ -580,7 +587,10 @@ input:focus {
   font-weight: 500;
   text-align: center !important;
   margin-bottom: 0!important;
-}
+  @media only screen and (max-width: $mobile-large) {
+    margin-top: 1%!important;
+  }
+  }
 .text-setDistance{
   vertical-align: middle;
 }
@@ -589,7 +599,7 @@ input:focus {
   padding: 0 15px 0;
   margin-bottom: 5px;
   @media only screen and (max-width: $mobile) {
-    margin-bottom: 15px;
+    //margin-bottom: 15px;
   }
 }
 
@@ -643,4 +653,8 @@ input:focus {
     stroke-linejoin: round;
     stroke-width: 1.5px;
   }
+}
+hr{
+  margin-top: 0;
+  margin-bottom: 0;
 }

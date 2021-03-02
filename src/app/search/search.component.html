@@ -20,19 +20,19 @@
       </div>
     </div>
     <div class="col-md-4 text-center">
-      <div class="row m-0 text-center" style="text-align: center;">
+      <div class="row m-0 text-center" style="text-align: center; font: normal normal medium Montserrat !important;">
         <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="15.5" height="14.1" viewBox="0 0 15.5 14.1"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><path class="a" d="M17,4.5H3l5.6,6.622V15.7l2.8,1.4V11.122Z" transform="translate(-2.25 -3.75)"/></svg>
            Filter</label>
       </div>
-      <button mat-button class="btn button-open {{isOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()"><img *ngIf="isOpen" src="assets/images/tickgrey.png" height="20px" width="21px">  Open Now
+      <button mat-button style="font: normal normal medium Montserrat !important;" class="btn button-open {{isOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()"><img *ngIf="isOpen" src="assets/images/tickgrey.png" height="20px" width="21px">  Open Now
       </button>
-      <button style="margin-left: 30px;"
+      <button style="margin-left: 30px; font: normal normal medium Montserrat !important;"
               mat-button class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()"><img *ngIf="isDeliveryEnable" src="assets/images/tickgrey.png" height="20px" width="21px">  Delivery
       </button>
       <hr *ngIf="isMobile">
     </div>
     <div class="col-md-4 text-center slider-top">
-      <div class="row col-12" style="text-align: center;">
+      <div class="row col-12" style="text-align: center; font: normal normal medium Montserrat !important;">
         <label class="label-setDistance"><img src="assets/images/Group%201281@2x.png" width="12.844" height="16.513">
           <span class="text-setDistance"> Set Distance</span></label>
       </div>
@@ -47,7 +47,7 @@
           <mat-slider [(ngModel)]="km" tickInterval="1" disabled="{{isSearch}}" (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
             class="slider" thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
         </div>
-        <div class="col-1 mt-3 text-left" style="padding-left: 0!important;">
+        <div class="col-1 mt-3 text-left" style="padding-left: 0!important;  font: normal normal medium Montserrat !important;">
           <img matTooltip="Pharmacy" src="/assets/images/pharmacy.png" class="imageSize">
           <p class="label-slider-pharmacy">Pharmacy</p>
         </div>
@@ -58,7 +58,7 @@
 
 <app-loader *ngIf="loading"></app-loader>
 <div class="lister" *ngIf="filteredPharmacies.length > 0 && !loading"><br>
-  <div class="row"  >
+  <div class="row">
     <p class="mb-0 search-result-count" *ngIf="!searchValue">About {{filteredPharmacies.length}}
       results (Near {{km}}km)</p>
   </div>
