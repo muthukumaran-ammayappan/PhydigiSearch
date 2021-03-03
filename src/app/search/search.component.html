@@ -29,7 +29,7 @@
       <button style="margin-left: 30px; font: normal normal medium Montserrat !important;"
               mat-button class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()">Delivery
       </button>
-      <hr *ngIf="isMobile">
+      <hr *ngIf="cols == 1">
     </div>
     <div class="col-md-4 text-center slider-top">
       <div class="row col-12" style="text-align: center; font: normal normal medium Montserrat !important;">

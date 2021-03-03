@@ -581,6 +581,9 @@ input:focus {
   @media only screen and (max-width: $mobile-large) {
     margin-top: 0!important;
   }
+  @media only screen and (min-width: 1920px) {
+    margin-top: 1.8%!important;
+  }
 }
 
 .label-setDistance{
@@ -593,6 +596,9 @@ input:focus {
   margin-bottom: 0!important;
   @media only screen and (max-width: $mobile-large) {
     margin-top: 1%!important;
+  }
+  @media only screen and (min-width: 1920px) {
+    margin-top: 1.8%!important;
   }
   }
 .text-setDistance{

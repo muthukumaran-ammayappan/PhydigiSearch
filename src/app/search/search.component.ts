@@ -95,7 +95,9 @@ export class SearchComponent implements OnInit {
 
   // Image converter
   getImageFromService(data) {
-    return  this.API_HOST_WITH_PORT + '/api/image?id=' + data;
+    if (data) {
+      return this.API_HOST_WITH_PORT + '/api/image?id=' + data;
+    }
   }
 
   dayStatus(data) {
