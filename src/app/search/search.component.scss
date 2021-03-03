@@ -409,7 +409,8 @@ input:focus {
 }
 
 .map-distance {
-  font-family: "Montserrat Medium";
+  font: normal normal medium 14px/18px Montserrat!important;
+  font-family: Montserrat medium, serif !important;
   vertical-align: middle;
   color: #333333;
   @media only screen and (max-width: $mobile-large) {
