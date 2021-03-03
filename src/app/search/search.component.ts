@@ -39,11 +39,12 @@ export class SearchComponent implements OnInit {
   pageSize: number;
   length: number;
   isSearch = false;
+  nextDay;
   API_HOST = environment.serviceURL;
   API_HOST_WITH_PORT = environment.serviceURL + environment.port;
 
-  public bengalurLat = '12.967343065878191';
-  public bengalurLng = '77.573937871773';
+  public bengalurLat = '30.7264274';
+  public bengalurLng = '76.7076768';
   public lat = null;
   public lng = null;
 
@@ -105,8 +106,12 @@ export class SearchComponent implements OnInit {
 
     if (currentDay === 0) {
       returnData.isOpen = (data.sunStartHour < currentTime && data.sunEndHour > currentTime);
+      // if condition data data.sunStartHour > current time - Today and star hour and end hour scenario sunday
+      // else  monday and monday start hour and  sunday end hour
+      // new function to find next working day.
       returnData.startHour = data.monStartHour;
       returnData.closeHour = data.sunEndHour;
+      // returnData.nextDay = '';
 
       return returnData;
     } else if (currentDay === 1) {
@@ -224,7 +229,7 @@ export class SearchComponent implements OnInit {
     }
     this.searchService.fetchAllStores(param)
       .subscribe(stores => {
-        // console.log(stores);
+        console.log(stores);
         if (stores.data && stores.data.length > 0) {
           stores.data.forEach(store => {
             const returnData = this.dayStatus(store[0]);
