@@ -43,8 +43,8 @@ export class SearchComponent implements OnInit {
   API_HOST = environment.serviceURL;
   API_HOST_WITH_PORT = environment.serviceURL + environment.port;
 
-  public bengalurLat = '30.7264274';
-  public bengalurLng = '76.7076768';
+  public bengalurLat = '12.967343065878191';
+  public bengalurLng = '77.573937871773';
   public lat = null;
   public lng = null;
 
