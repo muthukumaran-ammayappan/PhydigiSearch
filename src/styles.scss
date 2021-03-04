@@ -314,3 +314,9 @@ owl-carousel-o {
 .mat-slider-horizontal {
   margin-left: -10px;
 }
+.mat-slider-horizontal .mat-slider-thumb-label{
+  top: -30px!important;
+}
+html{
+  overflow-x: hidden;
+}

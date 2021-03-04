@@ -1,7 +1,9 @@
 <owl-carousel-o [options]="customOptions">
   <ng-template carouselSlide class="carousel-height" *ngFor="let slide of slideResult">
-    <a *ngIf="slide.carouselLink" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearch?id={{slide.id}}"></a>
-    <a *ngIf="!slide.carouselLink" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearch?id={{slide.id}}"></a>
+    <a *ngIf="slide.carouselLink && !isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearch?id={{slide.id}}"></a>
+    <a *ngIf="!slide.carouselLink && !isMobile" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearch?id={{slide.id}}"></a>
+    <a *ngIf="slide.carouselLink && isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearchMobile?id={{slide.id}}"></a>
+    <a *ngIf="!slide.carouselLink && isMobile" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearchMobile?id={{slide.id}}"></a>
     <div class="carousel-content">
     </div>
   </ng-template>

@@ -11,10 +11,12 @@ import {environment} from '../../environments/environment.prod';
 export class SlidesComponent implements OnInit {
 
   constructor(private searchService: SearchService) {
+    this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   }
 
   slideResult: [];
-  url ;
+  isMobile;
+  url;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,

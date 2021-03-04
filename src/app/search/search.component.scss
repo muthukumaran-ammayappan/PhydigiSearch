@@ -275,12 +275,14 @@ input:focus {
   top: 1%;
   height: 120px;
   width: 120px;
+  margin-top: 4px;
+  //margin-top: 0.65%;
   @media only screen and (max-width: $mobile-large) {
     height: 60px;
     width: 60px;
     top: 0 !important;
   }
-}
+  }
 
 .left-align {
   text-align: left;
@@ -542,7 +544,7 @@ input:focus {
   font: normal normal medium 9px/10px Montserrat !important;
   font-family: Montserrat, serif!important;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 9px!important;
   margin-left: -4px;
   @media only screen and (max-width: $mobile-large) {
     margin-right: -4px;
@@ -555,8 +557,9 @@ input:focus {
 .label-slider-pharmacy {
   color: #333333;
   font: normal normal medium 9px/10px Montserrat !important;
+  font-family: Montserrat, serif!important;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 9px!important;
   margin-left: -10px;
   @media only screen and (max-width: $mobile-large) {
     margin-left: -14px;
@@ -607,7 +610,7 @@ input:focus {
 
 .slider-padding {
   padding: 0 15px 0;
-  margin-bottom: 5px;
+  //margin-bottom: 5px;
   @media only screen and (max-width: $mobile) {
     //margin-bottom: 15px;
   }
