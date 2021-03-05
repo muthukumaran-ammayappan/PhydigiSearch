@@ -320,3 +320,9 @@ owl-carousel-o {
 html{
   overflow-x: hidden;
 }
+.mat-paginator-navigation-previous:focus{
+  outline: none!important;
+}
+.mat-paginator-navigation-next:focus{
+  outline: none!important;
+}
