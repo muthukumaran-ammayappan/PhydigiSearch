@@ -38,7 +38,8 @@ export class Search {
 
 export class StoreTiming {
   isOpen: boolean;
-  startHour: string;
+  startHour;
   closeHour: string;
+  nextDay;
 
 }

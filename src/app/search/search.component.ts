@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
     xs: 1,
   };
 
+  today;
   rows: any;
   timer: any;
   cols: number;
@@ -42,6 +43,17 @@ export class SearchComponent implements OnInit {
   nextDay;
   API_HOST = environment.serviceURL;
   API_HOST_WITH_PORT = environment.serviceURL + environment.port;
+  startTime = [];
+  endTime = [];
+  day = [
+    {0: 'Sunday'},
+    {1: 'Monday'},
+    {2: 'Tuesday'},
+    {3: 'Wednesday'},
+    {4: 'Thursday'},
+    {5: 'Friday'},
+    {6: 'Saturday'}
+  ];
 
   public bengalurLat = '12.967343065878191';
   public bengalurLng = '77.573937871773';
@@ -100,66 +112,58 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  findStartTimeAndDay(currentTime, currentDay) {
+
+    if (currentTime < this.startTime[currentDay]) {
+      const startDayTime = this.startTime[currentDay];
+      const dayOpen = this.day[currentDay];
+      console.log('today:', this.today);
+      return startDayTime + dayOpen;
+    }
+
+    if (currentTime > this.endTime[currentDay]) {
+      return this.newDay(currentDay);
+    }
+
+  }
+
+  newDay(currentDay) {
+    const nextDay = currentDay + 1;
+
+    if (this.startTime[nextDay] == null) {
+      const startDayTime = this.startTime[nextDay];
+      const dayOpen = this.day[nextDay];
+      console.log('day:', dayOpen, 'time:', startDayTime);
+      return startDayTime + dayOpen;
+    } else {
+      this.newDay(nextDay);
+    }
+
+  }
+
   dayStatus(data) {
     const currentTime = this.datepipe.transform(new Date(), 'HH:mm', 'IST');
-    const currentDay = new Date().getDay();
-
+    // const currentTime = '06:00';
+    // const currentDay = new Date().getDay();
+    const currentDay = 0;
     const returnData = new StoreTiming();
 
-    if (currentDay === 0) {
-      returnData.isOpen = (data.sunStartHour < currentTime && data.sunEndHour > currentTime);
-      // if condition data data.sunStartHour > current time - Today and star hour and end hour scenario sunday
-      // else  monday and monday start hour and  sunday end hour
-      // new function to find next working day.
-      returnData.startHour = data.monStartHour;
-      returnData.closeHour = data.sunEndHour;
-      // returnData.nextDay = '';
+    returnData.closeHour = this.endTime[currentDay];
+    console.log(this.endTime[currentDay]);
 
-      return returnData;
-    } else if (currentDay === 1) {
-
-      returnData.isOpen = (data.monStartHour < currentTime && data.monEndHour > currentTime);
-      returnData.startHour = data.tueStartHour;
-      returnData.closeHour = data.monEndHour;
-
-      return returnData;
-    } else if (currentDay === 2) {
-
-      returnData.isOpen = (data.tueStartHour < currentTime && data.tueEndHour > currentTime);
-      returnData.startHour = data.wedStartHour;
-      returnData.closeHour = data.tueEndHour;
-
-      return returnData;
-    } else if (currentDay === 3) {
-
-      returnData.isOpen = (data.wedStartHour < currentTime && data.wedEndHour > currentTime);
-      returnData.startHour = data.thuStartHour;
-      returnData.closeHour = data.wedEndHour;
-      console.log(returnData.isOpen);
-
-      return returnData;
-    } else if (currentDay === 4) {
-
-      returnData.isOpen = (data.thuStartHour < currentTime && data.thuEndHour > currentTime);
-      returnData.startHour = data.friStartHour;
-      returnData.closeHour = data.thuEndHour;
-
-      return returnData;
-    } else if (currentDay === 5) {
-
-      returnData.isOpen = (data.friStartHour < currentTime && data.friEndHour > currentTime);
-      returnData.startHour = data.satStartHour;
-      returnData.closeHour = data.friEndHour;
-
-      return returnData;
-    } else if (currentDay === 6) {
-
-      returnData.isOpen = (data.satStartHour < currentTime && data.satEndHour > currentTime);
-      returnData.startHour = data.sunStartHour;
-      returnData.closeHour = data.satEndHour;
-
-      return returnData;
+    if (this.startTime[currentDay] && this.endTime[currentDay]) {
+      returnData.isOpen = (this.startTime[currentDay] < currentTime && this.endTime[currentDay] > currentTime);
+      returnData.startHour = this.isOpen ? this.startTime[currentDay] : '';
+      returnData.closeHour = this.isOpen ? this.endTime[currentDay] : '';
+      this.today = this.isOpen ? this.day[currentDay] : '';
+      console.log('if true:', returnData.startHour, returnData.closeHour, returnData.isOpen);
+    } else {
+      const dayTime = this.findStartTimeAndDay(currentTime, currentDay);
+      this.today = dayTime;
+      console.log(dayTime);
     }
+
+    return returnData;
   }
 
   tConvert(time) {
@@ -234,6 +238,25 @@ export class SearchComponent implements OnInit {
         console.log(stores);
         if (stores.data && stores.data.length > 0) {
           stores.data.forEach(store => {
+
+            console.log(store[0]);
+
+            this.startTime[0] = store[0].sunStartHour;
+            this.startTime[1] = store[0].monStartHour;
+            this.startTime[2] = store[0].tueStartHour;
+            this.startTime[3] = store[0].wedStartHour;
+            this.startTime[4] = store[0].thuStartHour;
+            this.startTime[5] = store[0].friStartHour;
+            this.startTime[6] = store[0].satStartHour;
+
+            this.endTime[0] = store[0].sunEndHour;
+            this.endTime[1] = store[0].monEndHour;
+            this.endTime[2] = store[0].tueEndHour;
+            this.endTime[3] = store[0].wedEndHour;
+            this.endTime[4] = store[0].thuEndHour;
+            this.endTime[5] = store[0].friEndHour;
+            this.endTime[6] = store[0].satEndHour;
+
             const returnData = this.dayStatus(store[0]);
 
             store[0].isOpen = returnData.isOpen;
@@ -262,7 +285,10 @@ export class SearchComponent implements OnInit {
   }
 
   // slider label
-  formatLabel(value: number) {
+  formatLabel(value
+                :
+                number
+  ) {
     if (value >= 1) {
       return Math.round(value / 1) + 'km';
     }
@@ -293,7 +319,10 @@ export class SearchComponent implements OnInit {
     this.filteredPharmacies = filteredStores;
   }
 
-  OnPageChange(event: PageEvent) {
+  OnPageChange(event
+                 :
+                 PageEvent
+  ) {
     const startIndex = (event !== null ? event.pageIndex : this.pageIndex) * (event !== null ? event.pageSize : this.pageSize);
     let endIndex = startIndex + (event !== null ? event.pageSize : this.pageSize);
     if (endIndex > this.length) {
