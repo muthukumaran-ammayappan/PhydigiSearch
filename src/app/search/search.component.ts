@@ -145,7 +145,7 @@ export class SearchComponent implements OnInit {
 
       returnTimeAndDay.startHour = this.startHour[nextDay];
       returnTimeAndDay.day = this.day[nextDay];
-      console.log('returnTimeAndDay', returnTimeAndDay);
+
       return returnTimeAndDay;
     } else {
       return this.nextDayFinder(nextDay, count + 1);
@@ -209,7 +209,6 @@ export class SearchComponent implements OnInit {
         },
         (error: PositionError) => {
           this.searchPharmacy();
-          // console.log(error);
         });
     } else {
       this.searchPharmacy();
@@ -256,7 +255,10 @@ export class SearchComponent implements OnInit {
     }
     this.searchService.fetchAllStores(param)
       .subscribe(stores => {
-        if (stores.data && stores.data.length > 0) {
+        if (!(stores.data && stores.data.length > 0)) {
+          this.pharmacies = this.filteredPharmacies = [];
+          this.loading = false;
+        } else {
           stores.data.forEach(store => {
 
             this.startHour[0] = store[0].sunStartHour;
@@ -275,10 +277,7 @@ export class SearchComponent implements OnInit {
             this.closeHour[5] = store[0].friEndHour;
             this.closeHour[6] = store[0].satEndHour;
 
-            console.log(' this.startHour[0]',  this.startHour, 'this.closeHour', this.closeHour);
             const returnData = this.dayStatus();
-
-            console.log('returnData', returnData);
 
             store[0].isOpen = returnData.isOpen;
             store[0].startHour = returnData.startHour ? returnData.startHour : '10:00';
@@ -298,9 +297,6 @@ export class SearchComponent implements OnInit {
           this.pageIndex = 1;
           this.pageSize = 10;
           this.length = stores.data.length;
-          this.loading = false;
-        } else {
-          this.pharmacies = this.filteredPharmacies = [];
           this.loading = false;
         }
       });
