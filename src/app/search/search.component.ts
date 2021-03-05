@@ -26,34 +26,30 @@ export class SearchComponent implements OnInit {
   rows: any;
   timer: any;
   cols: number;
-  pharmacies = [];
-  filteredPharmacies = [];
-  searchValue: string;
-  km = 7;
-  loading = false;
-  isOpen = false;
-  isDeliveryEnable = false;
-  img;
-  pageEvent: PageEvent;
   datasource: null;
   pageIndex: number;
   pageSize: number;
   length: number;
+
+  pharmacies = [];
+  filteredPharmacies = [];
+  startHour = [];
+  closeHour = [];
+
+  searchValue: string;
+  km = 7;
+  loading = false;
+  isStoreOpen = false;
+  isDeliveryEnable = false;
+  img;
+  pageEvent: PageEvent;
+
   isSearch = false;
   nextDay;
   API_HOST = environment.serviceURL;
   API_HOST_WITH_PORT = environment.serviceURL + environment.port;
-  startTime = [];
-  endTime = [];
-  day = [
-    {0: 'Sunday'},
-    {1: 'Monday'},
-    {2: 'Tuesday'},
-    {3: 'Wednesday'},
-    {4: 'Thursday'},
-    {5: 'Friday'},
-    {6: 'Saturday'}
-  ];
+
+  day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   public bengalurLat = '12.967343065878191';
   public bengalurLng = '77.573937871773';
@@ -114,53 +110,78 @@ export class SearchComponent implements OnInit {
 
   findStartTimeAndDay(currentTime, currentDay) {
 
-    if (currentTime < this.startTime[currentDay]) {
-      const startDayTime = this.startTime[currentDay];
-      const dayOpen = this.day[currentDay];
-      console.log('today:', this.today);
-      return startDayTime + dayOpen;
-    }
+    if (this.startHour[currentDay] && this.closeHour[currentDay]) {
+      if (currentTime < this.startHour[currentDay]) {
+        const returnTimeAndDay = {startHour: '', day: ''};
 
-    if (currentTime > this.endTime[currentDay]) {
-      return this.newDay(currentDay);
-    }
+        returnTimeAndDay.startHour = this.startHour[currentDay];
+        returnTimeAndDay.day = 'Today';
 
-  }
+        return returnTimeAndDay;
+      }
 
-  newDay(currentDay) {
-    const nextDay = currentDay + 1;
-
-    if (this.startTime[nextDay] == null) {
-      const startDayTime = this.startTime[nextDay];
-      const dayOpen = this.day[nextDay];
-      console.log('day:', dayOpen, 'time:', startDayTime);
-      return startDayTime + dayOpen;
+      if (currentTime > this.closeHour[currentDay]) {
+        return this.nextDayFinder(currentDay);
+      }
     } else {
-      this.newDay(nextDay);
+      return this.nextDayFinder(currentDay + 1);
+    }
+  }
+
+  nextDayFinder(currentDay, count = 0) {
+    const nextDay = currentDay !== 6 ? currentDay + 1 : 0;
+
+    if (count > 7 ) {
+      const returnTimeAndDay = {startHour: '', day: ''};
+
+      returnTimeAndDay.startHour = '10:00'; // If there is no record for open time and close time.
+      returnTimeAndDay.day = 'Tomorrow'; // If there is no record for open time and close time.
+
+      return returnTimeAndDay;
+    }
+
+    if (this.startHour[nextDay]) {
+      const returnTimeAndDay = {startHour: '', day: ''};
+
+      returnTimeAndDay.startHour = this.startHour[nextDay];
+      returnTimeAndDay.day = this.day[nextDay];
+      console.log('returnTimeAndDay', returnTimeAndDay);
+      return returnTimeAndDay;
+    } else {
+      return this.nextDayFinder(nextDay, count + 1);
     }
 
   }
 
-  dayStatus(data) {
+  dayStatus() {
     const currentTime = this.datepipe.transform(new Date(), 'HH:mm', 'IST');
-    // const currentTime = '06:00';
-    // const currentDay = new Date().getDay();
-    const currentDay = 0;
+    const currentDay = new Date().getDay();
     const returnData = new StoreTiming();
 
-    returnData.closeHour = this.endTime[currentDay];
-    console.log(this.endTime[currentDay]);
+    returnData.closeHour = this.closeHour[currentDay];
 
-    if (this.startTime[currentDay] && this.endTime[currentDay]) {
-      returnData.isOpen = (this.startTime[currentDay] < currentTime && this.endTime[currentDay] > currentTime);
-      returnData.startHour = this.isOpen ? this.startTime[currentDay] : '';
-      returnData.closeHour = this.isOpen ? this.endTime[currentDay] : '';
-      this.today = this.isOpen ? this.day[currentDay] : '';
-      console.log('if true:', returnData.startHour, returnData.closeHour, returnData.isOpen);
+    const startHour = 'startHour';
+    const day = 'day';
+
+    if (this.startHour[currentDay] && this.closeHour[currentDay]) {
+      returnData.isOpen = (this.startHour[currentDay] < currentTime && this.closeHour[currentDay] > currentTime);
+      returnData.closeHour = this.closeHour[currentDay];
+
+      if (returnData.isOpen) {
+        returnData.startHour = this.startHour[currentDay];
+        returnData.day = this.day[currentDay];
+      } else {
+        const startTimeAndDay = this.findStartTimeAndDay(currentTime, currentDay);
+
+        returnData.startHour = startTimeAndDay[startHour];
+        returnData.day = startTimeAndDay[day];
+      }
     } else {
-      const dayTime = this.findStartTimeAndDay(currentTime, currentDay);
-      this.today = dayTime;
-      console.log(dayTime);
+      returnData.isOpen = false;
+
+      const startTimeAndDay = this.findStartTimeAndDay(currentTime, currentDay);
+      returnData.startHour = startTimeAndDay[startHour];
+      returnData.day = startTimeAndDay[day];
     }
 
     return returnData;
@@ -235,33 +256,34 @@ export class SearchComponent implements OnInit {
     }
     this.searchService.fetchAllStores(param)
       .subscribe(stores => {
-        console.log(stores);
         if (stores.data && stores.data.length > 0) {
           stores.data.forEach(store => {
 
-            console.log(store[0]);
+            this.startHour[0] = store[0].sunStartHour;
+            this.startHour[1] = store[0].monStartHour;
+            this.startHour[2] = store[0].tueStartHour;
+            this.startHour[3] = store[0].wedStartHour;
+            this.startHour[4] = store[0].thuStartHour;
+            this.startHour[5] = store[0].friStartHour;
+            this.startHour[6] = store[0].satStartHour;
 
-            this.startTime[0] = store[0].sunStartHour;
-            this.startTime[1] = store[0].monStartHour;
-            this.startTime[2] = store[0].tueStartHour;
-            this.startTime[3] = store[0].wedStartHour;
-            this.startTime[4] = store[0].thuStartHour;
-            this.startTime[5] = store[0].friStartHour;
-            this.startTime[6] = store[0].satStartHour;
+            this.closeHour[0] = store[0].sunEndHour;
+            this.closeHour[1] = store[0].monEndHour;
+            this.closeHour[2] = store[0].tueEndHour;
+            this.closeHour[3] = store[0].wedEndHour;
+            this.closeHour[4] = store[0].thuEndHour;
+            this.closeHour[5] = store[0].friEndHour;
+            this.closeHour[6] = store[0].satEndHour;
 
-            this.endTime[0] = store[0].sunEndHour;
-            this.endTime[1] = store[0].monEndHour;
-            this.endTime[2] = store[0].tueEndHour;
-            this.endTime[3] = store[0].wedEndHour;
-            this.endTime[4] = store[0].thuEndHour;
-            this.endTime[5] = store[0].friEndHour;
-            this.endTime[6] = store[0].satEndHour;
+            console.log(' this.startHour[0]',  this.startHour, 'this.closeHour', this.closeHour);
+            const returnData = this.dayStatus();
 
-            const returnData = this.dayStatus(store[0]);
+            console.log('returnData', returnData);
 
             store[0].isOpen = returnData.isOpen;
             store[0].startHour = returnData.startHour ? returnData.startHour : '10:00';
             store[0].closeHour = returnData.closeHour ? returnData.closeHour : '20:00';
+            store[0].openDay = returnData.day;
             this.loading = false;
           });
           this.pharmacies = stores.data;
@@ -296,7 +318,7 @@ export class SearchComponent implements OnInit {
   }
 
   onClickOpen() {
-    this.isOpen = !this.isOpen;
+    this.isStoreOpen = !this.isStoreOpen;
     this.filterStores();
   }
 
@@ -308,7 +330,7 @@ export class SearchComponent implements OnInit {
   filterStores() {
     let filteredStores = this.pharmacies;
 
-    if (this.isOpen) {
+    if (this.isStoreOpen) {
       filteredStores = filteredStores.filter(store => store[0].isOpen === true);
     }
 
