@@ -643,15 +643,21 @@ input:focus {
 }
 .slide-home-icon{
   padding-right: 0!important;
-  margin-top: 0.7rem!important;
+  margin-top: 2.3%!important;
   //padding-left: 0!important;
   @media only screen and (max-width: $mobile) {
     padding-left: 0px;
   }
+  @media only screen and (max-width: $mobile-large) {
+    margin-top: 0.7rem!important;
+  }
 }
 
 .slider-label-pharmacy{
-  margin-top: 1%!important;
+  margin-top: 2.3%!important;
+  @media only screen and (max-width: $mobile-large) {
+    margin-top: 0.5rem!important;
+  }
 }
 
 .input-group-text{
