@@ -617,6 +617,9 @@ input:focus {
     //margin-bottom: 15px;
      padding-left: 15px;
   }
+  @media only screen and (min-width: 1600px) {
+    text-align: left;
+  }
 }
 
 .slider-icon-row{
@@ -633,6 +636,7 @@ input:focus {
 .home{
   padding-right: 0;
 }
+.home-svg{}
 .slider-home-icon-label{
   @media only screen and (min-width: $desktop) {
     margin-left: 28px;
@@ -644,6 +648,7 @@ input:focus {
   padding-left: 0;
 }
 .slide-home-icon{
+  text-align: left!important;
   padding-right: 2%!important;
   margin-top: 2.3%!important;
   margin-bottom: 2.5%!important;
@@ -654,6 +659,9 @@ input:focus {
   }
   @media only screen and (max-width: $mobile-large) {
     margin-top: 0.7rem!important;
+  }
+  @media only screen and (min-width: 1600px) {
+    //margin-right: -10px!important;
   }
 }
 
