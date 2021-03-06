@@ -40,6 +40,6 @@ export class StoreTiming {
   isOpen: boolean;
   startHour;
   closeHour: string;
-  nextDay;
+  day;
 
 }

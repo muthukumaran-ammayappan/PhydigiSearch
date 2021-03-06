@@ -24,7 +24,7 @@
         <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="15.5" height="14.1" viewBox="0 0 15.5 14.1"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><path class="a" d="M17,4.5H3l5.6,6.622V15.7l2.8,1.4V11.122Z" transform="translate(-2.25 -3.75)"/></svg>
            Filter</label>
       </div>
-      <button mat-button style="font: normal normal medium Montserrat !important;" class="btn button-open {{isOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()">Open Now
+      <button mat-button style="font: normal normal medium Montserrat !important;" class="btn button-open {{isStoreOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()">Open Now
       </button>
       <button style="margin-left: 30px; font: normal normal medium Montserrat !important;"
               mat-button class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()">Delivery
@@ -82,7 +82,7 @@
             </div>
           </div>
           <h6 class="pharmacy-status mt-1">{{pharmacy[0].isOpen ? 'Closes at' : 'Opens at'}}
-            {{pharmacy[0].isOpen ? tConvert(pharmacy[0].closeHour) : tConvert(pharmacy[0].startHour)}} {{this.today}}</h6>
+            {{pharmacy[0].isOpen ? tConvert(pharmacy[0].closeHour) : tConvert(pharmacy[0].startHour)}}{{pharmacy[0].isOpen ? '' : ', ' + pharmacy[0].openDay }}</h6>
           <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
             {{pharmacy[0].homeDelivery == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
             &nbsp;&nbsp;|&nbsp;&nbsp;
