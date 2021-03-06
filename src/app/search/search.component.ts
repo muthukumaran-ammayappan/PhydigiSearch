@@ -57,6 +57,7 @@ export class SearchComponent implements OnInit {
   public lng = null;
 
   isMobile;
+  isBangLatLong;
 
   constructor(public datepipe: DatePipe,
               private fb: FormBuilder,
@@ -131,7 +132,7 @@ export class SearchComponent implements OnInit {
   nextDayFinder(currentDay, count = 0) {
     const nextDay = currentDay !== 6 ? currentDay + 1 : 0;
 
-    if (count > 7 ) {
+    if (count > 7) {
       const returnTimeAndDay = {startHour: '', day: ''};
 
       returnTimeAndDay.startHour = '10:00'; // If there is no record for open time and close time.
@@ -199,8 +200,12 @@ export class SearchComponent implements OnInit {
   }
 
   getLocation() {
+    console.log('getLocation');
     if (navigator.geolocation) {
+      console.log('navigator.geolocation', navigator.geolocation);
+
       navigator.geolocation.getCurrentPosition((position: Position) => {
+          console.log('Position', position);
           if (position) {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
@@ -240,9 +245,13 @@ export class SearchComponent implements OnInit {
     } else {
       this.isSearch = false;
     }
+    console.log('this.lat', this.lat, this.lng);
     if (this.lat !== null && this.lat !== '') {
+      this.isBangLatLong = false;
       param += 'lat=' + this.lat + '&';
     } else {
+      this.isSearch = true;
+      this.isBangLatLong = true;
       param += 'lat=' + this.bengalurLat + '&';
     }
     if (this.lng !== null && this.lng !== '') {
@@ -303,10 +312,7 @@ export class SearchComponent implements OnInit {
   }
 
   // slider label
-  formatLabel(value
-                :
-                number
-  ) {
+  formatLabel(value: number) {
     if (value >= 1) {
       return Math.round(value / 1) + 'km';
     }

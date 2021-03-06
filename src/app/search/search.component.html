@@ -60,7 +60,7 @@
 <div class="lister" *ngIf="filteredPharmacies.length > 0 && !loading"><br>
   <div class="row">
     <p class="mb-0 search-result-count" *ngIf="!searchValue">About {{filteredPharmacies.length}}
-      results (Near {{km}}km)</p>
+      results {{!isBangLatLong ? '(Near ' + km +'km)' : ''}}</p>
   </div>
   <div class="row fullContainer" style="margin-top: -20px">
     <div *ngFor="let pharmacy of filteredPharmacies;let i = index" class="col-md-6">
