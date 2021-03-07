@@ -4,7 +4,7 @@
       <div class="row mt-2 mb-2">
         <div class="col-md-2">
         </div>
-        <div class="col-md-10 input-padding text-center">
+        <div class="col-md-10 input-padding text-left search-box">
           <label class="search-label text-left" for="search">Search your Local Pharmacy</label>
           <div class="input-group col-md-12 ml-0 mr-0 pl-0 pr-0">
             <div class="input-group">
@@ -43,7 +43,7 @@
           </div>
           <p class="label-slider-home" style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Home</p>
         </div>
-        <div class="col-10 m-0" style="width: 100%; padding-left: 0!important; padding-right: 0!important;">
+        <div class="col-10 m-0 slider-Div">
           <mat-slider [(ngModel)]="km" tickInterval="1" disabled="{{isSearch}}" (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
             class="slider" thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
         </div>
