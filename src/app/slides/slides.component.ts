@@ -43,6 +43,7 @@ export class SlidesComponent implements OnInit {
     autoHeight: true,
     autoplay: true,
   };
+  loading = false;
 
   ngOnInit() {
     this.getSlides();
@@ -50,10 +51,12 @@ export class SlidesComponent implements OnInit {
   }
 
   getSlides() {
+    this.loading = true;
     const postData = null;
     this.searchService.fetchAllSlides(postData)
       .subscribe(response => {
         this.slideResult = response.data;
+        this.loading = false;
       });
   }
 

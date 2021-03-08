@@ -7,4 +7,8 @@
     <div class="carousel-content">
     </div>
   </ng-template>
+  <ng-template *ngIf="loading" carouselSlide>
+    <pre></pre>
+    <mat-spinner class="spinner" diameter="40" [strokeWidth]="2"></mat-spinner>
+  </ng-template>
 </owl-carousel-o>

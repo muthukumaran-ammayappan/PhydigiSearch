@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SlidesComponent} from './slides.component';
 import {CarouselModule} from 'ngx-owl-carousel-o';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
   ],
   imports: [
     CommonModule,
-    CarouselModule
+    CarouselModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     SlidesComponent

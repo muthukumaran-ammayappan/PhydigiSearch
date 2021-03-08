@@ -326,3 +326,14 @@ html{
 .mat-paginator-navigation-next:focus{
   outline: none!important;
 }
+
+.carousel-span-loader{
+  background-color: rgba(0,0,0,0);
+  height: 159px!important;
+}
+.owl-carousel .owl-item{
+  height: 159px!important;
+  @media only screen and (max-width: $mobile-large) {
+    height: 90px!important;
+  }
+}
