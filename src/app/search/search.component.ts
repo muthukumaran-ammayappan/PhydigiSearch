@@ -46,7 +46,7 @@ export class SearchComponent implements OnInit {
 
   isSearch = false;
   nextDay;
-  API_HOST = environment.serviceURL;
+  API_HOST = environment.storeURL;
   API_HOST_WITH_PORT = environment.serviceURL + environment.port;
 
   day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -200,12 +200,12 @@ export class SearchComponent implements OnInit {
   }
 
   getLocation() {
-    console.log('getLocation');
+    // console.log('getLocation');
     if (navigator.geolocation) {
-      console.log('navigator.geolocation', navigator.geolocation);
+      // console.log('navigator.geolocation', navigator.geolocation);
 
       navigator.geolocation.getCurrentPosition((position: Position) => {
-          console.log('Position', position);
+          // console.log('Position', position);
           if (position) {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
@@ -245,7 +245,7 @@ export class SearchComponent implements OnInit {
     } else {
       this.isSearch = false;
     }
-    console.log('this.lat', this.lat, this.lng);
+    // console.log('this.lat', this.lat, this.lng);
     if (this.lat !== null && this.lat !== '') {
       this.isBangLatLong = false;
       param += 'lat=' + this.lat + '&';
