@@ -42,6 +42,8 @@ export class SlidesComponent implements OnInit {
     nav: true,
     autoHeight: true,
     autoplay: true,
+    autoplaySpeed: 700,
+    autoplayTimeout: 7000,
   };
   loading = false;
 

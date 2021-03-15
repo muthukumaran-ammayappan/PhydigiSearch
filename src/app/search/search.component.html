@@ -1,4 +1,110 @@
-<div class="container-fluid">
+<mat-toolbar class="col-sm-12 col-md-12 logo-header">
+  <div class="empty-div" *ngIf="!isMobile"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" *ngIf="!isMobile" width="92" height="32" viewBox="0 0 60 21"><defs><style>.a,.d{fill:#fff;}  .a{stroke:#707070;}  .b{fill:url(#a);}  .c{fill:url(#b);}  .e{fill:#e21313;}  .f{clip-path:url(#c);}</style><linearGradient id="a" x1="0.5" x2="0.5" y2="1.132" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#3faca1"/><stop offset="0.443" stop-color="#2cc1af"/><stop offset="1" stop-color="#14635a"/></linearGradient><linearGradient id="b" x1="0.5" x2="0.5" y2="1.356" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#0989cb"/><stop offset="0.395" stop-color="#2f96cb"/><stop offset="1" stop-color="#054566"/></linearGradient><clipPath id="c"><rect class="a" width="9" height="13" transform="translate(54 65)"/></clipPath></defs><g transform="translate(-15 -62)"><rect class="b" width="60" height="21" rx="10.5" transform="translate(15 62)"/><path class="c" d="M10.5,0H30a0,0,0,0,1,0,0V21a0,0,0,0,1,0,0H10.5A10.5,10.5,0,0,1,0,10.5v0A10.5,10.5,0,0,1,10.5,0Z" transform="translate(15 62)"/><path class="d" d="M0,0H2.5V8H0Z" transform="translate(33 70)"/><path class="d" d="M6.314-3.849l5.909-7v15H10.009V-4.641L6.222-.212,2.673-4.625V2.129H.5V-10.848Z" transform="translate(37.504 75.848)"/><circle class="e" cx="2" cy="2" r="2" transform="translate(32 65)"/><g class="f" transform="translate(-2)"><path class="d" d="M-2453.5,13a6.507,6.507,0,0,1-6.5-6.5,6.507,6.507,0,0,1,6.5-6.5,6.507,6.507,0,0,1,6.5,6.5A6.507,6.507,0,0,1-2453.5,13Zm0-10.833a4.338,4.338,0,0,0-4.333,4.333,4.338,4.338,0,0,0,4.333,4.334,4.338,4.338,0,0,0,4.333-4.334A4.338,4.338,0,0,0-2453.5,2.166Z" transform="translate(2510 65)"/></g></g></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" *ngIf="isMobile" width="60" height="21" viewBox="0 0 60 21"><defs><style>.a,.d{fill:#fff;}  .a{stroke:#707070;}  .b{fill:url(#a);}  .c{fill:url(#b);}  .e{fill:#e21313;}  .f{clip-path:url(#c);}</style><linearGradient id="a" x1="0.5" x2="0.5" y2="1.132" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#3faca1"/><stop offset="0.443" stop-color="#2cc1af"/><stop offset="1" stop-color="#14635a"/></linearGradient><linearGradient id="b" x1="0.5" x2="0.5" y2="1.356" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#0989cb"/><stop offset="0.395" stop-color="#2f96cb"/><stop offset="1" stop-color="#054566"/></linearGradient><clipPath id="c"><rect class="a" width="9" height="13" transform="translate(54 65)"/></clipPath></defs><g transform="translate(-15 -62)"><rect class="b" width="60" height="21" rx="10.5" transform="translate(15 62)"/><path class="c" d="M10.5,0H30a0,0,0,0,1,0,0V21a0,0,0,0,1,0,0H10.5A10.5,10.5,0,0,1,0,10.5v0A10.5,10.5,0,0,1,10.5,0Z" transform="translate(15 62)"/><path class="d" d="M0,0H2.5V8H0Z" transform="translate(33 70)"/><path class="d" d="M6.314-3.849l5.909-7v15H10.009V-4.641L6.222-.212,2.673-4.625V2.129H.5V-10.848Z" transform="translate(37.504 75.848)"/><circle class="e" cx="2" cy="2" r="2" transform="translate(32 65)"/><g class="f" transform="translate(-2)"><path class="d" d="M-2453.5,13a6.507,6.507,0,0,1-6.5-6.5,6.507,6.507,0,0,1,6.5-6.5,6.507,6.507,0,0,1,6.5,6.5A6.507,6.507,0,0,1-2453.5,13Zm0-10.833a4.338,4.338,0,0,0-4.333,4.333,4.338,4.338,0,0,0,4.333,4.334,4.338,4.338,0,0,0,4.333-4.334A4.338,4.338,0,0,0-2453.5,2.166Z" transform="translate(2510 65)"/></g></g></svg>
+  &nbsp;&nbsp;<div class="vertical-ruler">&nbsp;&nbsp;</div>
+  <div>
+    <div class="title-header">ItsMyPharma By PhyDigi</div>
+    <div class="desc-header">Bringing your local pharmacy closer to you</div>
+  </div>
+</mat-toolbar>
+<div class="container-fluid" *ngIf="cols == 1">
+  <div class="row cardColor myContent-left justify-content-center">
+    <div class="col-md-4 text-right">
+      <div class="row mt-2 mb-2">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-10 input-padding text-left search-box">
+          <label class="search-label text-left" for="search">Search your Local Pharmacy</label>
+          <div class="input-group col-md-12 ml-0 mr-0 pl-0 pr-0">
+            <div class="input-group">
+              <input autocomplete="off" class="form-control py-2 border-right-0 border search-placeholder"
+                     [(ngModel)]="searchValue"
+                     (input)="searchTimer($event.target.value)" type="search" value="search"
+                     placeholder="Search by Pharmacy, City, PIN Code or Area" id="searchInput">
+              <span class="input-group-append">
+                <div class="input-group-text bg-white"><img src="/assets/images/Icon-ionic-ios-search.png" height="16px"
+                                                            width="16px"></div></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-slides></app-slides>
+<mat-accordion *ngIf="cols==1">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header style="border-bottom: solid 2px #D4D4D4;border-radius: unset">
+      <mat-panel-title><label class="label-filter-accordion"><svg xmlns="http://www.w3.org/2000/svg" width="15.5" height="14.1" viewBox="0 0 15.5 14.1"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><path class="a" d="M17,4.5H3l5.6,6.622V15.7l2.8,1.4V11.122Z" transform="translate(-2.25 -3.75)"/></svg>
+        <span class="accordion-label">&nbsp;&nbsp;Filter</span></label></mat-panel-title>
+
+    </mat-expansion-panel-header><br>
+    <div class="container-fluid">
+          <div class="row cardColor myContent-left justify-content-center">
+            <div class="col-md-4 text-center">
+              <div class="row m-0 text-center"
+                   style="text-align: center; font: normal normal medium Montserrat !important;">
+                <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="12.73" height="8.49" viewBox="0 0 15.556 11.314"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-width:2px;}</style></defs><g transform="translate(-17.11 -358.016)"><line class="a" y2="6" transform="translate(18.524 363.672) rotate(-45)"/><line class="a" x1="12" transform="translate(22.767 367.915) rotate(-45)"/></g></svg>
+                  Select</label>
+              </div>
+              <button mat-button style="font: normal normal medium Montserrat !important;"
+                      class="btn button-open {{isStoreOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()">Open Now
+              </button>
+              <button style="margin-left: 30px; font: normal normal medium Montserrat !important;"
+                      mat-button class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}"
+                      (click)="onClickDelivery()">Delivery
+              </button>
+              <hr *ngIf="cols == 1">
+            </div>
+            <div class="col-md-4 text-center slider-top">
+              <div class="row col-12" style="text-align: center; font: normal normal medium Montserrat !important;">
+                <label class="label-setDistance"><img src="assets/images/Group%201281@2x.png" width="12.844"
+                                                      height="16.513">
+                  <span class="text-setDistance"> Set Distance</span></label>
+              </div>
+              <div class="row slider-padding">
+                <div class="col-1 slide-home-icon">
+                  <div class="home-svg" style="margin-bottom: -5px">
+                    <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7"
+                         viewBox="0 0 19.7 21.7">
+                      <defs>
+                        <style>.a {
+                          fill: none;
+                          stroke: #333;
+                          stroke-linecap: round;
+                          stroke-linejoin: round;
+                          stroke-width: 1.7px;
+                        }</style>
+                      </defs>
+                      <g transform="translate(-3.65 -2.15)">
+                        <path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z"
+                              transform="translate(0 0)"/>
+                        <path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <p class="label-slider-home"
+                     style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Home</p>
+                </div>
+                <div class="col-10 m-0 slider-Div">
+                  <mat-slider [(ngModel)]="km" tickInterval="1" disabled="{{isSearch}}"
+                              (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
+                              class="slider" thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
+                </div>
+                <div class="col-1 slider-label-pharmacy text-left"
+                     style="padding-left: 0!important;  font: normal normal medium Montserrat !important;">
+                  <img matTooltip="Pharmacy" src="/assets/images/pharmacy.png" class="imageSize">
+                  <p class="label-slider-pharmacy"
+                     style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Pharmacy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<div class="container-fluid" *ngIf="cols==2">
   <div class="row cardColor myContent-left justify-content-center">
     <div class="col-md-4 text-right">
       <div class="row mt-2 mb-2">
@@ -21,8 +127,8 @@
     </div>
     <div class="col-md-4 text-center">
       <div class="row m-0 text-center" style="text-align: center; font: normal normal medium Montserrat !important;">
-        <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="15.5" height="14.1" viewBox="0 0 15.5 14.1"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><path class="a" d="M17,4.5H3l5.6,6.622V15.7l2.8,1.4V11.122Z" transform="translate(-2.25 -3.75)"/></svg>
-           Filter</label>
+        <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="12.73" height="8.49" viewBox="0 0 15.556 11.314"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-width:2px;}</style></defs><g transform="translate(-17.11 -358.016)"><line class="a" y2="6" transform="translate(18.524 363.672) rotate(-45)"/><line class="a" x1="12" transform="translate(22.767 367.915) rotate(-45)"/></g></svg>
+           Select</label>
       </div>
       <button mat-button style="font: normal normal medium Montserrat !important;" class="btn button-open {{isStoreOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()">Open Now
       </button>

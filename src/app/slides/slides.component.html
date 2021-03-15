@@ -1,5 +1,7 @@
-<owl-carousel-o style="height: 159px" class="slide-height" [options]="customOptions">
-  <ng-template carouselSlide class="slide-height" *ngFor="let slide of slideResult; let idx = index">
+
+
+<owl-carousel-o class="slide-height" [options]="customOptions">
+  <ng-template carouselSlide  *ngFor="let slide of slideResult; let idx = index">
 <!--    <a *ngIf="slide.carouselLink && !isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearch?id={{slide.id}}"></a>-->
 <!--    <a *ngIf="!slide.carouselLink && !isMobile" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearch?id={{slide.id}}"></a>-->
 <!--    <a *ngIf="slide.carouselLink && isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearchMobile?id={{slide.id}}"></a>-->
@@ -13,7 +15,11 @@
     </div>
   </ng-template>
   <ng-template *ngIf="loading" carouselSlide>
-    <pre></pre>
-    <mat-spinner class="spinner" diameter="40" [strokeWidth]="2"></mat-spinner>
+<!--    <pre></pre>-->
+<!--    <mat-spinner class="spinner" diameter="40" [strokeWidth]="2"></mat-spinner>-->
+
+    <img *ngIf="!isMobile" class="slide-mobile" src="/assets/images/bannerDefault.jpg">
+    <img *ngIf="isMobile" class="slide-mobile" src="/assets/images/bannerDefaultMob.jpg">
+
   </ng-template>
 </owl-carousel-o>

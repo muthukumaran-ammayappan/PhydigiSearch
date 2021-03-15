@@ -12,6 +12,10 @@ import {LoaderComponent} from '../loader/loader.component';
 import {StylePaginatorDirective} from './style-paginator.directive';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
+import {SlidesModule} from "../slides/slides.module";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {AccordionModule} from "ngx-accordion";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 
@@ -33,6 +37,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatPaginatorModule,
     MatTooltipModule,
     MatButtonModule,
+    SlidesModule,
+    MatToolbarModule,
+    AccordionModule,
+    MatExpansionModule,
   ],
   exports: [
     SearchComponent,
