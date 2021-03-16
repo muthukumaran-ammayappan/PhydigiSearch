@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "buildSTAGING": "ng build --prod --base-href /opsweb/ --configuration=staging",
+    "buildSTAGING": "ng build --prod --configuration=staging",
     "buildPROD": "ng build --prod --configuration=production"
   },
   "private": true,
