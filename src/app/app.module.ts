@@ -11,8 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {SearchService} from './services/search.service';
 import {FactoryService} from './services/factory.service';
 import {RouterModule} from '@angular/router';
-import { LoaderComponent } from './loader/loader.component';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [

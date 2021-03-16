@@ -150,7 +150,7 @@ input:focus {
 .button-open {
   width: 172px;
   line-height: 0 !important;
-  height: 35px;
+  height: 40px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   border: 1.3px solid rgb(193, 193, 193);
   border-radius: 25px;
@@ -171,7 +171,7 @@ input:focus {
   }
 }
 
-.button-open:active{
+.button-open:active {
   outline: none !important;
 }
 
@@ -229,9 +229,10 @@ input:focus {
 
 .slider {
   width: 98%;
-  .cardColor[_ngcontent-waf-c2] .col[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-auto[_ngcontent-waf-c2]{
+
+  .cardColor[_ngcontent-waf-c2] .col[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-lg-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-md-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-sm-auto[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-1[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-10[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-11[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-12[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-2[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-3[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-4[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-5[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-6[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-7[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-8[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-9[_ngcontent-waf-c2], .cardColor[_ngcontent-waf-c2] .col-xl-auto[_ngcontent-waf-c2] {
     padding-right: 0 !important;
-    padding-left: 0!important;
+    padding-left: 0 !important;
   }
 }
 
@@ -282,7 +283,7 @@ input:focus {
     width: 60px;
     top: 0 !important;
   }
-  }
+}
 
 .left-align {
   text-align: left;
@@ -311,13 +312,13 @@ input:focus {
   //overflow: hidden;
   height: auto;
   @media only screen and (max-width: $mobile-large) {
-    font: normal normal medium 14px/18px Montserrat!important;
+    font: normal normal medium 14px/18px Montserrat !important;
     margin-bottom: 1%;
     text-overflow: unset;
     white-space: unset;
     overflow: unset;
   }
-  @media only screen and (min-width: $mobile-large){
+  @media only screen and (min-width: $mobile-large) {
     height: 35px;
     overflow: hidden;
   }
@@ -411,7 +412,7 @@ input:focus {
 }
 
 .map-distance {
-  font: normal normal medium 14px/18px Montserrat!important;
+  font: normal normal medium 14px/18px Montserrat !important;
   font-family: Montserrat, serif !important;
   vertical-align: middle;
   color: #333333;
@@ -420,7 +421,7 @@ input:focus {
     font-size: 12px;
   }
   @media only screen and (min-width: 1140px) {
-    padding-left: 21px!important;
+    padding-left: 21px !important;
   }
 }
 
@@ -523,15 +524,15 @@ input:focus {
 }
 
 .search-placeholder {
-  border: 1px solid #D1D1D1!important;
-  border-right: none!important;
+  border: 1px solid #D1D1D1 !important;
+  border-right: none !important;
   border-radius: 0px;
   text-align: left;
   font: normal normal normal 13px/18px Montserrat;
   @media only screen and (max-width: $mobile-large) {
     font: normal normal normal 13px/16px Montserrat;
   }
-    letter-spacing: 0px;
+  letter-spacing: 0px;
   color: #777777;
   opacity: 1;
 }
@@ -543,9 +544,9 @@ input:focus {
 .label-slider-home {
   color: #333333;
   font: normal normal medium 9px/10px Montserrat !important;
-  font-family: Montserrat, serif!important;
+  font-family: Montserrat, serif !important;
   font-weight: 500;
-  font-size: 9px!important;
+  font-size: 9px !important;
   margin-left: -4px;
   @media only screen and (max-width: $mobile-large) {
     margin-right: -4px;
@@ -558,9 +559,9 @@ input:focus {
 .label-slider-pharmacy {
   color: #333333;
   font: normal normal medium 9px/10px Montserrat !important;
-  font-family: Montserrat, serif!important;
+  font-family: Montserrat, serif !important;
   font-weight: 500;
-  font-size: 9px!important;
+  font-size: 9px !important;
   margin-left: -10px;
   @media only screen and (max-width: $mobile-large) {
     margin-left: -14px;
@@ -583,12 +584,13 @@ input:focus {
   font-weight: 500;
   text-align: center !important;
   @media only screen and (max-width: $mobile-large) {
-    margin-top: 0!important;
+    margin-top: 0 !important;
   }
   @media only screen and (min-width: 1920px) {
-    margin-top: 1.8%!important;
+    margin-top: 1.8% !important;
   }
 }
+
 .label-filter-accordion {
   top: 2%;
   margin-top: 3%;
@@ -597,7 +599,8 @@ input:focus {
   font-weight: 500;
   text-align: center !important;
   margin-bottom: 0;
-  .a{
+
+  .a {
     fill: none;
     stroke: #186696;
     stroke-linecap: round;
@@ -606,22 +609,23 @@ input:focus {
   }
 }
 
-.label-setDistance{
+.label-setDistance {
   top: 2%;
   margin-top: 3%;
   font: normal normal medium 9px/10px Montserrat !important;
   font-size: 14px;
   font-weight: 500;
   text-align: center !important;
-  margin-bottom: 0!important;
+  margin-bottom: 0 !important;
   @media only screen and (max-width: $mobile-large) {
-    margin-top: 1%!important;
+    margin-top: 1% !important;
   }
   @media only screen and (min-width: 1920px) {
-    margin-top: 1.8%!important;
+    margin-top: 1.8% !important;
   }
-  }
-.text-setDistance{
+}
+
+.text-setDistance {
   vertical-align: middle;
 }
 
@@ -631,14 +635,14 @@ input:focus {
   //margin-bottom: 5px;
   @media only screen and (max-width: $mobile) {
     //margin-bottom: 15px;
-     padding-left: 15px;
+    padding-left: 15px;
   }
   @media only screen and (min-width: 1600px) {
     //text-align: left;
   }
 }
 
-.slider-icon-row{
+.slider-icon-row {
   @media only screen and (min-width: $desktop) {
     margin-bottom: 15px;
   }
@@ -649,57 +653,64 @@ input:focus {
     display: none;
   }
 }
-.home{
+
+.home {
   padding-right: 0;
 }
-.home-svg{}
-.slider-home-icon-label{
+
+.home-svg {
+}
+
+.slider-home-icon-label {
   @media only screen and (min-width: $desktop) {
     margin-left: 28px;
-  }  @media only screen and (max-width: $mobile) {
+  }
+  @media only screen and (max-width: $mobile) {
     margin-left: 10px;
   }
 }
-.pharmacy{
+
+.pharmacy {
   padding-left: 0;
 }
-.slide-home-icon{
-  text-align: left!important;
-  padding-right: 2%!important;
-  margin-top: 2.3%!important;
-  margin-bottom: 2.5%!important;
+
+.slide-home-icon {
+  text-align: left !important;
+  padding-right: 2% !important;
+  margin-top: 2.3% !important;
+  margin-bottom: 2.5% !important;
   //padding-left: 0!important;
   @media only screen and (max-width: $mobile) {
     padding-left: 0px;
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
   }
   @media only screen and (max-width: $mobile-large) {
-    margin-top: 0.7rem!important;
+    margin-top: 0.7rem !important;
   }
   @media only screen and (min-width: 1600px) {
-    margin-right: -10px!important;
+    margin-right: -10px !important;
   }
 }
 
-.slider-label-pharmacy{
-  margin-top: 2%!important;
+.slider-label-pharmacy {
+  margin-top: 2% !important;
   @media only screen and (max-width: $mobile-large) {
-    margin-top: 0.5rem!important;
+    margin-top: 0.5rem !important;
   }
 }
 
-.input-group-text{
-  border: 1px solid #D1D1D1!important;
-  border-left: none!important;
-  border-radius: 0!important;
+.input-group-text {
+  border: 1px solid #D1D1D1 !important;
+  border-left: none !important;
+  border-radius: 0 !important;
 }
 
-.icon-filter{
-  color: #186696!important;
+.icon-filter {
+  color: #186696 !important;
 }
 
-.label-filter{
-  .a{
+.label-filter {
+  .a {
     fill: none;
     stroke: #186696;
     stroke-linecap: round;
@@ -707,71 +718,80 @@ input:focus {
     stroke-width: 1.5px;
   }
 }
-hr{
+
+hr {
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .slider-Div {
   width: 100%;
-  padding-left: 5px!important;
-  padding-right: 0!important;
+  padding-left: 5px !important;
+  padding-right: 0 !important;
   @media only screen and (max-width: $mobile) {
-    padding-left: 0!important;
+    padding-left: 0 !important;
   }
   @media only screen and (max-width: $mobile-large) {
-    padding-left: 0!important;
+    padding-left: 0 !important;
   }
 }
 
 
 .search-box {
-  padding-left: 0!important;
+  padding-left: 0 !important;
   @media only screen and (max-width: $mobile) {
-    padding-left: 15px!important;
+    padding-left: 15px !important;
   }
   @media only screen and (max-width: $mobile-large) {
-    padding-left: 15px!important;
+    padding-left: 15px !important;
   }
 }
 
-.logo-header{
-  height: 60px!important;
+.logo-header {
+  height: 60px !important;
   background-color: #4E4D5D;
   @media only screen and (max-width: $mobile-large) {
-    height: 45px!important;
+    height: 45px !important;
   }
 }
 
-.title-header{
-  font: normal normal medium 16px/13px Montserrat;
-  font-family: Montserrat, serif;
-  font-size: 16px;
+.title-header {
+  font: normal normal 500 16px/13px Montserrat;
   text-align: left;
-  height: 19px;
+  opacity: 1;
+  height: 18px;
   @media only screen and (max-width: $mobile-large) {
-    font-size: 12px;
-    text-align: left;  }
+    font: normal normal 500 12px/13px Montserrat;
+    text-align: left;
+    height: 14px;
+  }
 }
-.desc-header{
-  font: normal normal lighter 300 12px/13px Montserrat;
-  font-family: Montserrat, serif;
-  font-weight: 300;
-  font-size: 12px;
+
+.desc-header {
+  font: normal normal 300 11px/12px Montserrat;
   text-align: left;
   opacity: 1;
   @media only screen and (max-width: $mobile-large) {
-    font-weight: 300;
-    font-size: 9px;
+    font: normal normal 300 8px/12px Montserrat;
   }
 }
-.vertical-ruler{
+
+.vertical-ruler {
   border-left: 1px solid #707070 !important;
-  height: 25px!important;
+  height: 25px !important;
 }
-.margin-header{
-  margin-left: 10%!important;
+
+.margin-header {
+  margin-left: 10% !important;
 }
-.empty-div{
-  margin-left: 70px!important;
+
+.empty-div {
+  margin-left: 70px !important;
+}
+
+.input-group{
+  height: 45px;
+  @media only screen and (max-width: $mobile-large) {
+    height: 40px;
+  }
 }

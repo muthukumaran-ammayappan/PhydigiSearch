@@ -1,6 +1,5 @@
 export const environment = {
   production: false,
-  serviceURL: 'https://dev.phydigi.com',
+  serviceURL: 'https://services-local.phydigi.com/phyDigi/api/',
   storeURL: 'https://my.phydigi.com',
-  port: ':9002'
 };

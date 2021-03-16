@@ -48,7 +48,7 @@ body > div > a {
 }
 
 owl-carousel-o {
-  height: 100px !important;
+  height: 102px !important;
 }
 
 .owl-carousel {
@@ -207,9 +207,9 @@ owl-carousel-o {
 }
 
 .slide-mobile {
-  height: 200px;
+  height: 198px;
   @media only screen and (max-width: $mobile) {
-    height: 100px;
+    height: 102px;
     width: 140%;
   }
 }
@@ -334,9 +334,9 @@ html{
   height: 200px!important;
 }
 .owl-carousel .owl-item{
-  height: 200px!important;
+  height: 198px!important;
   @media only screen and (max-width: $mobile-large) {
-    height: 90px!important;
+    height: 102px!important;
   }
 }
 .mat-expansion-panel-header{

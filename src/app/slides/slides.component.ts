@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {SearchService} from '../services/search.service';
-import {environment} from '../../environments/environment.prod';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-slides',
@@ -9,14 +9,15 @@ import {environment} from '../../environments/environment.prod';
   styleUrls: ['./slides.component.scss']
 })
 export class SlidesComponent implements OnInit {
-
-  constructor(private searchService: SearchService) {
+  constructor(private searchService: SearchService
+  ) {
     this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   }
 
   slideResult: [];
   isMobile;
   url;
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -49,7 +50,7 @@ export class SlidesComponent implements OnInit {
 
   ngOnInit() {
     this.getSlides();
-    this.url = environment.serviceURL + environment.port;
+    this.url = environment.serviceURL;
   }
 
   getSlides() {
@@ -57,6 +58,7 @@ export class SlidesComponent implements OnInit {
     const postData = null;
     this.searchService.fetchAllSlides(postData)
       .subscribe(response => {
+        // console.log(response);
         this.slideResult = response.data;
         this.loading = false;
       });

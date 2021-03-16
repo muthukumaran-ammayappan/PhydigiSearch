@@ -4,10 +4,8 @@
 
 export const environment = {
   production: true,
-  // serviceURL: 'http://localhost:9002',
-  serviceURL: 'https://dev.phydigi.com',
-  port: ':9002'
-
+  serviceURL: 'http://localhost:9002',
+  storeURL: 'https://dev.phydigi.com',
 };
 
 /*

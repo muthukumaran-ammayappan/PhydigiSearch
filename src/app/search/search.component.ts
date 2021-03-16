@@ -5,7 +5,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {DatePipe} from '@angular/common';
 import {StoreTiming} from '../model/search.model';
 import {PageEvent} from '@angular/material';
-import {environment} from '../../environments/environment.prod';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -47,7 +47,7 @@ export class SearchComponent implements OnInit {
   isSearch = false;
   nextDay;
   API_HOST = environment.storeURL;
-  API_HOST_WITH_PORT = environment.serviceURL + environment.port;
+  API_HOST_WITH_PORT = environment.serviceURL;
 
   day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
