@@ -258,7 +258,7 @@ export class StylePaginatorDirective {
     // console.log('switch', i);
     const previousPageIndex = this.matPag.pageIndex;
     this.matPag.pageIndex = i;
-    this.matPag._emitPageEvent(previousPageIndex);
+    this.matPag['_emitPageEvent'](previousPageIndex);
     this.initPageRange();
   }
   // Initialize default state after view init
