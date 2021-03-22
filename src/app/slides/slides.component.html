@@ -7,9 +7,9 @@
 <!--    <a *ngIf="slide.carouselLink && isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearchMobile?id={{slide.id}}"></a>-->
 <!--    <a *ngIf="!slide.carouselLink && isMobile" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{url}}/api/imageSearchMobile?id={{slide.id}}"></a> -->
 <!--    {{sanitizationService.bypassSecurityTrustUrl(slide.decryptedData) | json}}-->
-    <a *ngIf="slide.carouselLink && !isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{'data:image/jpg;base64,' + slide.decryptedImageData}}"></a>
+    <a *ngIf="slide.carouselLink && !isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank"><img class="slide-mobile" src="{{'data:image/jpg;base64,' + slide.decryptedImageData}}"></a>
     <a *ngIf="!slide.carouselLink && !isMobile" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{'data:image/jpg;base64,' + slide.decryptedImageData}}"></a>
-    <a *ngIf="slide.carouselLink && isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{'data:image/jpg;base64,' + slide.decryptedImageDataMobile}}"></a>
+    <a *ngIf="slide.carouselLink && isMobile" href="{{slide.carouselLink ? slide.carouselLink : '#'}}" target="_blank"><img class="slide-mobile" src="{{'data:image/jpg;base64,' + slide.decryptedImageDataMobile}}"></a>
     <a *ngIf="!slide.carouselLink && isMobile" class="{{slide.carouselLink ? 'link-image':''}}"><img class="slide-mobile" src="{{'data:image/jpg;base64,' + slide.decryptedImageDataMobile}}"></a>
     <div class="carousel-content">
     </div>
