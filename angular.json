@@ -90,7 +90,7 @@
               "optimization": {
                 "scripts": true,
                 "styles": {
-                  "minify": true,
+                  "minify": false,
                   "inlineCritical": false
                 },
                 "fonts": true
