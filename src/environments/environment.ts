@@ -3,9 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   serviceURL: 'http://localhost:9002',
   storeURL: 'https://dev.phydigi.com',
+  /* serviceURL: 'https://services.phydigi.com/phyDigi',
+  storeURL: 'https://my.phydigi.com', */
 };
 
 /*

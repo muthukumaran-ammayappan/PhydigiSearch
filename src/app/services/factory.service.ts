@@ -14,7 +14,8 @@ export class FactoryService {
 
   getFileHttpHeaders() {
     let headers = new HttpHeaders();
-    headers = headers.append('ops_user_id', localStorage.getItem('id'));
+    let id: any = localStorage.getItem('id');
+    headers = headers.append('ops_user_id', id);
     return headers;
   }
 

@@ -1,13 +1,3 @@
-<mat-toolbar class="col-sm-12 col-md-12 logo-header">
-  <div class="empty-div" *ngIf="!isMobile"></div>
-  <svg xmlns="http://www.w3.org/2000/svg" *ngIf="!isMobile" width="92" height="32" viewBox="0 0 60 21"><defs><style>.a,.d{fill:#fff;}  .a{stroke:#707070;}  .b{fill:url(#a);}  .c{fill:url(#b);}  .e{fill:#e21313;}  .f{clip-path:url(#c);}</style><linearGradient id="a" x1="0.5" x2="0.5" y2="1.132" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#3faca1"/><stop offset="0.443" stop-color="#2cc1af"/><stop offset="1" stop-color="#14635a"/></linearGradient><linearGradient id="b" x1="0.5" x2="0.5" y2="1.356" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#0989cb"/><stop offset="0.395" stop-color="#2f96cb"/><stop offset="1" stop-color="#054566"/></linearGradient><clipPath id="c"><rect class="a" width="9" height="13" transform="translate(54 65)"/></clipPath></defs><g transform="translate(-15 -62)"><rect class="b" width="60" height="21" rx="10.5" transform="translate(15 62)"/><path class="c" d="M10.5,0H30a0,0,0,0,1,0,0V21a0,0,0,0,1,0,0H10.5A10.5,10.5,0,0,1,0,10.5v0A10.5,10.5,0,0,1,10.5,0Z" transform="translate(15 62)"/><path class="d" d="M0,0H2.5V8H0Z" transform="translate(33 70)"/><path class="d" d="M6.314-3.849l5.909-7v15H10.009V-4.641L6.222-.212,2.673-4.625V2.129H.5V-10.848Z" transform="translate(37.504 75.848)"/><circle class="e" cx="2" cy="2" r="2" transform="translate(32 65)"/><g class="f" transform="translate(-2)"><path class="d" d="M-2453.5,13a6.507,6.507,0,0,1-6.5-6.5,6.507,6.507,0,0,1,6.5-6.5,6.507,6.507,0,0,1,6.5,6.5A6.507,6.507,0,0,1-2453.5,13Zm0-10.833a4.338,4.338,0,0,0-4.333,4.333,4.338,4.338,0,0,0,4.333,4.334,4.338,4.338,0,0,0,4.333-4.334A4.338,4.338,0,0,0-2453.5,2.166Z" transform="translate(2510 65)"/></g></g></svg>
-  <svg xmlns="http://www.w3.org/2000/svg" *ngIf="isMobile" width="60" height="21" viewBox="0 0 60 21"><defs><style>.a,.d{fill:#fff;}  .a{stroke:#707070;}  .b{fill:url(#a);}  .c{fill:url(#b);}  .e{fill:#e21313;}  .f{clip-path:url(#c);}</style><linearGradient id="a" x1="0.5" x2="0.5" y2="1.132" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#3faca1"/><stop offset="0.443" stop-color="#2cc1af"/><stop offset="1" stop-color="#14635a"/></linearGradient><linearGradient id="b" x1="0.5" x2="0.5" y2="1.356" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#0989cb"/><stop offset="0.395" stop-color="#2f96cb"/><stop offset="1" stop-color="#054566"/></linearGradient><clipPath id="c"><rect class="a" width="9" height="13" transform="translate(54 65)"/></clipPath></defs><g transform="translate(-15 -62)"><rect class="b" width="60" height="21" rx="10.5" transform="translate(15 62)"/><path class="c" d="M10.5,0H30a0,0,0,0,1,0,0V21a0,0,0,0,1,0,0H10.5A10.5,10.5,0,0,1,0,10.5v0A10.5,10.5,0,0,1,10.5,0Z" transform="translate(15 62)"/><path class="d" d="M0,0H2.5V8H0Z" transform="translate(33 70)"/><path class="d" d="M6.314-3.849l5.909-7v15H10.009V-4.641L6.222-.212,2.673-4.625V2.129H.5V-10.848Z" transform="translate(37.504 75.848)"/><circle class="e" cx="2" cy="2" r="2" transform="translate(32 65)"/><g class="f" transform="translate(-2)"><path class="d" d="M-2453.5,13a6.507,6.507,0,0,1-6.5-6.5,6.507,6.507,0,0,1,6.5-6.5,6.507,6.507,0,0,1,6.5,6.5A6.507,6.507,0,0,1-2453.5,13Zm0-10.833a4.338,4.338,0,0,0-4.333,4.333,4.338,4.338,0,0,0,4.333,4.334,4.338,4.338,0,0,0,4.333-4.334A4.338,4.338,0,0,0-2453.5,2.166Z" transform="translate(2510 65)"/></g></g></svg>
-  &nbsp;&nbsp;<div class="vertical-ruler">&nbsp;&nbsp;</div>
-  <div>
-    <div class="title-header">ItsMyPharma By PhyDigi</div>
-    <div class="desc-header">Bringing your local pharmacy closer to you</div>
-  </div>
-</mat-toolbar>
 <div class="container-fluid" *ngIf="cols == 1">
   <div class="row cardColor myContent-left justify-content-center">
     <div class="col-md-4 text-right">
@@ -17,14 +7,14 @@
         <div class="col-md-10 input-padding text-left search-box">
           <label class="search-label text-left" for="search">Search your Local Pharmacy</label>
           <div class="input-group col-md-12 ml-0 mr-0 pl-0 pr-0">
-            <div class="input-group">
+            <div class="input-group shadow-input">
               <input autocomplete="off" class="form-control py-2 border-right-0 border search-placeholder"
-                     [(ngModel)]="searchValue"
-                     (input)="searchTimer($event.target.value)" type="search" value="search"
-                     placeholder="Search by Pharmacy, City, PIN Code or Area" id="searchInput">
+                [(ngModel)]="searchValue" (input)="searchTimer($any($event.target).value)" type="search" value="search"
+                placeholder="Search by Pharmacy, City, PIN Code or Area" id="searchInput">
               <span class="input-group-append">
-                <div class="input-group-text bg-white"><img src="/assets/images/Icon-ionic-ios-search.png" height="16px"
-                                                            width="16px"></div></span>
+                <div class="input-group-text bg-white search-icon"><img src="assets/images/Icon-ionic-ios-search.png"
+                    height="16px" width="16px"></div>
+              </span>
             </div>
           </div>
         </div>
@@ -36,72 +26,108 @@
 <mat-accordion *ngIf="cols==1">
   <mat-expansion-panel>
     <mat-expansion-panel-header style="border-bottom: solid 2px #D4D4D4;border-radius: unset">
-      <mat-panel-title><label class="label-filter-accordion"><svg xmlns="http://www.w3.org/2000/svg" width="15.5" height="14.1" viewBox="0 0 15.5 14.1"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><path class="a" d="M17,4.5H3l5.6,6.622V15.7l2.8,1.4V11.122Z" transform="translate(-2.25 -3.75)"/></svg>
-        <span class="accordion-label">&nbsp;&nbsp;Filter</span></label></mat-panel-title>
+      <mat-panel-title><label class="label-filter-accordion"><svg xmlns="http://www.w3.org/2000/svg" width="15.5"
+            height="14.1" viewBox="0 0 15.5 14.1">
+            <defs>
+              <style>
+                .a {
+                  fill: none;
+                  stroke: #186696;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 1.5px;
+                }
+
+              </style>
+            </defs>
+            <path class="a" d="M17,4.5H3l5.6,6.622V15.7l2.8,1.4V11.122Z" transform="translate(-2.25 -3.75)" />
+          </svg>
+          <span class="accordion-label">&nbsp;&nbsp;Filter</span></label></mat-panel-title>
 
     </mat-expansion-panel-header><br>
     <div class="container-fluid">
-          <div class="row cardColor myContent-left justify-content-center">
-            <div class="col-md-4 text-center">
-              <div class="row m-0 text-center"
-                   style="text-align: center; font: normal normal medium Montserrat !important;">
-                <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="12.73" height="8.49" viewBox="0 0 15.556 11.314"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-width:2px;}</style></defs><g transform="translate(-17.11 -358.016)"><line class="a" y2="6" transform="translate(18.524 363.672) rotate(-45)"/><line class="a" x1="12" transform="translate(22.767 367.915) rotate(-45)"/></g></svg>
-                  Select</label>
+      <div class="row cardColor myContent-left justify-content-center">
+        <div class="col-md-4 text-center">
+          <div class="row m-0 text-center"
+            style="text-align: center; font: normal normal medium Montserrat !important;">
+            <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="12.73" height="8.49"
+                viewBox="0 0 15.556 11.314">
+                <defs>
+                  <style>
+                    .a {
+                      fill: none;
+                      stroke: #186696;
+                      stroke-linecap: round;
+                      stroke-width: 2px;
+                    }
+
+                  </style>
+                </defs>
+                <g transform="translate(-17.11 -358.016)">
+                  <line class="a" y2="6" transform="translate(18.524 363.672) rotate(-45)" />
+                  <line class="a" x1="12" transform="translate(22.767 367.915) rotate(-45)" />
+                </g>
+              </svg>
+              Select</label>
+          </div>
+          <button mat-button style="font: normal normal medium Montserrat !important;"
+            class="btn button-open {{isStoreOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()">Open Now
+          </button>
+          <button style="margin-left: 30px; font: normal normal medium Montserrat !important;" mat-button
+            class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()">Delivery
+          </button>
+          <ng-container *ngIf="cols == 1">
+            <hr />
+          </ng-container>
+        </div>
+        <div class="col-md-4 text-center slider-top">
+          <div class="row col-12" style="text-align: center; font: normal normal medium Montserrat !important;">
+            <label class="label-setDistance"><img src="assets/images/Group%201281@2x.png" width="12.844"
+                height="16.513">
+              <span class="text-setDistance"> Set Distance</span></label>
+          </div>
+          <div class="row slider-padding">
+            <div class="col-1 slide-home-icon">
+              <div class="home-svg" style="margin-bottom: -5px">
+                <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7"
+                  viewBox="0 0 19.7 21.7">
+                  <defs>
+                    <style>
+                      .a {
+                        fill: none;
+                        stroke: #333;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 1.7px;
+                      }
+
+                    </style>
+                  </defs>
+                  <g transform="translate(-3.65 -2.15)">
+                    <path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z"
+                      transform="translate(0 0)" />
+                    <path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)" />
+                  </g>
+                </svg>
               </div>
-              <button mat-button style="font: normal normal medium Montserrat !important;"
-                      class="btn button-open {{isStoreOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()">Open Now
-              </button>
-              <button style="margin-left: 30px; font: normal normal medium Montserrat !important;"
-                      mat-button class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}"
-                      (click)="onClickDelivery()">Delivery
-              </button>
-              <hr *ngIf="cols == 1">
+              <p class="label-slider-home"
+                style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Home</p>
             </div>
-            <div class="col-md-4 text-center slider-top">
-              <div class="row col-12" style="text-align: center; font: normal normal medium Montserrat !important;">
-                <label class="label-setDistance"><img src="assets/images/Group%201281@2x.png" width="12.844"
-                                                      height="16.513">
-                  <span class="text-setDistance"> Set Distance</span></label>
-              </div>
-              <div class="row slider-padding">
-                <div class="col-1 slide-home-icon">
-                  <div class="home-svg" style="margin-bottom: -5px">
-                    <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7"
-                         viewBox="0 0 19.7 21.7">
-                      <defs>
-                        <style>.a {
-                          fill: none;
-                          stroke: #333;
-                          stroke-linecap: round;
-                          stroke-linejoin: round;
-                          stroke-width: 1.7px;
-                        }</style>
-                      </defs>
-                      <g transform="translate(-3.65 -2.15)">
-                        <path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z"
-                              transform="translate(0 0)"/>
-                        <path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)"/>
-                      </g>
-                    </svg>
-                  </div>
-                  <p class="label-slider-home"
-                     style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Home</p>
-                </div>
-                <div class="col-10 m-0 slider-Div">
-                  <mat-slider [(ngModel)]="km" tickInterval="1" disabled="{{isSearch}}"
-                              (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
-                              class="slider" thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
-                </div>
-                <div class="col-1 slider-label-pharmacy text-left"
-                     style="padding-left: 0!important;  font: normal normal medium Montserrat !important;">
-                  <img matTooltip="Pharmacy" src="/assets/images/pharmacy.png" class="imageSize">
-                  <p class="label-slider-pharmacy"
-                     style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Pharmacy</p>
-                </div>
-              </div>
+            <div class="col-10 m-0 slider-Div">
+              <mat-slider [(ngModel)]="km" tickInterval="1" disabled="{{isSearch}}"
+                (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel" class="slider" thumbLabel min="1"
+                max="7" step="1" value="3"></mat-slider>
+            </div>
+            <div class="col-1 slider-label-pharmacy text-left"
+              style="padding-left: 0!important;  font: normal normal medium Montserrat !important;">
+              <img matTooltip="Pharmacy" src="assets/images/pharmacy.png" class="imageSize">
+              <p class="label-slider-pharmacy"
+                style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Pharmacy</p>
             </div>
           </div>
         </div>
+      </div>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>
 <div class="container-fluid" *ngIf="cols==2">
@@ -113,12 +139,13 @@
         <div class="col-md-10 input-padding text-left search-box">
           <label class="search-label text-left" for="search">Search your Local Pharmacy</label>
           <div class="input-group col-md-12 ml-0 mr-0 pl-0 pr-0">
-            <div class="input-group">
-              <input autocomplete="off" class="form-control py-2 border-right-0 border search-placeholder" [(ngModel)]="searchValue"
-                (input)="searchTimer($event.target.value)" type="search" value="search"
+            <div class="input-group shadow-input">
+              <input autocomplete="off" class="form-control py-2 border-right-0 border search-placeholder"
+                [(ngModel)]="searchValue" (input)="searchTimer($any($event.target).value)" type="search" value="search"
                 placeholder="Search by Pharmacy, City, PIN Code or Area" id="search">
               <span class="input-group-append">
-                <div class="input-group-text bg-white"><img src="/assets/images/Icon-ionic-ios-search.png" height="16px" width="16px"></div>
+                <div class="input-group-text bg-white search-icon"><img src="assets/images/Icon-ionic-ios-search.png"
+                    height="16px" width="16px"></div>
               </span>
             </div>
           </div>
@@ -127,15 +154,35 @@
     </div>
     <div class="col-md-4 text-center">
       <div class="row m-0 text-center" style="text-align: center; font: normal normal medium Montserrat !important;">
-        <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="12.73" height="8.49" viewBox="0 0 15.556 11.314"><defs><style>.a{fill:none;stroke:#186696;stroke-linecap:round;stroke-width:2px;}</style></defs><g transform="translate(-17.11 -358.016)"><line class="a" y2="6" transform="translate(18.524 363.672) rotate(-45)"/><line class="a" x1="12" transform="translate(22.767 367.915) rotate(-45)"/></g></svg>
-           Filter</label>
+        <label class="label-filter"><svg xmlns="http://www.w3.org/2000/svg" width="12.73" height="8.49"
+            viewBox="0 0 15.556 11.314">
+            <defs>
+              <style>
+                .a {
+                  fill: none;
+                  stroke: #186696;
+                  stroke-linecap: round;
+                  stroke-width: 2px;
+                }
+
+              </style>
+            </defs>
+            <g transform="translate(-17.11 -358.016)">
+              <line class="a" y2="6" transform="translate(18.524 363.672) rotate(-45)" />
+              <line class="a" x1="12" transform="translate(22.767 367.915) rotate(-45)" />
+            </g>
+          </svg>
+          Filter</label>
       </div>
-      <button mat-button style="font: normal normal medium Montserrat !important;" class="btn button-open {{isStoreOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()">Open Now
+      <button mat-button style="font: normal normal medium Montserrat !important;"
+        class="btn button-open {{isStoreOpen? 'colorGreyDelivery' : ''}}" (click)="onClickOpen()">Open Now
       </button>
-      <button style="margin-left: 30px; font: normal normal medium Montserrat !important;"
-              mat-button class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()">Delivery
+      <button style="margin-left: 30px; font: normal normal medium Montserrat !important;" mat-button
+        class="btn button-open {{isDeliveryEnable? 'colorGreyDelivery' : ''}}" (click)="onClickDelivery()">Delivery
       </button>
-      <hr *ngIf="cols == 1">
+      <!-- <ng-container *ngIf="cols == 1">
+        <hr />
+      </ng-container> -->
     </div>
     <div class="col-md-4 text-center slider-top">
       <div class="row col-12" style="text-align: center; font: normal normal medium Montserrat !important;">
@@ -145,17 +192,38 @@
       <div class="row slider-padding">
         <div class="col-1 slide-home-icon">
           <div class="home-svg" style="margin-bottom: -5px">
-            <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7" viewBox="0 0 19.7 21.7"><defs><style>.a{fill:none;stroke:#333;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.7px;}</style></defs><g transform="translate(-3.65 -2.15)"><path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z" transform="translate(0 0)"/><path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)"/></g></svg>
+            <svg class="home" matTooltip="Home" xmlns="http://www.w3.org/2000/svg" width="19.7" height="21.7"
+              viewBox="0 0 19.7 21.7">
+              <defs>
+                <style>
+                  .a {
+                    fill: none;
+                    stroke: #333;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke-width: 1.7px;
+                  }
+
+                </style>
+              </defs>
+              <g transform="translate(-3.65 -2.15)">
+                <path class="a" d="M4.5,10l9-7,9,7V21a2,2,0,0,1-2,2H6.5a2,2,0,0,1-2-2Z" transform="translate(0 0)" />
+                <path class="a" d="M13.5,28.061V18h6.036V28.061" transform="translate(-3.018 -5.061)" />
+              </g>
+            </svg>
           </div>
-          <p class="label-slider-home" style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Home</p>
+          <p class="label-slider-home"
+            style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Home</p>
         </div>
         <div class="col-10 m-0 slider-Div">
-          <mat-slider [(ngModel)]="km" tickInterval="1" disabled="{{isSearch}}" (valueChange)="searchTimer(searchValue)" [displayWith]="formatLabel"
-            class="slider" thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
+          <mat-slider [(ngModel)]="km" tickInterval="1" disabled="{{isSearch}}" (valueChange)="searchTimer(searchValue)"
+            [displayWith]="formatLabel" class="slider" thumbLabel min="1" max="7" step="1" value="3"></mat-slider>
         </div>
-        <div class="col-1 slider-label-pharmacy text-left" style="padding-left: 0!important;  font: normal normal medium Montserrat !important;">
-          <img matTooltip="Pharmacy" src="/assets/images/pharmacy.png" class="imageSize">
-          <p class="label-slider-pharmacy" style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Pharmacy</p>
+        <div class="col-1 slider-label-pharmacy text-left"
+          style="padding-left: 0!important;  font: normal normal medium Montserrat !important;">
+          <img matTooltip="Pharmacy" src="assets/images/pharmacy.png" class="imageSize">
+          <p class="label-slider-pharmacy"
+            style="font: normal normal medium Montserrat !important;font-size: 10px!important;">Pharmacy</p>
         </div>
       </div>
     </div>
@@ -171,47 +239,50 @@
   <div class="row fullContainer" style="margin-top: -20px">
     <div *ngFor="let pharmacy of filteredPharmacies;let i = index" class="col-md-6">
       <div class="media">
-        <img class="pharmacy-image" [src]=getImageFromService(pharmacy[0].imageLogoId) onerror="this.onerror=null;this.src='/assets/images/default-logo.jpg'" alt="Order Ahead">
+        <img class="pharmacy-image" [src]=getImageFromService($any(pharmacy[0]).imageLogoId)
+          onerror="this.onerror=null;this.src='assets/images/default-logo.jpg'" alt="Order Ahead">
         <div class="media-body pl-2" style="width: 100px">
           <div class="row m-0 p-0">
             <div class="col-md-10 p-0 m-0 col-sm-12 col-lg-10">
-              <h5 class="pharmacy-name ml-0 p-0 m-0">{{pharmacy[0].displayName}}</h5>
+              <h5 class="pharmacy-name ml-0 p-0 m-0">{{$any(pharmacy[0]).displayName}}</h5>
               <h5 class="pharmacy-address">
-                {{pharmacy[0].addressLine1 + (pharmacy[0].addressLine2 ? ', ' +
-                ''+pharmacy[0].addressLine2:'') + ', ' + pharmacy[0].city.cityName + ', ' +
-              '' + pharmacy[0].city.state.stateName + ', ' + pharmacy[0].city.pinCode}}
+                {{$any(pharmacy[0]).addressLine1 + ($any(pharmacy[0]).addressLine2 ? ', ' +
+                ''+$any(pharmacy[0]).addressLine2:'') + ', ' + $any(pharmacy[0]).city.cityName + ', ' +
+              '' + $any(pharmacy[0]).city.state.stateName + ', ' + $any(pharmacy[0]).city.pinCode}}
               </h5>
             </div>
             <div class="col-md-2 p-0 m-0 col-sm-12 col-lg-2">
               <p *ngIf="!isSearch" class="map-distance map-marker-logo p-0 m-0">
-                <img src="/assets/images/location.png" style="margin-top: -5px" width="9c"> {{pharmacy[2] | number : '1.0-2'}}km</p>
+                <img src="assets/images/location.png" style="margin-top: -5px" width="9c">
+                {{pharmacy[2] | number : '1.0-2'}}km</p>
             </div>
           </div>
-          <h6 class="pharmacy-status mt-1">{{pharmacy[0].isOpen ? 'Closes at' : 'Opens at'}}
-            {{pharmacy[0].isOpen ? tConvert(pharmacy[0].closeHour) : tConvert(pharmacy[0].startHour)}}{{pharmacy[0].isOpen ? '' : ', ' + pharmacy[0].openDay }}</h6>
-          <h6 class="delivery-available"><img src="/assets/images/greentick.png" height="7.5px" width="11px">
-            {{pharmacy[0].homeDelivery == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
+          <h6 class="pharmacy-status mt-1">{{$any(pharmacy[0]).isOpen ? 'Closes at' : 'Opens at'}}
+            {{$any(pharmacy[0]).isOpen ? tConvert($any(pharmacy[0]).closeHour) : tConvert($any(pharmacy[0]).startHour)}}{{$any(pharmacy[0]).isOpen ? '' : ', ' + $any(pharmacy[0]).openDay }}
+          </h6>
+          <h6 class="delivery-available"><img src="assets/images/greentick.png" height="7.5px" width="11px">
+            {{$any(pharmacy[0]).homeDelivery == 'Y' ? 'Delivery Available' : 'Pick-up Only'}}
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <img src="{{pharmacy[0].isOpen ? '/assets/images/greentick.png' : 'assets/images/wrong.png' }}" height="8px"
-              width="9px">
-            <span class="{{pharmacy[0].isOpen ? null : 'redColor'}}">
-              {{pharmacy[0].isOpen ? "Open Now" : "Closed"}}</span></h6>
+            <img src="{{$any(pharmacy[0]).isOpen ? 'assets/images/greentick.png' : 'assets/images/wrong.png' }}"
+              height="8px" width="9px">
+            <span class="{{$any(pharmacy[0]).isOpen ? null : 'redColor'}}">
+              {{$any(pharmacy[0]).isOpen ? "Open Now" : "Closed"}}</span></h6>
           <h5 *ngIf="cols == 1" class="pharmacy-mobile-call mt-2"><b class="call"><strong>Call: </strong>
-          </b><a class="pharmacy-mobile-link" href="tel:{{pharmacy[1]}}"><span>
-            &nbsp;{{pharmacy[1] | slice:0:3}}-{{pharmacy[1] | slice:3:7}}-{{pharmacy[1] | slice:7:10}}</span></a>
+            </b><a class="pharmacy-mobile-link" href="tel:{{pharmacy[1]}}"><span>
+                &nbsp;{{pharmacy[1] | slice:0:3}}-{{pharmacy[1] | slice:3:7}}-{{pharmacy[1] | slice:7:10}}</span></a>
           </h5>
 
           <div *ngIf="cols == 2" class="row m-0 space-hider">
             <div class="col-md-5 col-sm-12" style="padding-left: 0px!important;">
               <h5 class="pharmacy-mobile-call mt-2"><b class="call"><strong>Call: </strong>
-              </b><a class="pharmacy-mobile-link" href="tel:{{pharmacy[1]}}"><span>
-            &nbsp;{{pharmacy[1] | slice:0:3}}-{{pharmacy[1] | slice:3:7}}-{{pharmacy[1] | slice:7:10}}</span></a>
+                </b><a class="pharmacy-mobile-link" href="tel:{{pharmacy[1]}}"><span>
+                    &nbsp;{{pharmacy[1] | slice:0:3}}-{{pharmacy[1] | slice:3:7}}-{{pharmacy[1] | slice:7:10}}</span></a>
               </h5>
             </div>
             <div class="col-md-1">
             </div>
-            <div class="col-md-6 col-sm-12" style ="padding: 0px; border: unset">
-              <a class="link-blue" href='{{API_HOST}}/{{pharmacy[0].storeNumber}}/store'>
+            <div class="col-md-6 col-sm-12" style="padding: 0px; border: unset">
+              <a class="link-blue" href='{{API_HOST}}/{{$any(pharmacy[0]).storeNumber}}/store'>
                 <button mat-button class="order-button">Order Now</button>
               </a>
             </div>
@@ -223,8 +294,8 @@
         </div>
         <div class="col-md-4 col-sm-12" style="padding-left: 0px!important;">
         </div>
-        <div class="col-md-6 col-sm-12 text-align" style ="padding: 0px;width: 85%;margin: auto; border: unset">
-          <a class="link-blue" href='{{API_HOST}}/{{pharmacy[0].storeNumber}}/store'>
+        <div class="col-md-6 col-sm-12 text-align" style="padding: 0px;width: 85%;margin: auto; border: unset">
+          <a class="link-blue" href='{{API_HOST}}/{{$any(pharmacy[0]).storeNumber}}/store'>
             <button mat-button class="order-button">Order Now</button>
           </a>
         </div>
@@ -232,12 +303,16 @@
     </div>
   </div>
 
-  <mat-paginator #paginator style-paginator [hidden]="isMobile" [length]="length" [pageIndex]="pageIndex[1]" [pageSize]="pageSize"
-    (page)="pageEvent = OnPageChange($event)">
+  <mat-paginator #paginator style-paginator [hidden]="isMobile" [length]="length" [pageIndex]="pageIndex[1]"
+    [pageSize]="pageSize" (page)="pageEvent = OnPageChange($event)">
   </mat-paginator>
-</div><br><br>
+</div>
+<br />
+<br />
+<br />
 <div *ngIf="filteredPharmacies.length == 0 && !loading">
-  <h1 class="no-results">We are coming soon in your area, keep watching this space. We will be happy to serve You :)</h1>
+  <h1 class="no-results">We are coming soon in your area, keep watching this space. We will be happy to serve You :)
+  </h1>
 </div>
 <div class="footer">
   <app-footer></app-footer>

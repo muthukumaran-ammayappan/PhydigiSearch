@@ -116,7 +116,7 @@ $mobile-small: 300px;
   }
 }
 
-.search-icon {
+.search-iconX {
   float: right;
   margin-right: 2%;
   margin-top: 1%;
@@ -522,11 +522,14 @@ input:focus {
     margin-left: 10px;
   }
 }
-
+.input-group-append .search-icon{
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
 .search-placeholder {
   border: 1px solid #D1D1D1 !important;
   border-right: none !important;
-  border-radius: 0px;
+  border-radius: 5px;
   text-align: left;
   font: normal normal normal 13px/18px Montserrat;
   @media only screen and (max-width: $mobile-large) {
@@ -747,13 +750,13 @@ hr {
   }
 }
 
-.logo-header {
+/* .logo-header {
   height: 60px !important;
   background-color: #4E4D5D;
   @media only screen and (max-width: $mobile-large) {
     height: 45px !important;
   }
-}
+} */
 
 .title-header {
   font: normal normal 500 16px/13px Montserrat;
@@ -794,4 +797,10 @@ hr {
   @media only screen and (max-width: $mobile-large) {
     height: 40px;
   }
+}
+.shadow-input:focus-within {
+  background: lightyellow;
+  border-color: rgba(223,225,229,0);
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+  border-radius: 5px;
 }

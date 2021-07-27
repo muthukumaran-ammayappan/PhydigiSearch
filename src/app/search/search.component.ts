@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
-import {SearchService} from '../services/search.service';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {DatePipe} from '@angular/common';
-import {StoreTiming} from '../model/search.model';
-import {PageEvent} from '@angular/material';
-import {environment} from '../../environments/environment';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { SearchService } from '../services/search.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { DatePipe } from '@angular/common';
+import { StoreTiming } from '../model/search.model';
+import { PageEvent } from '@angular/material/paginator';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -14,6 +14,18 @@ import {environment} from '../../environments/environment';
 })
 export class SearchComponent implements OnInit {
 
+  lengthX = 100;
+  pageSizeX = 10;
+  pageSizeOptionsX: number[] = [5, 10, 25, 100];
+
+  // MatPaginator Output
+  pageEventX: PageEvent | undefined;
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptionsX = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+  }
   gridByBreakpoint = {
     xl: 2,
     lg: 2,
@@ -22,30 +34,30 @@ export class SearchComponent implements OnInit {
     xs: 1,
   };
 
-  today;
+  today: any;
   rows: any;
   timer: any;
-  cols: number;
+  cols: any;
   datasource: null;
-  pageIndex: number;
-  pageSize: number;
-  length: number;
+  pageIndex: any;
+  pageSize: any;
+  length: any;
 
   pharmacies = [];
   filteredPharmacies = [];
-  startHour = [];
-  closeHour = [];
+  startHour: any = [];
+  closeHour: any = [];
 
-  searchValue: string;
+  searchValue: string = "";
   km = 7;
   loading = false;
   isStoreOpen = false;
   isDeliveryEnable = false;
-  img;
-  pageEvent: PageEvent;
+  img: string = "";
+  pageEvent: PageEvent | undefined;
 
   isSearch = false;
-  nextDay;
+  nextDay: any;
   API_HOST = environment.storeURL;
   API_HOST_WITH_PORT = environment.serviceURL;
 
@@ -57,12 +69,12 @@ export class SearchComponent implements OnInit {
   public lng = null;
 
   isMobile;
-  isBangLatLong;
+  isBangLatLong: any;
 
   constructor(public datepipe: DatePipe,
-              private fb: FormBuilder,
-              private searchService: SearchService,
-              private breakpointObserver: BreakpointObserver) {
+    private fb: FormBuilder,
+    private searchService: SearchService,
+    private breakpointObserver: BreakpointObserver) {
     this.breakPointObserver();
     this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   }
@@ -103,17 +115,18 @@ export class SearchComponent implements OnInit {
   }
 
   // Image converter
-  getImageFromService(data) {
+  getImageFromService(data: any) {
     if (data) {
       return this.API_HOST_WITH_PORT + '/api/image?id=' + data;
     }
+    return null;
   }
 
-  findStartTimeAndDay(currentTime, currentDay) {
+  findStartTimeAndDay(currentTime: any, currentDay: any) {
 
     if (this.startHour[currentDay] && this.closeHour[currentDay]) {
       if (currentTime < this.startHour[currentDay]) {
-        const returnTimeAndDay = {startHour: '', day: ''};
+        const returnTimeAndDay = { startHour: '', day: '' };
 
         returnTimeAndDay.startHour = this.startHour[currentDay];
         returnTimeAndDay.day = 'Today';
@@ -129,11 +142,11 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  nextDayFinder(currentDay, count = 0) {
+  nextDayFinder(currentDay: any, count = 0): any {
     const nextDay = currentDay !== 6 ? currentDay + 1 : 0;
 
     if (count > 7) {
-      const returnTimeAndDay = {startHour: '', day: ''};
+      const returnTimeAndDay = { startHour: '', day: '' };
 
       returnTimeAndDay.startHour = '10:00'; // If there is no record for open time and close time.
       returnTimeAndDay.day = 'Tomorrow'; // If there is no record for open time and close time.
@@ -142,7 +155,7 @@ export class SearchComponent implements OnInit {
     }
 
     if (this.startHour[nextDay]) {
-      const returnTimeAndDay = {startHour: '', day: ''};
+      const returnTimeAndDay = { startHour: '', day: '' };
 
       returnTimeAndDay.startHour = this.startHour[nextDay];
       returnTimeAndDay.day = this.day[nextDay];
@@ -155,7 +168,7 @@ export class SearchComponent implements OnInit {
   }
 
   dayStatus() {
-    const currentTime = this.datepipe.transform(new Date(), 'HH:mm', 'IST');
+    const currentTime: any = this.datepipe.transform(new Date(), 'HH:mm', 'IST');
     const currentDay = new Date().getDay();
     const returnData = new StoreTiming();
 
@@ -188,7 +201,7 @@ export class SearchComponent implements OnInit {
     return returnData;
   }
 
-  tConvert(time) {
+  tConvert(time: any) {
     // time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
     time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
     if (time.length > 1) {
@@ -204,15 +217,15 @@ export class SearchComponent implements OnInit {
     if (navigator.geolocation) {
       // console.log('navigator.geolocation', navigator.geolocation);
 
-      navigator.geolocation.getCurrentPosition((position: Position) => {
-          // console.log('Position', position);
-          if (position) {
-            this.lat = position.coords.latitude;
-            this.lng = position.coords.longitude;
-          }
-          this.searchPharmacy();
-        },
-        (error: PositionError) => {
+      navigator.geolocation.getCurrentPosition((position: any) => {
+        // console.log('Position', position);
+        if (position) {
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+        }
+        this.searchPharmacy();
+      },
+        (error: any) => {
           this.searchPharmacy();
         });
     } else {
@@ -221,14 +234,11 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  searchTimer(searchStr
-                :
-                string
-  ):
+  searchTimer(searchStr: string):
     void {
     clearTimeout(this.timer
     )
-    ;
+      ;
     const time = 1000;
     this.timer = setTimeout(() => {
       this.searchPharmacy(searchStr);
@@ -268,7 +278,7 @@ export class SearchComponent implements OnInit {
           this.pharmacies = this.filteredPharmacies = [];
           this.loading = false;
         } else {
-          stores.data.forEach(store => {
+          stores.data.forEach((store: any) => {
 
             this.startHour[0] = store[0].sunStartHour;
             this.startHour[1] = store[0].monStartHour;
@@ -333,22 +343,21 @@ export class SearchComponent implements OnInit {
     let filteredStores = this.pharmacies;
 
     if (this.isStoreOpen) {
-      filteredStores = filteredStores.filter(store => store[0].isOpen === true);
+      filteredStores = filteredStores.filter((store: any) => store[0].isOpen === true);
     }
 
     if (this.isDeliveryEnable) {
-      filteredStores = filteredStores.filter(store => store[0].homeDelivery === 'Y');
+      filteredStores = filteredStores.filter((store: any) => store[0].homeDelivery === 'Y');
     }
 
     this.filteredPharmacies = filteredStores;
   }
 
-  OnPageChange(event
-                 :
-                 PageEvent
+  OnPageChange(event : PageEvent
   ) {
     const startIndex = (event !== null ? event.pageIndex : this.pageIndex) * (event !== null ? event.pageSize : this.pageSize);
     let endIndex = startIndex + (event !== null ? event.pageSize : this.pageSize);
+    console.warn("this.pageIndex:", this.pageIndex);
     if (endIndex > this.length) {
       endIndex = this.length;
     }

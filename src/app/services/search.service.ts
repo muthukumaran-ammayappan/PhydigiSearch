@@ -11,11 +11,11 @@ export class SearchService {
   constructor(private httpClient: HttpClient, private fs: FactoryService) {
   }
 
-  fetchAllStores(postData) {
+  fetchAllStores(postData: any) {
     return this.httpClient.get<any>(`${this.getAccesspoint()}/api/ops/store/pharmacySearch?` + postData);
   }
 
-  fetchAllSlides(postData) {
+  fetchAllSlides(postData: any) {
     return this.httpClient.get<any>(`${this.getAccesspoint()}/api/ops/store/getSearchImage?` + postData);
   }
 

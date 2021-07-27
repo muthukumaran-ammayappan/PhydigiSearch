@@ -24,9 +24,9 @@ interface PageObject {
 })
 export class StylePaginatorDirective {
   private pageGapTxt = '...';
-  private rangeStart: number;
-  private rangeEnd: number;
-  private buttons = [];
+  private rangeStart: any;
+  private rangeEnd: any;
+  private buttons: any = [];
   private curPageObj: PageObject = {
     length: 0,
     pageIndex: 0,
@@ -89,7 +89,7 @@ export class StylePaginatorDirective {
 
     // remove buttons before creating new ones
     if (this.buttons.length > 0) {
-      this.buttons.forEach(button => {
+      this.buttons.forEach((button: any) => {
         this.ren.removeChild(actionContainer, button);
       });
       // Empty state array

@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule, DatePipe} from '@angular/common';
-import {MatCardModule, MatGridListModule, MatSliderModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSliderModule} from '@angular/material/slider';
 import {SearchComponent} from './search.component';
 import {FooterModule} from '../footer/footer.module';
 import {SearchService} from '../services/search.service';
@@ -16,8 +18,6 @@ import {SlidesModule} from "../slides/slides.module";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {AccordionModule} from "ngx-accordion";
 import {MatExpansionModule} from "@angular/material/expansion";
-
-
 
 @NgModule({
   declarations: [

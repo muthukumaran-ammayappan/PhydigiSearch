@@ -14,9 +14,9 @@ export class SlidesComponent implements OnInit {
     this.isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   }
 
-  slideResult: [];
+  slideResult: any = [];
   isMobile;
-  url;
+  url: any;
 
   customOptions: OwlOptions = {
     loop: true,
